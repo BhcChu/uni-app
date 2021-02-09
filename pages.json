@@ -5,13 +5,6 @@
 				"navigationStyle": "custom"
 			}
 		},
-		{
-			"path": "pages/my_kaoshi/my_kaoshi",
-			"style": {
-				"navigationBarTitleText": "考试详情"
-			}
-		},
-		
 		//首页课程列表
 		{
 			"path": "pages/course_class_list/course_class_list",

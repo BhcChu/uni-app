@@ -116,8 +116,6 @@
 						'token': gData.userinfo.token
 					},
 					success: res => {
-						console.log(res);
-						
 						if (parseInt(res.data.data.code) !== 0) {
 							return;
 						}
@@ -139,7 +137,18 @@
 					}
 				});
 			},
-				//打开我的考试			openMyKaoshi() {				uni.navigateTo({					url: '../my_kaoshi/my_kaoshi',				});			},			// 收藏题目			openCollectQue() {				uni.navigateTo({					url: '../collect_question/collect_question',				});			},
+				//打开我的考试
+			openMyKaoshi() {
+				uni.navigateTo({
+					url: '../my_kaoshi/my_kaoshi',
+				});
+			},
+			// 收藏题目
+			openCollectQue() {
+				uni.navigateTo({
+					url: '../collect_question/collect_question',
+				});
+			},
 			
 			mylist(ID, href) {
 				var url = href + '&uid=' + app.globalData.userinfo.id + '&token=' + app.globalData.userinfo.token;
@@ -148,12 +157,6 @@
 					uni.navigateTo({
 						url: '../hasbuy/hasbuy'
 					});
-				} else if (ID == 2) {
-					//我的课件
-					uni.navigateTo({
-						url: '../kejian/kejian',
-					});
-
 				} else if (ID == 3) {
 					//意见反馈
 					uni.navigateTo({
@@ -170,26 +173,6 @@
 					//设置
 					uni.navigateTo({
 						url: '../setting/setting',
-					});
-				} else if (ID == 7) {
-					//我的作业
-					uni.navigateTo({
-						url: '../../packageA/pages/homework/homework',
-					});
-				} else if (ID == 9) {
-					//推广中心
-					uni.navigateTo({
-						url: '../mineExtension/mineExtension',
-					});
-				} else if (ID == 10) {
-					//我的积分
-					uni.navigateTo({
-						url: '../jifen/jifen?money=' + this.integral,
-					});
-				} else if (ID == 11) {
-					//课堂表扬
-					uni.navigateTo({
-						url: '../about/about?url=' + encodeURIComponent(JSON.stringify(url)) + '&title=' + '课堂表扬',
 					});
 				}
 			},
@@ -214,11 +197,6 @@
 				});
 
 			},
-			wrong() {
-				uni.navigateTo({
-					url: '../../packageA/pages/wrongbooks/wrongbooks',
-				});
-			}
 		}
 	}
 </script>
