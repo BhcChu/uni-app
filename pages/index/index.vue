@@ -1,0 +1,615 @@
+<template>
+	<!-- 外层包装 -->
+	<view class="index-all-wrap">
+		<prompt :show="promptType === 'uni-prompt'" @onCancel="onCancel" @onConfirm="onConfirm"></prompt>
+		<uni-nav-bar fixed="true" status-bar="true" :border="false">
+			<view slot="left">
+				<view class="check_class">
+					<text>万岳知识付费</text>
+				</view>
+			</view>
+
+			<view class="search-all-wrap">
+				<view class="search-wrap" @click="search">
+					<text class="iconfont icon-faxianchaxun"></text>
+					<input disabled="true" class="uni-input" placeholder="搜索课程, 老师" placeholder-style="color:#C7C7C7; font-size:20rpx;" />
+				</view>
+			</view>
+			<view @click="shopcar" slot="right" style="position: relative; right: -30rpx;">
+				<view class="new_gouwuche">
+					<image class="gowucheimage" src="../../static/gouwuche.png" mode="aspectFit">
+					</image>
+					<template v-if="nums != 0">
+						<view class="gouwunums">
+							<view class="carnums">{{nums}}</view>
+						</view>
+					</template>
+				</view>
+			</view>
+		</uni-nav-bar>
+
+		<!-- 轮播图 -->
+		<view class="index-banner-wrap">
+			<swiper class="index-banner swiper" circular="false" :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval"
+			 :duration="duration">
+				<swiper-item @click="bannerTo(item)" v-for="(item, index) in bannerList" :key="item.id">
+					<image class="index-banner-img" :src="item.image" mode="aspectFill"></image>
+				</swiper-item>
+			</swiper>
+		</view>
+
+		<!-- 课程分类 -->
+		<view class="index-course-wrap">
+				<view @click="getCourseByClass(item.id, item.name)" class="know-item course-item scroll-view-item_H" v-for="(item, index) in course_class"
+				 :key="item.id">
+					<image :src="item.thumb" mode="aspectFit"></image>
+					<text>{{item.name}}</text>
+				</view>
+			
+		</view>
+		
+		<!-- 新闻资讯 -->
+		<view @click="openQidai" class="news-wrap">
+			<image class="news-wrap-title-img" src="../../static/images/news_he.png" mode="aspectFit"></image>
+			<text class="news-shu">|</text>
+			<text class="news-title">2020年教资培训行业投融资报告来了!</text>
+			<text class="news-arow">></text>
+		</view>
+		
+		<!-- 课程列表区 -->
+		<view class="course-list-wrap">
+			<!-- 热门精选-->
+			<view class="hot-all-wrap">
+				<view class="hot-title-wrap">
+					<!-- 标题  -->
+					<image class="hot-title-img" mode="aspectFit" src="../../static/images/hot_huo.png"></image>
+					<text class="hot-title">热门精选</text>
+				</view>
+				<view class="hot-img-wrap">
+					<block v-if="hotlist != undefined">
+						<image v-if="hotlist.length > 0" class="hot-left-img" :src="hotlist[0].thumb" mode="aspectFill" @click="viewContentInfo(hotlist[0].id,hotlist[0].paytype)"></image>
+						<image v-if="hotlist.length >= 2" class="hot-right-top-img" :src="hotlist[1].thumb" mode="aspectFill" @click="viewContentInfo(hotlist[1].id,hotlist[1].paytype)"></image>
+						<image v-if="hotlist.length >= 3" class="hot-right-bottom-img" :src="hotlist[2].thumb" mode="aspectFill" @click="viewContentInfo(hotlist[2].id,hotlist[2].paytype)"></image>
+					</block>
+					<view class="listline"></view>
+				</view>
+
+			</view>
+
+			<!-- 直播课堂 -->
+			<view class="course-list-wrap">
+
+				<view class="live-title-wrap live-ketang-title-wrap">
+					<!-- 标题 更多 -->
+					<image class="hot-title-img" mode="aspectFit" src="../../static/images/lve_ketang_icon.png"></image>
+					<text class="live-title live-ketang-title">直播课堂</text>
+					<text @click="coursemore" class="live-more live-ketang-more">更多&nbsp;&nbsp;></text>
+				</view>
+
+				<!-- 直播课堂列表 -->
+				<view class="live-ketang-wrap">
+					<scroll-view class="scroll-view_H" scroll-x="true" @scroll="scroll" scroll-left="120">
+						<view @click="viewLiveInfo(item.id,item.paytype)" class="live-ketang-item scroll-view-item_H" v-for="(item, index) in live_info"
+						 :key="item.id">
+							<image class="live-ketang-img" :src="item.thumb" mode="aspectFill"></image>
+							<view class="live-ketang-name">{{item.name}}</view>
+							
+							<view class="live-status live-ketang-status">
+								{{item.lesson}}
+							</view>
+							<view class="live-teacher-price live-ketang-t-price">
+								<image class="live-ketang-teacher-avatar" :src="item.avatar" mode="aspectFill"></image>
+								<text class="teacher-ketang-name">{{item.user_nickname}}</text>
+								<view class="live-ketang-price-wrap">
+									<text v-if="item.paytype == 0" class="free-ketang live-ketang-price">免费</text>
+									<text v-if="item.paytype == 2" class="pass live-ketang-price">密码</text>
+									<text v-if="item.paytype ==1" class="numPrice live-ketang-price">
+										{{'¥' + item.payval}}
+									</text>
+								</view>
+							</view>
+							
+						</view>
+					</scroll-view>
+				</view>
+
+			</view>
+			
+			
+		<view class="course-list-wrap content-list-wrap">
+			<!-- 精选内容 -->
+			<view class="la-wrap">
+				<view class="live-title-wrap live-content-title-wrap">
+					<!-- 标题 更多 -->
+					<image class="hot-title-img" mode="aspectFit" src="../../static/images/jingxuan_content.png"></image>
+					<text class="live-title live-content-title">精选内容</text>
+					<text @click="contentmore" class="live-more">更多&nbsp;&nbsp;></text>
+				</view>
+			</view>
+
+			<view class="course-wrap">
+				<view @click="viewContentInfo(item.id,item.paytype)" class="live-list" v-for="(item, index) in list_info" :key="index">
+					<view class="live-list-img-wrap">
+						<image class="live-list-img" :src="item.thumb" mode="aspectFill"></image>
+						<text class="course-title-icon">内容</text>
+					</view>
+					<view class="live-list-info">
+						<view class="live-c-title">{{item.name}}</view>
+						<view class="live-status-tuwen">
+							{{item.lesson}}
+						</view>
+						<view class="live-teacher-price">
+							<image class="live-teacher-avatar" :src="item.avatar" mode="aspectFill"></image>
+							<text class="teacher-name">{{item.user_nickname}}</text>
+							<view class="price-wrap">
+								<text v-if="item.paytype == 0" class="free">免费</text>
+								<text v-if="item.paytype == 2" class="pass">密码</text>
+								<text v-if="item.paytype ==1" class="numPrice">
+									{{'¥' + item.payval}}
+								</text>
+							</view>
+						</view>
+					</view>
+				</view>
+			</view>
+			<template v-if="kongkong4 == true">
+				<view :class="{xiangziwrap : (kongkong4 == true)}">
+					<image class="xiangzi" src="../../static/images/xiangzi.png" mode="aspectFill"></image>
+
+					<text :class="{xiangzi_txt : (kongkong4 == true)}">暂无数据</text>
+				</view>
+				<view class="xiangzispace"></view>
+			</template>
+		</view>
+	</view>
+
+	</view>
+
+</template>
+
+<script>
+	// 引入模板
+	import commonList from '@/components/common/common-list.vue';
+	import swiperTabHead from "@/components/common/swiper-tab-head.vue";
+	import loadMore from '@/components/common/load-more.vue';
+	import uniPopup from '@/components/uni-ui/uni-popup/uni-popup.vue';
+	import uniNavBar from '@/components/uni-ui/uni-nav-bar/uni-nav-bar.vue';
+	const app = getApp();
+
+	export default {
+		components: {
+			commonList,
+			swiperTabHead,
+			loadMore,
+			uniPopup,
+			uniNavBar,
+		},
+		data() {
+			return {
+				//顶部选项卡
+				tabIndex: 0,
+				swiperheight: 0, //高度
+				newlist: [],
+				bannerList: {},
+				// 轮播图数据 
+				background: ['color1', 'color2', 'color3'],
+				indicatorDots: true,
+				autoplay: true,
+				interval: 2000,
+				duration: 500,
+				live_demo: [],
+				currentGradeClass: "",
+				currentGradeClassId: "",
+				scrollTop: 0,
+				old: {
+					scrollTop: 0
+				},
+				course_class: {},
+				packs: {},
+				course: {},
+				live_info: {}, //直播课堂列表
+				list_info: {}, //内容列表
+				hotlist:[],//热门精选
+				nums: '',
+				promptType: '',
+				kongkong1: false,
+				kongkong2: false,
+				kongkong3: false,
+				kongkong4: false,
+			}
+		},
+		// 监听导航按钮点击事件
+		onNavigationBarButtonTap() {
+			this.navigateTo({
+				url: '../add-input/add-input'
+			})
+		},
+		onShow: function() {
+			// #ifdef APP-PLUS
+			plus.screen.unlockOrientation(); //解除屏幕方向的锁定，但是不一定是竖屏；
+			plus.screen.lockOrientation('portrait-primary'); //锁死屏幕方向为竖屏
+			// #endif
+			this.getnums();
+		},
+		onReady() {
+			this.getnums();
+		},
+		onLoad() {
+		
+				//当前年级
+			var that = this;
+			that.getData();
+	
+			this.$store.commit('changeLoginStatus', 123);
+
+			uni.getSystemInfo({
+				success: (res) => {
+					let height = res.windowHeight - uni.upx2px(100)
+					this.swiperheight = height;
+				}
+			})
+
+			if (parseInt(getApp().globalData.userinfo.id) > 0) {
+				uni.request({
+					url: getApp().globalData.site_url + "Agent.CheckAgent",
+					method: 'POST',
+					data: {
+						'uid': app.globalData.userinfo.id,
+						'token': app.globalData.userinfo.token,
+						'type': app.globalData.userinfo.isreg,
+					},
+					success: (res) => {
+					
+						if (parseInt(res.data.data.code) == 0) {
+							app.globalData.userinfo.isreg
+							uni.setStorageSync('isreg', '0');
+
+							if (parseInt(res.data.data.info[0].ispop) == 1) {
+								this.prompt('uni-prompt');
+							}
+						}
+					}
+				});
+			}
+		},
+		methods: {
+			
+			openQidai() {
+				uni.navigateTo({
+					url: '../qidai/qidai',
+				});
+			},
+			prompt(type) {
+				this.promptType = type;
+			},
+			onConfirm: function(e) {
+			
+				let _cost = e;
+				if (_cost == '') {
+					uni.showToast({
+						title: '请输入验证码',
+						icon: 'none'
+					});
+
+					return;
+				} else {
+					uni.request({
+						url: app.globalData.site_url + "Agent.SetAgent",
+						method: 'POST',
+						data: {
+							'uid': app.globalData.userinfo.uid,
+							'token': app.globalData.userinfo.token,
+							'code': this.cost,
+						},
+						success: (res) => {
+						
+							if (parseInt(res.data.data.code) == 0) {
+								this.prompt('');
+							}
+							uni.showToast({
+								title: res.data.data.msg,
+								icon: 'none'
+							});
+						}
+
+					});
+
+				}
+			},
+			onCancel: function(e) {
+				this.prompt('');
+			},
+			getnums() {
+				if (getApp().globalData.userinfo == '') {
+
+					return;
+				}
+				let gData = app.globalData;
+				uni.request({
+					url: gData.site_url + 'Cart.GetNums',
+					method: 'POST',
+					data: {
+						'uid': gData.userinfo.id,
+						'token': gData.userinfo.token,
+					},
+					success: res => {
+						if (res.data.data.code == 0) {
+							this.nums = res.data.data.info[0].nums;
+						}
+					},
+				});
+			},
+			// 根据分类查看课程列表
+			getCourseByClass(courseCid, courseCname) {
+				uni.navigateTo({
+					url: '../course_class_list/course_class_list?course_cid=' + courseCid + '&course_cname=' + courseCname,
+				});
+
+			},
+			//获取数据
+			getData() {
+
+				//获取分类
+				uni.request({
+					url: app.globalData.site_url + 'Homeknowledge.GetIndex',
+					data: {
+						'gradeid': app.globalData.grade_class.id
+					},
+					success: (res) => {
+						// live是直播, list是内容
+						let data = res.data.data;
+						this.course_class = data.info[0].courseclass;
+						if (parseInt(res.data.data.code) !== 0) {
+							this.kongkong1 = true;
+							this.kongkong2 = true;
+							this.kongkong3 = true;
+							this.kongkong4 = true;
+							return;
+						}
+						//填充banner和分类图标
+						this.bannerList = data.info[0].silide;
+						//填充直播和内容
+						this.course = data.info[0].course;
+						this.live_info = data.info[0].live;
+						this.list_info = data.info[0].list;
+						this.hotlist = data.info[0].hotlist;
+						
+						if (this.course != undefined && this.course.length == 0) {
+							this.kongkong2 = true;
+						}
+						if (this.live_info != undefined && this.live_info.length == 0) {
+							this.kongkong3 = true;
+						}
+						if (this.list_info != undefined && this.list_info.length == 0) {
+							this.kongkong4 = true;
+						}
+					},
+					fail() {
+						
+						this.kongkong1 = true;
+						this.kongkong2 = true;
+						this.kongkong3 = true;
+						this.kongkong4 = true;
+					}
+				});
+				var arr = [];
+				let obj = {
+					loadmore: "",
+					list: []
+				}
+				
+				arr.push(obj);
+				this.newlist = arr;
+			},
+			//点击切换导航
+			tabtap(index) {
+				this.tabIndex = index;
+			},
+			tabChange(e) {
+				this.tabIndex = e.detail.current;
+			},
+			//官方滚动方法
+			scroll: function(e) {
+				this.old.scrollTop = e.detail.scrollTop
+			},
+			goTop: function(e) {
+				this.scrollTop = this.old.scrollTop
+				this.$nextTick(function() {
+					this.scrollTop = 0
+				});
+				uni.showToast({
+					icon: "none",
+					title: "纵向滚动 scrollTop 值已被修改为 0"
+				})
+			},
+			bannerTo(item) {
+				//此方法只能在真机端运行
+				// plus.runtime.openURL(item.url);
+				uni.navigateTo({
+					url: '../about/banner?url=' + encodeURIComponent(JSON.stringify(item.url)) + '&title=' + item.title,
+				});
+			},
+			search() {
+				uni.navigateTo({
+					url: "../search/search"
+				})
+			},
+			shopcar() {
+				if (getApp().globalData.userinfo == '') {
+					uni.navigateTo({
+						url: '../login/login'
+					})
+					return;
+				}
+
+				uni.navigateTo({
+					url: '../shop-car/shop-car',
+				});
+			},
+			// 查看大班课(语音、PPT、视频直播)内容详情
+			viewLiveInfo(liveCourseId, liveCoursetype) {
+				uni.navigateTo({
+					url: '../../packageB/pages/live_course_info/live_course_info?courseid=' + liveCourseId + '&paytype=' +
+						liveCoursetype,
+				});
+			},
+			viewContentInfo(contentCourseId, contentCoursetype) {
+				uni.navigateTo({
+					url: '../../packageB/pages/content-info/content-info?courseid=' + contentCourseId + '&paytype=' +
+						contentCoursetype,
+				});
+			},
+			viewCourseInfo(contentCourseId, contentCoursetype) {
+				uni.navigateTo({
+					url: '../../packageB/pages/courseinfo/courseinfo?courseid=' + contentCourseId + '&paytype=' + contentCoursetype,
+
+				});
+			},
+			viewFeaturedInfo(contentCourseId) {
+
+				uni.navigateTo({
+					url: '../../packageB/pages/tancaninfo/taocaninfo?courseid=' + contentCourseId,
+				});
+			},
+			// 更多大班课
+			livemore() {
+				uni.navigateTo({
+					url: '../live-more/live-more',
+				});
+			},
+			// 更多内容
+			contentmore() {
+				uni.navigateTo({
+					url: '../content-more/content-more',
+				});
+			},
+			
+			//好课推荐
+			coursemore() {
+				uni.navigateTo({
+					url: '../live-more/live-more',
+				});
+			}
+		}
+	}
+</script>
+
+<style>
+	@import url("/static/css/index.css");
+	@import url("/static/css/course_list.css");
+	
+	.check_class {
+		color: #2C62EF !important;
+		font-size: 34rpx;
+		font-weight: bold;
+		display: inline-block;
+		width: 230rpx;
+	}
+	
+	/deep/ .uni-navbar--fixed {
+		width: 96%;
+		height: 100rpx;
+		padding-top: 30rpx;
+		/* #ifdef MP-WEIXIN*/
+		padding-top: 100rpx;
+		/* #endif */
+		position: fixed;
+		top: 0;
+		left: 6rpx;
+		z-index: 999;
+	}
+	
+	.index-banner-wrap {
+		margin-top: 140rpx;
+	}
+
+	.s-all-wrap {
+		position: relative;
+	}
+
+	.search-all-wrap {
+		position: absolute;
+		margin-top: 0rpx;
+		right: 130rpx;
+		left: 220rpx;
+		width: 400rpx;
+		height: 38rpx;
+		line-height: 38rpx;
+		display: flex;
+		align-items: center;
+	}
+
+	.search-wrap {
+		width: 100%;
+		height: 100%;
+		line-height: 38rpx;
+		border-radius: 30rpx;
+		margin-left: 20rpx;
+		padding-left: 20rpx;
+		background-color: #F5F5F5;
+		float: left;
+	}
+
+	.search-wrap text,
+	.search-wrap input {
+		float: left;
+		background-color: #F5F5F5;
+		height: 100%;
+		padding: 0;
+	}
+
+	.search-wrap text {
+		margin-right: 20rpx;
+		color: #C7C7C7;
+	}
+
+	.search-wrap input {
+		width: 70%;
+	}
+
+	.new_gouwuche {
+		position: relative;
+		width: 80rpx;
+		height: 80rpx;
+	}
+
+	.gouwunums {
+		position: absolute;
+		background-color: #DC2929;
+		width: 26rpx;
+		height: 26rpx;
+		border-radius: 13rpx;
+		margin-left: 40rpx;
+		margin-top: 10rpx;
+	}
+
+	.gowucheimage {
+		position: absolute;
+		width: 70upx;
+		height: 50upx;
+		margin-top: 15rpx;
+	}
+
+	.carnums {
+		width: 26rpx;
+		height: 26rpx;
+		font-size: 20rpx;
+		color: #FFFFFF;
+		text-align: center;
+		line-height: 26rpx;
+	}
+	
+	.index-course-wrap .know-item {
+		width: 118rpx;
+		margin-right: 27rpx;
+	}
+	
+	.index-course-wrap .know-item:nth-child(5n) {
+		margin-right: 0 !important;
+	}
+	
+	
+
+	
+	
+</style>
