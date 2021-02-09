@@ -10,11 +10,8 @@
  - 后台地址: <a target="_blank" href="https://demo.sdwanyue.com/admin">https://demo.sdwanyue.com/admin</a> 账号: demo 密码: 123456
  - 仓库地址: <a target="_blank" href="https://gitee.com/WanYueKeJi/wanyue_education_web">点击此处</a>
  
- ### H5系统演示
- ![展示图](/readme/images/h5.png "展示图.png")
  
- ### 小程序演示
-  ![展示图](/readme/images/small.png "展示图.png")
+ ![展示图](/readme/images/eq.png "展示图.png")
  
  
  ### 项目介绍
