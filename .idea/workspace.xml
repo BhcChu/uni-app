@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7b4adbdf-5fb8-4169-bd98-4bcf0e53ac15" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -66,7 +66,28 @@
     </navigator>
     <panes>
       <pane id="Scope" />
-      <pane id="ProjectPane" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Wanyue-knowledge-payment-UNI-APP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Wanyue-knowledge-payment-UNI-APP" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Wanyue-knowledge-payment-UNI-APP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Wanyue-knowledge-payment-UNI-APP" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Wanyue-knowledge-payment-UNI-APP" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Wanyue-knowledge-payment-UNI-APP" type="462c0819:PsiDirectoryNode" />
+              <item name="pages" type="462c0819:PsiDirectoryNode" />
+              <item name="address" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -134,6 +155,7 @@
       <workItem from="1608859449250" duration="11574000" />
       <workItem from="1612854717287" duration="754000" />
       <workItem from="1612855587285" duration="15000" />
+      <workItem from="1612856455957" duration="12000" />
     </task>
     <task id="LOCAL-00001" summary="# task 初次提交">
       <created>1604742487084</created>
@@ -300,7 +322,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="24178000" />
+    <option name="totallyTimeSpent" value="24190000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -314,7 +336,7 @@
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18070363" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.18230277" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -327,7 +349,7 @@
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="8" />
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.29284164" />
-      <window_info anchor="bottom" id="Terminal" order="10" visible="true" weight="0.20065077" />
+      <window_info active="true" anchor="bottom" id="Terminal" order="10" visible="true" weight="0.20065077" />
       <window_info anchor="bottom" id="Event Log" order="11" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
