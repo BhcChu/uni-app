@@ -31,16 +31,15 @@
   
   
   ### 商业合作
-  
-    * 如果你想使用功能更完善的教育系统，请联系QQ客服: 2415408120获取专业版
-    * 如果您想基于教育系统进行定制开发，我们提供有偿定制服务支持！
-    * 其他合作模式不限，欢迎来撩！
-    * 官网地址：[http://www.sdwanyue.com](http://www.sdwanyue.com)
+   * 如果你想使用功能更完善的教育系统，请联系QQ客服: 2415408120获取专业版
+   * 如果您想基于教育系统进行定制开发，我们提供有偿定制服务支持！
+   * 其他合作模式不限，欢迎来撩！
+   * 官网地址：[http://www.sdwanyue.com](http://www.sdwanyue.com)
                     
       
-    ### 联系我们（加客服经理微信或QQ，免费获取sql脚本）
+  ### 联系我们（加客服经理微信或QQ，免费获取sql脚本）
     
-    <div style='height: 130px'>
+<div style='height: 130px'>
         <img class="kefu_weixin" style="float:left;" src="/readme/images/weixinlianxi.png" width="602" height="123"/>
         <div style="float:left;">
             <p>QQ：2415408120</p>
@@ -49,7 +48,7 @@
     </div>
     <a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=JShAyXeoKqg2lWFEUSElxELImhjeMG4y&jump_from=webapi"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="万岳在线教育讨论群" title="万岳在线教育讨论群"></a> 可加
     
-    > QQ群：995910672
+> QQ群：995910672
     
     
-    ![展示图](/readme/images/公众号.png "展示图.png")
+![展示图](/readme/images/公众号.png "展示图.png")
