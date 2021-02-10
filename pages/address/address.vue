@@ -35,7 +35,7 @@
 			setTimeout(function() {
 				that.getaddress();
 			}, 500);
-			console.log('onshow');
+			
 		},
 		onLoad: function() {
 			this.getaddress();
@@ -110,7 +110,6 @@
 					},
 					success: res => {
 						this.addresslist = res.data.data.info;
-						console.log(this.addresslist);
 
 					},
 				});

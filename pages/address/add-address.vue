@@ -99,7 +99,7 @@
 		},
 		methods: {
 			change(result) {
-				console.log(JSON.stringify(result.data));
+				
 				this.planLocate = '';
 				result.data.forEach((item, index) => {
 
@@ -121,15 +121,7 @@
 				});
 			},
 			sure() {
-				//Addr.UpAddr
-				// Addr.SetAddr
-				console.log(this.name);
-				console.log(this.number);
-				console.log(this.province);
-				console.log(this.city);
-				console.log(this.area);
-				console.log(this.detailaddress);
-
+				
 				if (this.isupdate != 1) {
 					let gData = app.globalData;
 					uni.request({
@@ -162,7 +154,6 @@
 									icon: 'none'
 								});
 							}
-							console.log(res);
 
 						},
 					});
@@ -199,7 +190,6 @@
 									icon: 'none'
 								});
 							}
-							console.log(res);
 
 						},
 					});

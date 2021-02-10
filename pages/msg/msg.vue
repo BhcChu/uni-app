@@ -266,7 +266,7 @@
 		border-radius: 20px;
 		width: 350rpx;
 		height: 200rpx;
-			position: absolute;
+		position: absolute;
 		left: 50%;
 		top: 50%;
 		transform: translate(-50%,-50%);
@@ -285,8 +285,8 @@
 		line-height: 60rpx;
 		margin: 20rpx auto;
 		font-size: 24rpx;
-		color: #38DAA6;
-		border: 2rpx solid #38DAA6;
+		color: #2C62EF;
+		border: 2rpx solid #2C62EF;
 		border-radius: 10rpx;
 	}
 	

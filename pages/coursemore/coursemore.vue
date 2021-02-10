@@ -75,9 +75,6 @@
 			},
 			
 			viewCourseInfo(contentCourseId, contentCoursetype){
-				console.log(contentCourseId);
-				console.log(contentCoursetype);
-				
 				uni.navigateTo({
 					url: '../../packageB/pages/courseinfo/courseinfo?courseid=' + contentCourseId + '&paytype=' + contentCoursetype,
 				

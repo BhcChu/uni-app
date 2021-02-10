@@ -195,6 +195,7 @@
 			gotoxieyi(item) {
 				//4 
 				//5
+				return;
 				if (item == '1') {
 					uni.navigateTo({
 						url: '../login/xieyi?type=4',
@@ -275,7 +276,6 @@
 						// 发送 res.code 到后台换取 openId, sessionKey, unionId
 						uni.hideLoading();
 						that.code = res.code;
-						console.log('uni.login：');
 						// console.log(res);
 
 						uni.getUserInfo({
@@ -283,8 +283,6 @@
 								var data = JSON.parse(info.rawData);
 								this.nickName = data.nickName;
 								this.avatar = data.avatarUrl;
-								console.log('uni.getUserInfo：');
-								// console.log(data);
 
 								uni.request({
 									url: gData.site_url + "App.Login.getUnionid",
@@ -294,9 +292,6 @@
 									},
 									success: function(res2) {
 
-										console.log('Login.GetUnionid');
-										console.log(res2);
-
 										var openid = res2.data.data.openid;
 
 										getApp().globalData.openid = openid;
@@ -305,7 +300,7 @@
 											key: 'openid',
 											data: openid,
 											success: function() {
-												console.log('openid存入成功');
+												
 											}
 										});
 
@@ -333,7 +328,7 @@
 						uni.getUserInfo({
 							provider: 'weixin',
 							success: function(infoRes) {
-								console.log(infoRes);
+								// console.log(infoRes);
 								var nickName = infoRes.userInfo.nickName;
 								var avatarUrl = infoRes.userInfo.avatarUrl;
 								var unionid = infoRes.userInfo.unionId;
@@ -347,8 +342,7 @@
 				// #endif
 			},
 			thirdlogin(unionid, nickName, avatar, type, source) {
-				console.log('thirdlogin');
-				console.log(unionid, nickName, avatar)
+				
 				uni.showLoading({
 					title: '加载中',
 					mask: false
@@ -371,7 +365,7 @@
 
 					},
 					success: res => {
-						console.log(res);
+						
 						uni.hideLoading();
 						uni.showToast({
 							icon: 'none',
@@ -388,7 +382,7 @@
 							key: 'userinfo',
 							data: res.data.data.info[0],
 							success: function() {
-								console.log('succes-存入成功');
+								
 							}
 						});
 
@@ -471,7 +465,7 @@
 						// #endif
 					},
 					success: (res) => {
-						console.log(res);
+						// console.log(res);
 						uni.showToast({
 							icon: 'none',
 							title: res.data.data.msg
@@ -572,7 +566,7 @@
 					url: url,
 					data: data,
 					success: (res) => {
-						console.log(res);
+						// console.log(res);
 						uni.hideLoading();
 						uni.showToast({
 							icon: 'none',
@@ -588,7 +582,7 @@
 							key: 'userinfo',
 							data: res.data.data.info[0],
 							success: function() {
-								console.log('succes-存入成功');
+								// console.log('succes-存入成功');
 							}
 						});
 						setTimeout(function() {

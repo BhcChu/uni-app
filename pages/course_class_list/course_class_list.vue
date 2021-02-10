@@ -102,12 +102,13 @@
 						name: "全部"
 					}, {
 						name: "直播"
-					}, {
+					},
+					{
+						name: "图文"
+					},{
 						name: "视频"
 					}, {
 						name: "音频"
-					}, {
-						name: "图文"
 					}
 				],
 			}
@@ -116,9 +117,6 @@
 			var that = this;
 			uni.getSystemInfo({
 				success: function(res) {
-					console.log(res);
-					console.log(res.screenHeight); //屏幕高度  注意这里获得的高度宽度都是px 需要转换rpx
-					console.log(res.windowHeight); //可使用窗口高度
 					that.scrollH = res.windowHeight * 750 / res.windowWidth - 170;
 					
 				}
@@ -131,8 +129,7 @@
 			uni.setNavigationBarTitle({
 				title: option.course_cname
 			});
-			console.log(this.course_ID);
-			this.GetMyCourse(this.course_ID,0);
+			this.GetCourseList(this.course_ID,0);
 			
 			setTimeout(() => {
 				 
@@ -151,15 +148,7 @@
 					})
 					return;
 				}
-				//套餐
-				if (sorttype == undefined) {
-
-					uni.navigateTo({
-						url: '../../packageB/pages/taocaninfo/taocaninfo?courseid=' + liveCourseId
-					});
-				}
-				//
-				else if (sorttype == 0) {
+				if (sorttype == 0) {
 					uni.navigateTo({
 						url: '../../packageB/pages/content-info/content-info?courseid=' + liveCourseId
 					});
@@ -173,29 +162,25 @@
 					});
 			},
 			
-			GetMyCourse(cid,subindex) {
+			GetCourseList(kid,subIndex) {
 				let gData = getApp().globalData;
+				let sort = 0;
+				if(subIndex == 1) { //大班课
+					sort = 2;
+				} else if(subIndex < 1) {
+					sort = 3; //全部
+				}
 				uni.request({
-					url: gData.site_url + 'Knowledge.GetMyCourse',
+					url: gData.site_url + 'Knowledge.GetClassCourse',
 					method: 'GET',
 					data: {
-						'uid': gData.userinfo.id,
-						'token': gData.userinfo.token,
-						'keyword': '',
-						'p': 1,
-						'cid':cid,
-						'know_sort':subindex
+						'p' : 1,
+						'knowledge_id':kid,
+						'sort': sort,
+						'type':subIndex
 					},
 					success: res => {
 						
-						// if(res.data.data.code == 700){
-						// 	uni.navigateTo({
-						// 		url: '../login/login',
-						// 	});
-						// 	return;
-						// }
-						console.log(cid+'hhh');
-						console.log(res);
 						if (res.data.data.code == 0) {
 							var array = [];
 							array = res.data.data.info;
@@ -217,15 +202,13 @@
 			//切换子类型选项卡
 			changeSubTab(index) {
 				this.subtabIndex = index;
-				this.GetMyCourse(this.course_ID,this.subtabIndex);
+				this.GetCourseList(this.course_ID,this.subtabIndex);
 			},
 			//滑动
 			onChangeTab(e) {
 				//切换当前索引
 				this.subtabIndex = e.detail.current;
 				this.changeSubTab(this.subtabIndex);
-				this.currentScrollId = 'scroll_item' + e.detail.current;
-				console.log(this.currentScrollId);
 			},
 		}
 	}

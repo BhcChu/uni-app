@@ -64,9 +64,6 @@
 			var that = this;
 			uni.getSystemInfo({
 				success: function(res) {
-					console.log(res);
-					console.log(res.screenHeight); //屏幕高度  注意这里获得的高度宽度都是px 需要转换rpx
-					console.log(res.windowHeight); //可使用窗口高度
 					that.scrollH = res.windowHeight * 750 / res.windowWidth - 100;
 				}
 			});	

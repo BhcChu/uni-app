@@ -53,7 +53,7 @@
 					//1、选第一组  children 默认第二组的第一个，第三组的值为第二组的第一个children
 					//2、选第二组  children 默认第三组的值为第二组的选中的children第一个值
 					this.array[i] = [];
-					console.log('this.array[i] ',i,)
+					
 					 if(e.detail.column === 0 && i===2){
 						 if (this.array[i-1][0].children != null) {
 						 	this.array[i] = this.array[i-1][0].children;

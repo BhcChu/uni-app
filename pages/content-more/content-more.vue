@@ -18,18 +18,15 @@
 			</view>	
 		 </view>
 				
-		<swiper :current="tabIndex" class="swiper-box" :style="{height:scrollH+'rpx'}" @change="onChangeTab">
+		<swiper :current="subTabIndex" class="swiper-box" :style="{height:scrollH+'rpx'}" @change="onChangeTab">
 			<!-- 全部 -->
-			<swiper-item v-for="(index) in tabBars">
-				<scroll-view :style="'height:' + scrollH+'rpx;'" @scrolltolower="loadmoreEvent">
+			<swiper-item v-for="(index) in tabBarsCourse">
+				<scroll-view scroll-y :style="'height:' + scrollH+'rpx;'" @scrolltolower="loadmoreEvent">
 
 					<view @click="viewLiveInfo(item.id,item.sort)" class="live-list" v-for="(item, index) in list" :key="index">
 						<view class="live-list-img-wrap">
 							<image class="live-list-img" :src="item.thumb" mode="aspectFill"></image>
-							<template v-if="item.sort == undefined">
-								<text class="course-title-icon">套餐</text>
-							</template>
-							<template v-else-if="item.sort == 0">
+							<template v-if="item.sort == 0">
 								<text class="course-title-icon">内容</text>
 							</template>
 							<template v-else-if="item.sort == 1">
@@ -101,13 +98,14 @@
 				tabBarsCourse: [
 					{
 						name: "全部"
-					}, {
+					},{
+						name: "图文"
+					}
+					, {
 						name: "视频"
 					}, {
 						name: "音频"
-					}, {
-						name: "图文"
-					}
+					} 
 				],
 				scroll_left: 10, //横向滚动条位置
 				currentScrollId: '', //当前选中的标签id
@@ -122,9 +120,6 @@
 		var that = this;
 		uni.getSystemInfo({
 			success: function(res) {
-				console.log(res);
-				console.log(res.screenHeight); //屏幕高度  注意这里获得的高度宽度都是px 需要转换rpx
-				console.log(res.windowHeight); //可使用窗口高度
 				that.scrollH = res.windowHeight * 750 / res.windowWidth - 130;
 				
 			}
@@ -155,21 +150,25 @@
 					}
 				});
 			},
-			
-			getContentCourseList(index, subIndex){
+			/**
+			 * @param {Object} kid 大分类id
+			 * @param {Object} subIndex 小索引
+			 */
+			getContentCourseList(kid, subIndex){
 				let gData = app.globalData;
+				// 1全部 2视频 3音频 4图文
 				uni.request({
 					url: gData.site_url + 'Knowledge.GetList',
 					method: 'GET',
 					data: {
-						'gradeid' : gData.grade_class.id,
 						'type' : 0,
 						'p' : 1,
-						'cid':index,
-						'know_sort':subIndex
+						'knowledge_id':kid,
+						'sort': 0,
+						'type':subIndex
 					},
 					success: res => {
-						console.log(res.data.data);
+						// console.log(res);
 						if(parseInt(res.data.data.code) !== 0) {
 							return;
 						}			
@@ -184,23 +183,19 @@
 			
 			//切换选项卡
 			changeTab(index) {
-				console.log(index);
 				this.tabIndex = index;
+				this.subTabIndex = 0;
 				this.getContentCourseList(this.tabBars[this.tabIndex].id,this.subTabIndex);
 			},
 			//滑动
 			onChangeTab(e) {
-				//切换当前索引
-				this.tabIndex = e.detail.current;
+				//切换当前子索引
+				this.subTabIndex = e.detail.current;
 				this.getContentCourseList(this.tabBars[this.tabIndex].id,this.subTabIndex);
-	
-				this.currentScrollId = 'scroll_item' + e.detail.current;
-				console.log(this.currentScrollId);
 			},
 			//切换子类型选项卡
 			changeSubTab(index) {
 				this.subTabIndex = index;
-				console.log(this.subTabIndex);
 				this.getContentCourseList(this.tabBars[this.tabIndex].id,this.subTabIndex);
 			},
 			
@@ -225,14 +220,8 @@
 					})
 					return;
 				}
-				//套餐
-				if (sorttype == undefined) {
-					uni.navigateTo({
-						url: '../../packageB/pages/taocaninfo/taocaninfo?courseid=' + liveCourseId
-					});
-				}
-				//
-				else if (sorttype == 0) {
+				
+				if (sorttype == 0) {
 					uni.navigateTo({
 						url: '../../packageB/pages/content-info/content-info?courseid=' + liveCourseId
 					});
@@ -254,17 +243,21 @@
 	@import url("/static/css/course_list.css");
 	page{
 		background-color: #F5F5F5;
+		height: 100%;
+		width: 100%;
+		overflow: hidden;
 	}
 	.conetentinfo-wrap {
 		margin-top: 2rpx;
 		padding-top: 2rpx;
-		/* min-height: 1500rpx; */
+		height: 100%;
+		overflow-y: hidden;
+		overflow: hidden;
 		background-color: #FFFFFF;
 	}
 	
 	.swiper-box {
 		width: 100%;
-		bottom: 0; 
 	}
 
 	.course-tab {

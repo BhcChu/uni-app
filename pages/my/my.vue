@@ -1,10 +1,5 @@
 <template>
 	<view class="page">
-
-		<!-- #ifdef MP-WEIXIN -->
-		<view class="wechat">
-		</view>
-		<!-- #endif -->
 		<!-- 头部 -->
 		<view class="p-3 border-bottom avatar-wrap">
  			<!-- 老师名字ID区域	 -->
@@ -116,6 +111,8 @@
 						'token': gData.userinfo.token
 					},
 					success: res => {
+						console.log(res);
+						
 						if (parseInt(res.data.data.code) !== 0) {
 							return;
 						}
@@ -137,19 +134,6 @@
 					}
 				});
 			},
-				//打开我的考试
-			openMyKaoshi() {
-				uni.navigateTo({
-					url: '../my_kaoshi/my_kaoshi',
-				});
-			},
-			// 收藏题目
-			openCollectQue() {
-				uni.navigateTo({
-					url: '../collect_question/collect_question',
-				});
-			},
-			
 			mylist(ID, href) {
 				var url = href + '&uid=' + app.globalData.userinfo.id + '&token=' + app.globalData.userinfo.token;
 				if (ID == 1) {
@@ -174,7 +158,7 @@
 					uni.navigateTo({
 						url: '../setting/setting',
 					});
-				}
+				}  
 			},
 			attenteacher() {
 				uni.navigateTo({
@@ -197,6 +181,11 @@
 				});
 
 			},
+			wrong() {
+				uni.navigateTo({
+					url: '../../packageA/pages/wrongbooks/wrongbooks',
+				});
+			}
 		}
 	}
 </script>
@@ -206,6 +195,7 @@
 	.wechat {
 		width: 100%;
 		height: 120rpx;
+		/* background-image: url('https://edu-qiniu.sdwanyue.com/knowledge_myheader.png'); */
 	}
 	
 	.content {
@@ -267,7 +257,11 @@
 	.avatar-wrap {
 		height: 180rpx;
 		padding-top: 80rpx;
-		background-image: url(../../static/images/myheader.png); 
+		background-image: url('https://edu-qiniu.sdwanyue.com/knowledge_myheader.png');	
+		/* #ifdef MP-WEIXIN */
+		height: 200rpx;
+		background-size:100% 100%;
+		/* #endif */
 	}
 	
 	.title-avatar {

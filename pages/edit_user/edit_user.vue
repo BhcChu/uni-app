@@ -41,7 +41,6 @@
 				})
 				return;
 			}
-			console.log(getApp().globalData.userinfo);
 			//id 头像 昵称
 			this.avatarPath = getApp().globalData.userinfo.avatar;
 			this.user_nickname = getApp().globalData.userinfo.user_nickname;
@@ -66,7 +65,6 @@
 
 						//上传图片到服务器并返回图片地址(这里不用七牛)
 						let tempFilePaths = res.tempFilePaths;
-						console.log(res);
 
 						let that2 = that;
 						var path = tempFilePaths[0];
@@ -83,7 +81,7 @@
 								if (res2.data.data.code == 0) {
 									var QiNiutoken = that.decypt(res2.data.data.info[0].token);
 									var name = 'UNIAPP' + that.getTime() + 'icon.png';
-									console.log(name);
+									
 									qiniuUploader.upload(path, res => {
 										uni.showToast({
 											title: '上传成功',
@@ -96,8 +94,7 @@
 											title: '上传失败，请重试',
 											icon: 'none'
 										});
-										console.log('上传失败');
-										console.log(res);
+										
 									}, {
 										region: 'ECN',
 										domain: getApp().globalData.qiniuimageurl,
@@ -154,7 +151,6 @@
 			// 保存资料
 			saveEdit() {
 				let gData = app.globalData;
-				console.log(this.user_nickname);
 				//更新用户资料到
 				uni.request({
 					url: gData.site_url + 'User.UpUserInfo',
@@ -168,7 +164,6 @@
 						})
 					},
 					success: res => {
-						console.log(res);
 
 						if (res.data.data.code == 0) {
 							getApp().globalData.userinfo.user_nickname = res.data.data.info[0].user_nickname;
@@ -177,9 +172,7 @@
 								key: 'userinfo',
 								data: getApp().globalData.userinfo,
 								success: function(res) {
-									console.log(res);
-									console.log('更新本地头像和名字成功');
-									console.log(getApp().globalData.userinfo);
+									
 								}
 							});
 							setTimeout(() => {

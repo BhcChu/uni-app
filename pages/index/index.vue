@@ -1,7 +1,6 @@
 <template>
 	<!-- 外层包装 -->
 	<view class="index-all-wrap">
-		<prompt :show="promptType === 'uni-prompt'" @onCancel="onCancel" @onConfirm="onConfirm"></prompt>
 		<uni-nav-bar fixed="true" status-bar="true" :border="false">
 			<view slot="left">
 				<view class="check_class">
@@ -169,18 +168,14 @@
 
 <script>
 	// 引入模板
-	import commonList from '@/components/common/common-list.vue';
 	import swiperTabHead from "@/components/common/swiper-tab-head.vue";
-	import loadMore from '@/components/common/load-more.vue';
 	import uniPopup from '@/components/uni-ui/uni-popup/uni-popup.vue';
 	import uniNavBar from '@/components/uni-ui/uni-nav-bar/uni-nav-bar.vue';
 	const app = getApp();
 
 	export default {
 		components: {
-			commonList,
 			swiperTabHead,
-			loadMore,
 			uniPopup,
 			uniNavBar,
 		},
@@ -189,7 +184,6 @@
 				//顶部选项卡
 				tabIndex: 0,
 				swiperheight: 0, //高度
-				newlist: [],
 				bannerList: {},
 				// 轮播图数据 
 				background: ['color1', 'color2', 'color3'],
@@ -236,7 +230,6 @@
 		},
 		onLoad() {
 		
-				//当前年级
 			var that = this;
 			that.getData();
 	
@@ -392,14 +385,7 @@
 						this.kongkong4 = true;
 					}
 				});
-				var arr = [];
-				let obj = {
-					loadmore: "",
-					list: []
-				}
 				
-				arr.push(obj);
-				this.newlist = arr;
 			},
 			//点击切换导航
 			tabtap(index) {
@@ -608,7 +594,12 @@
 		margin-right: 0 !important;
 	}
 	
-	
+	.live-ketang-img {
+		display: inline-block;
+		width: 295rpx;
+		height: 214rpx;
+		background-color: green;
+	}
 
 	
 	

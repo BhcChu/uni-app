@@ -176,9 +176,6 @@
 			var that = this;
 			uni.getSystemInfo({
 				success: function(res) {
-					console.log(res);
-					console.log(res.screenHeight); //屏幕高度  注意这里获得的高度宽度都是px 需要转换rpx
-					console.log(res.windowHeight); //可使用窗口高度
 					that.scrollH = res.windowHeight * 750 / res.windowWidth - 280;
 					
 				}
@@ -250,20 +247,12 @@
 					},
 					success: res => {
 						
-						console.log(res);
-						// if(res.data.data.code == 700){
-						// 	uni.navigateTo({
-						// 		url: '../login/login',
-						// 	});
-						// 	return;
-						// }
-						
 						if (res.data.data.code == 0) {
 							var array = [];
 							array = res.data.data.info;
 							this.kongkong = false;
 							this.list = JSON.parse(JSON.stringify(array));
-							// console.log(res);
+							
 							if (this.list.length == 0) {
 								this.kongkong = true;
 							}
@@ -621,6 +610,7 @@
 		border: 2rpx solid #2C62EF;
 		border-radius: 10rpx;
 	}
+	
 	/deep/.uni-scroll-view::-webkit-scrollbar {
 		/* 隐藏滚动条，但依旧具备可以滚动的功能 */
 		display: none
