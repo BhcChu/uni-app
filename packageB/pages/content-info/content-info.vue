@@ -190,6 +190,28 @@
 			</view>
 		</view>
 		<view class="popup_overlay" :hidden="userpasswordkHidden" @click="hideDiv()"></view>
+		<view class="extension-zhe" v-if="isHidden == 0">
+			<view class="extension-zhe-content">
+				<view class="extension-zhe-content-tips">
+					分享方式
+					<image @click="close" class="extension-zhe-content-tips-img" src="../../static/ming-pop/close.png"></image>
+				</view>
+				<view class="extension-zhe-content-type">
+
+					<!-- <view class="extension-zhe-content-type-li" @click="qqshare">
+					<image class="extension-zhe-content-type-li-img" src="../../static/fuzhilianjie.png"></image>
+					<view class="extension-zhe-content-type-li-text">复制链接</view>
+				</view> -->
+					<!-- #ifdef MP-WEIXIN -->
+					<!-- <view class="extension-zhe-content-type-li" @click="wechatshare">
+					<image class="extension-zhe-content-type-li-img" src="/static/images/login_wx.png"></image>
+					<view class="extension-zhe-content-type-li-text">微信好友</view>
+				</view> -->
+					<!-- #endif -->
+
+				</view>
+			</view>
+		</view>
 		
 	</view>
 </template>

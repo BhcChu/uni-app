@@ -378,10 +378,9 @@
 			fufei() {
 				console.log('立即付费');
 				// #ifdef MP-WEIXIN
-				 this.buy();
+				this.buy('wx','3');
 				// #endif
 				
-
 				// #ifdef H5
 				let gData = getApp().globalData;
 				uni.request({
@@ -400,7 +399,6 @@
 					}
 				});
 				// #endif
-				
 				
 			},
 			buy(type, payid) {

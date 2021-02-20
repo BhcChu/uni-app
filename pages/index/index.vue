@@ -1,7 +1,8 @@
 <template>
 	<!-- 外层包装 -->
-	<view class="index-all-wrap">
-		<uni-nav-bar fixed="true" status-bar="true" :border="false">
+	<view>
+		
+		<uni-nav-bar status-bar="true" :border="false">
 			<view slot="left">
 				<view class="check_class">
 					<text>万岳知识付费</text>
@@ -26,7 +27,9 @@
 				</view>
 			</view>
 		</uni-nav-bar>
-
+		
+		
+	<scroll-view class="index-all-wrap" scroll-y="true" :style="'height:' + scrollH+'rpx;'" >	
 		<!-- 轮播图 -->
 		<view class="index-banner-wrap">
 			<swiper class="index-banner swiper" circular="false" :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval"
@@ -161,8 +164,9 @@
 			</template>
 		</view>
 	</view>
-
-	</view>
+	
+	</scroll-view>	
+  </view>
 
 </template>
 
@@ -183,6 +187,7 @@
 			return {
 				//顶部选项卡
 				tabIndex: 0,
+				scrollH: 0,
 				swiperheight: 0, //高度
 				bannerList: {},
 				// 轮播图数据 
@@ -227,6 +232,15 @@
 		},
 		onReady() {
 			this.getnums();
+			let that = this;
+			uni.getSystemInfo({
+				success: function(res) {
+					that.scrollH = res.windowHeight * 750 / res.windowWidth;
+					// #ifdef MP-WEIXIN
+					that.scrollH = res.windowHeight * 750 / res.windowWidth - parseInt(res.safeArea.top) - 30;
+					// #endif
+				}
+			});
 		},
 		onLoad() {
 		
@@ -379,7 +393,6 @@
 						}
 					},
 					fail() {
-						
 						this.kongkong1 = true;
 						this.kongkong2 = true;
 						this.kongkong3 = true;
@@ -453,7 +466,6 @@
 				});
 			},
 			viewFeaturedInfo(contentCourseId) {
-
 				uni.navigateTo({
 					url: '../../packageB/pages/tancaninfo/taocaninfo?courseid=' + contentCourseId,
 				});
@@ -507,7 +519,12 @@
 	}
 	
 	.index-banner-wrap {
-		margin-top: 140rpx;
+		overflow: hidden;
+		transform: translateY(0);
+		margin-top: 55rpx;
+		/* #ifdef H5 */
+		margin-top: 75rpx;
+		/* #endif */
 	}
 
 	.s-all-wrap {
@@ -602,5 +619,21 @@
 		background-color: green;
 	}
 	
+	/deep/.uni-scroll-view ::-webkit-scrollbar {
+		 /* 隐藏滚动条，但依旧具备可以滚动的功能 */
+		 display: none;
+		 width: 0;
+		 height: 0;
+		 color: transparent;
+		 background: transparent;
+	}
 	
+	/deep/::-webkit-scrollbar {
+	 display: none;
+	 width: 0;
+	 height: 0;
+	 color: transparent;
+	 background: transparent;
+	}
+			
 </style>

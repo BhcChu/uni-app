@@ -19,7 +19,7 @@
 		<view class="px-2 login-input-wrap">
 			<template v-if="!status">
 				<view class="mb-2">
-					<input type="text" placeholder-style="color:#C9C9C9" v-model="username" placeholder="请输入您的手机号" class="border-bottom p-2" />
+					<input @input="username_input" type="text" placeholder-style="color:#C9C9C9" v-model="username" placeholder="请输入您的手机号" class="border-bottom p-2" />
 				</view>
 				<view class="verify-code-wrap mb-2 flex align-stretch">
 					<template v-if="isForgetShow == true">
@@ -28,7 +28,8 @@
 					<template v-else>
 						<input type="text" placeholder-style="color:#C9C9C9" v-model="password" :placeholder="placeholder" class="border-bottom p-2 flex-1" />
 					</template>
-					<view class="border-bottom flex align-center justify-center font text-light-muted" @click="getSmsCode" style="width: 150rpx; color: #45DCAC;">
+					<view class="border-bottom flex align-center justify-center font text-light-muted" @click="getSmsCode" style="width: 150rpx;" 
+					:style="canshowcode == true?  'color: #45DCAC;': 'color: #C9C9C9;'">
 						{{get_captcha_txt}}
 					</view>
 				</view>
@@ -123,7 +124,8 @@
 				keyword: '',
 				unionid: '',
 				nickName: '',
-				avatar: ''
+				avatar: '',
+				canshowcode: false
 			}
 		},
 
@@ -132,8 +134,6 @@
 			this.iswechat = 0;
 			this.login_by_wx = true;
 			// #endif
-
-
 			// #ifndef MP-WEIXIN
 			// 获取登录方式开关
 			uni.request({
@@ -152,9 +152,7 @@
 
 				}
 			});
-
 			// #endif
-
 		},
 		onLoad(option) {
 			if (option.page != '') {
@@ -185,6 +183,13 @@
 
 		},
 		methods: {
+			username_input(event) {
+				if (event.detail.value.length == 11) {
+					this.canshowcode = true;
+				} else {
+					this.canshowcode = false;
+				}
+			},
 			agreeme() {
 				if (this.agree == true) {
 					this.agree = false;
