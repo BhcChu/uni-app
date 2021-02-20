@@ -8,7 +8,7 @@
 			</scroll-view>
 		</view>
 	<!-- 直播课列表 -->
-	<swiper :current="tabIndex" class="swiper-box" :style="{height:scrollH+'rpx'}" @change="onChangeTab">
+	<swiper :current="tabIndex" class="swiper-box" :style="{height:scrollH+'rpx'}" >
 		<!-- 全部 -->
 		<swiper-item v-for="(index) in tabBars">
 			<scroll-view :style="'height:' + scrollH+'rpx;'" @scrolltolower="loadmoreEvent">
@@ -73,37 +73,50 @@
 		},
 		methods: {
 			getData() {
-				//获取分类
-				uni.request({
-					url: getApp().globalData.site_url + 'Homeknowledge.GetIndex',
-					data: {
-						'gradeid': getApp().globalData.grade_class.id
-					},
-					success: (res) => {
-						let data = res.data.data;
-						if (parseInt(res.data.data.code) !== 0) {
-							return;
+				let that = this;
+				//获取分类标签
+				if(app.globalData.course_class == '') {
+					uni.request({
+						url: getApp().globalData.site_url + 'Homeknowledge.GetIndex',
+						data: {
+							'gradeid': getApp().globalData.grade_class.id
+						},
+						success: (res) => {
+							let data = res.data.data;
+							if (parseInt(res.data.data.code) !== 0) {
+								return;
+							}
+							that.tabBars = data.info[0].courseclass;
+							that.getLiveCourseList(that.tabBars[0].id, 0);
+						},
+						fail() {
+							uni.showToast({
+								icon: 'none',
+								title: '网络错误, 请重试'
+							});
 						}
-						this.tabBars = data.info[0].courseclass;
-						this.getLiveCourseList(this.tabBars[0].id);
-					},
-					fail() {
-					}
-				});
+					});
+					
+				} else {
+					that.tabBars = app.globalData.course_class;
+					that.getLiveCourseList(that.tabBars[0].id, 0);
+				}
+				
 			},
-			getLiveCourseList(index,subindex){
+			getLiveCourseList(kid,subindex){
 				let gData = app.globalData;
 				uni.request({
 					url: gData.site_url + 'Knowledge.GetList',
 					method: 'GET',
 					data: {
-						'gradeid' : gData.grade_class.id,
-						'type' : 2,
+						'type' : 0,
 						'p' : 1,
-						'cid':index,
-						'know_sort':subindex
+						'knowledge_id':kid,
+						'course_type': 2, //2代表所有大班课
+						'type':subindex
 					},
 					success: res => {
+						
 						if(parseInt(res.data.data.code) !== 0) {
 							this.kongkong = true;
 							return;
@@ -131,15 +144,7 @@
 				this.tabIndex = index;
 				this.getLiveCourseList(this.tabBars[this.tabIndex].id);
 			},
-			//滑动
-			onChangeTab(e) {
-				//切换当前索引
-				this.tabIndex = e.detail.current;
-				this.getLiveCourseList(this.tabBars[this.tabIndex].id);
-				
-				this.currentScrollId = 'scroll_item' + e.detail.current;
-				
-			},
+			
 		}
 	}
 </script>

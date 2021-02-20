@@ -12,9 +12,9 @@
 		</view>
 		<swiper :current="subtabIndex" class="swiper-box":style="{height:scrollH+'rpx'}"  @change="onChangeTab">
 			<!-- 全部 -->
-			<swiper-item :style="'height:' + scrollH+'rpx;'" v-for="(index) in tabBarsCourse">
-				<scroll-view  @scrolltolower="loadmoreEvent">
-					<view class="liveinfo-wrap">
+			<swiper-item v-for="(index) in tabBarsCourse">
+				<scroll-view scroll-y :style="'height:' + scrollH+'rpx;'"  @scrolltolower="loadmoreEvent">
+					
 						<!-- 直播课列表 -->
 						<view @click="viewLiveInfo(item.id,item.sort)" class="live-list" v-for="(item, index) in course_info" :key="index">
 							<view class="live-list-img-wrap">
@@ -66,7 +66,6 @@
 							</view>
 						</view>
 					
-					</view>
 				</scroll-view>
 			</swiper-item>
 		</swiper>
@@ -91,7 +90,7 @@
 		data() {
 			return {
 				scrollH:0,
-				course_info: {},
+				course_info: [],
 				course_cname: '',
 				kongkong: true,
 				subtabIndex:0,
@@ -111,6 +110,7 @@
 						name: "音频"
 					}
 				],
+				index_course: 0, 
 			}
 		},
 		onReady() {
@@ -118,7 +118,6 @@
 			uni.getSystemInfo({
 				success: function(res) {
 					that.scrollH = res.windowHeight * 750 / res.windowWidth - 170;
-					
 				}
 			});	
 		},
@@ -131,9 +130,6 @@
 			});
 			this.GetCourseList(this.course_ID,0);
 			
-			setTimeout(() => {
-				 
-			}, 0);
 		},
 		methods: {
 			back() {
@@ -170,6 +166,7 @@
 				} else if(subIndex < 1) {
 					sort = 3; //全部
 				}
+				let that = this;
 				uni.request({
 					url: gData.site_url + 'Knowledge.GetClassCourse',
 					method: 'GET',
@@ -180,18 +177,16 @@
 						'type':subIndex
 					},
 					success: res => {
-						
+						console.log(res);
 						if (res.data.data.code == 0) {
-							var array = [];
-							array = res.data.data.info;
-							this.kongkong = false;
-							this.course_info = JSON.parse(JSON.stringify(array));
+							that.kongkong = false;
+							that.course_info = res.data.data.info;
 							
-							if (this.course_info.length == 0) {
-								this.kongkong = true;
+							if (that.course_info.length == 0) {
+								that.kongkong = true;
 							}
 						} else {
-							this.kongkong = true;
+							that.kongkong = true;
 						}
 			
 					},
@@ -201,14 +196,17 @@
 			
 			//切换子类型选项卡
 			changeSubTab(index) {
+				console.log(3333);
 				this.subtabIndex = index;
+				this.course_info.length = 0;
 				this.GetCourseList(this.course_ID,this.subtabIndex);
 			},
 			//滑动
 			onChangeTab(e) {
+				console.log(4444);
 				//切换当前索引
 				this.subtabIndex = e.detail.current;
-				this.changeSubTab(this.subtabIndex);
+				this.GetCourseList(this.course_ID,this.subtabIndex);
 			},
 		}
 	}
@@ -267,7 +265,7 @@
 		margin-top: 2rpx;
 		padding-top: 2rpx;
 		min-height: 1500rpx;
-		background-color: #FFF;
+		background-color: orange;
 	}
 
 	.live-list {

@@ -351,7 +351,6 @@
 					success: (res) => {
 						// live是直播, list是内容
 						let data = res.data.data;
-						this.course_class = data.info[0].courseclass;
 						if (parseInt(res.data.data.code) !== 0) {
 							this.kongkong1 = true;
 							this.kongkong2 = true;
@@ -359,6 +358,8 @@
 							this.kongkong4 = true;
 							return;
 						}
+						this.course_class = data.info[0].courseclass;
+						app.globalData.course_class = data.info[0].courseclass;
 						//填充banner和分类图标
 						this.bannerList = data.info[0].silide;
 						//填充直播和内容

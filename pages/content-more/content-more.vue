@@ -121,14 +121,12 @@
 		uni.getSystemInfo({
 			success: function(res) {
 				that.scrollH = res.windowHeight * 750 / res.windowWidth - 130;
-				
 			}
 		});	
 		
 		},
 		onLoad() {
-			this.getData();
-			
+			this.getData();	
 		},
 		methods: {
 			getData() {
@@ -164,7 +162,7 @@
 						'type' : 0,
 						'p' : 1,
 						'knowledge_id':kid,
-						'sort': 0,
+						'course_type': 1, //1代表内容
 						'type':subIndex
 					},
 					success: res => {
