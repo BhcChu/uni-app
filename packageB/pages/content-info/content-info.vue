@@ -277,9 +277,6 @@
 			var that = this;
 			uni.getSystemInfo({
 				success: function(res) {
-					console.log(res);
-					console.log(res.screenHeight); //屏幕高度  注意这里获得的高度宽度都是px 需要转换rpx
-					console.log(res.windowHeight); //可使用窗口高度
 					that.scrollH = res.windowHeight * 750 / res.windowWidth - 600 - 70;
 					// #ifdef MP-WEIXIN
 					that.scrollH = res.windowHeight * 750 / res.windowWidth - 750 - 70;
@@ -322,7 +319,6 @@
 			this.getContentInfo(option.courseid);
 			this.getcourseid = option.courseid;
 			//this.paytype = option.paytype;
-			console.log("courseid = " + option.courseid);
 			this.courseid = option.courseid;
 			//获取评价内容
 			this.getPingjia(option.courseid);
@@ -354,6 +350,7 @@
 				return true;
 			},
 			getnums() {
+				let that = this;
 				let gData = app.globalData;
 				uni.request({
 					url: gData.site_url + 'Cart.GetNums',
@@ -363,8 +360,9 @@
 						'token': gData.userinfo.token,
 					},
 					success: res => {
-						this.nums = res.data.data.info[0].nums;
-						// console.log(res);
+						if(res.data.data.info[0] != undefined) {
+							that.nums = res.data.data.info[0].nums;
+						}
 					},
 				});
 			},
@@ -576,7 +574,7 @@
 						'token': gData.userinfo.token,
 					},
 					success: res => {
-						console.log(res);
+						
 						this.getContentInfo(this.getcourseid);
 						this.getnums();
 						uni.showToast({
@@ -592,7 +590,6 @@
 					return;
 				}
 				
-				console.log('前往购物车');
 				uni.navigateTo({
 					url: '../../../pages/shop-car/shop-car',
 				});
@@ -603,7 +600,7 @@
 				if(!isLogin) {
 					return;
 				}
-				console.log(this.liveInfo);
+				
 				uni.navigateTo({
 					url: '../../../pages/pay/pay?info=' + encodeURIComponent(JSON.stringify(this.INFO)),
 				});
