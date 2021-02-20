@@ -601,7 +601,6 @@
 		height: 214rpx;
 		background-color: green;
 	}
-
 	
 	
 </style>

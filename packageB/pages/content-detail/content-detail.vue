@@ -26,7 +26,9 @@
 			<view class="content-des">{{des}}</view>
 			<view class="content-time">{{adddtime}}</view>
 			<view class="line"></view>
-			<rich-text class="content" :nodes="content"></rich-text>
+			<view class="content-wrap">
+				<rich-text class="content" :nodes="content"></rich-text>
+			</view>
 
 		</view>
 	</view>
@@ -267,4 +269,9 @@
 		margin-top: 10rpx;
 		margin-bottom: 40rpx;
 	}
+	
+	.content-wrap {
+		margin-left: 20rpx !important;
+	}
+	
 </style>
