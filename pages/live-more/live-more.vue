@@ -42,6 +42,13 @@
 		</swiper-item>
 	</swiper>
 	
+	<template v-if="kongkong == true">
+		<view :class="{xiangziwrap : (kongkong == true)}">
+			<image class="xiangzi" src="../../static/images/xiangzi.png" mode="aspectFill"></image>
+			<text class="xiangzi_txt">暂无相关课程</text>
+		</view>
+	</template>
+	
 	</view>
 </template>
 
@@ -118,7 +125,10 @@
 					success: res => {
 						
 						if(parseInt(res.data.data.code) !== 0) {
-							this.kongkong = true;
+							uni.showToast({
+								icon: 'none',
+								title: '网络错误, 请重试'
+							});
 							return;
 						}
 						if(res.data.data.info.length < 1) {
@@ -232,6 +242,28 @@
 	
 	.price-wrap {
 		margin-left: 55% !important;
+	}
+	
+	.xiangziwrap {
+		position: absolute;
+		left: calc(50% - 50px);
+		top: calc(50% - 170px);
+		width: 200rpx;
+		height: 100rpx;
+	}
+	
+	.xiangzi {
+		margin-left: 50rpx;
+		width: 100rpx;
+		height: 100rpx;
+	}
+	
+	.xiangzi_txt {
+		width: 100%;
+		display: block;
+		text-align: center;
+		font-size: 18rpx;
+		color: #C7C7C7;
 	}
 	
 	

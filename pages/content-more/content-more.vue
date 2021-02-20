@@ -72,6 +72,13 @@
 				</scroll-view>
 			</swiper-item>
 		</swiper>
+		
+		<template v-if="kongkong == true">
+			<view :class="{xiangziwrap : (kongkong == true)}">
+				<image class="xiangzi" src="../../static/images/xiangzi.png" mode="aspectFill"></image>
+				<text class="xiangzi_txt">暂无相关课程</text>
+			</view>
+		</template>
 
 	</view>
 </template>
@@ -154,6 +161,7 @@
 			 */
 			getContentCourseList(kid, subIndex){
 				let gData = app.globalData;
+				let that = this;
 				// 1全部 2视频 3音频 4图文
 				uni.request({
 					url: gData.site_url + 'Knowledge.GetList',
@@ -168,13 +176,21 @@
 					success: res => {
 						// console.log(res);
 						if(parseInt(res.data.data.code) !== 0) {
+							uni.showToast({
+								icon: 'none',
+								title: '网络错误'
+							});
 							return;
 						}			
 						if(res.data.data.info.length < 1) {
-						// 空空如也
+							// 空空如也
+							that.kongkong = true;
+							that.list = [];
+						} else {
+							that.kongkong = false;
+							that.list = res.data.data.info;		
 						}
-						
-						this.list = res.data.data.info;			
+								
 					},
 				});
 			},
@@ -239,6 +255,7 @@
 
 <style>
 	@import url("/static/css/course_list.css");
+	
 	page{
 		background-color: #F5F5F5;
 		height: 100%;
@@ -263,11 +280,7 @@
 		height: 40rpx;
 		margin-bottom: 5rpx;
 	}
-
-	/* .s-all-wrap {
-		position: relative;
-	}
- */
+	
 	.search-all-wrap {
 		position: absolute;
 		margin-top: 0rpx;
@@ -464,25 +477,45 @@
 		
 	/* 课程分类标签样式 */
 	.courseclass-text-main {
-			color: #2C62EF;
-			font-weight: bold;
-			position: relative;
+		color: #2C62EF;
+		font-weight: bold;
+		position: relative;
 	}
 		
 	.courseclass-text-main::after {
-			content: "";
-			width: 35rpx;
-			height: 4rpx;
-			background: linear-gradient(to top right, #3D98FF, #7A76FA);
-			position: absolute;
-			top: 50rpx;
-			left: 55rpx;
-			line-height: 0;
-			display: inline-block;
+		content: "";
+		width: 35rpx;
+		height: 4rpx;
+		background: linear-gradient(to top right, #3D98FF, #7A76FA);
+		position: absolute;
+		top: 50rpx;
+		left: 55rpx;
+		line-height: 0;
+		display: inline-block;
 	}
 		
 		
-		
+	.xiangziwrap {
+		position: absolute;
+		left: calc(50% - 50px);
+		top: calc(50% - 170px);
+		width: 200rpx;
+		height: 100rpx;
+	}
+	
+	.xiangzi {
+		margin-left: 50rpx;
+		width: 100rpx;
+		height: 100rpx;
+	}
+	
+	.xiangzi_txt {
+		width: 100%;
+		display: block;
+		text-align: center;
+		font-size: 18rpx;
+		color: #C7C7C7;
+	}	
 	
 	
 </style>
