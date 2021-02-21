@@ -216,7 +216,7 @@
 		position: fixed;
 		left: calc(4.8%);
 		bottom: 50rpx;
-		background: linear-gradient(to right, #7BD68E, #65CCB9);	
+		background: linear-gradient(to right, #3D98FF, #7A76FA);	
 	}
 	
 	.opatity {

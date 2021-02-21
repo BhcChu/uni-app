@@ -29,7 +29,7 @@
 						<input type="text" placeholder-style="color:#C9C9C9" v-model="password" :placeholder="placeholder" class="border-bottom p-2 flex-1" />
 					</template>
 					<view class="border-bottom flex align-center justify-center font text-light-muted" @click="getSmsCode" style="width: 150rpx;" 
-					:style="canshowcode == true?  'color: #45DCAC;': 'color: #C9C9C9;'">
+					:style="canshowcode == true?  'color: #2C62EF;': 'color: #C9C9C9;'">
 						{{get_captcha_txt}}
 					</view>
 				</view>
@@ -198,9 +198,7 @@
 				}
 			},
 			gotoxieyi(item) {
-				//4 
-				//5
-				return;
+				// 注意这里的type值要和后台的对应页面id对应起来(后台内容管理->页面管理下)
 				if (item == '1') {
 					uni.navigateTo({
 						url: '../login/xieyi?type=4',
@@ -704,7 +702,7 @@
 
 	/* 登录按钮 输入内容时,去掉灰色效果 */
 	.login-btn {
-		background: linear-gradient(to right, #7BD68E, #65CCB9);
+		background: linear-gradient(to right, #3D98FF, #7A76FA);
 	}
 
 	.opatity {
@@ -748,7 +746,7 @@
 	}
 
 	.xieyi {
-		color: #45DCAC;
+		color: #2C62EF;
 		font-size: small !important;
 	}
 

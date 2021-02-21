@@ -18,7 +18,7 @@
 				"navigationBarTitleText": ""
 			}
 		},
-		//我的课程
+		//课程
 		{
 			"path": "pages/course/course",
 			"style": {
@@ -307,7 +307,7 @@
 			},
 			{
 				"pagePath": "pages/course/course",
-				"text": "我的课程",
+				"text": "课程",
 				"iconPath": "static/tabbar-wechat/my_course_-wechat.png",
 				"selectedIconPath": "static/tabbar-wechat/my_course_selected-wechat.png"
 			},

@@ -42,8 +42,8 @@
 				return;
 			}
 			//id 头像 昵称
-			this.avatarPath = getApp().globalData.userinfo.avatar;
-			this.user_nickname = getApp().globalData.userinfo.user_nickname;
+			this.avatarPath = app.globalData.userinfo.avatar;
+			this.user_nickname = app.globalData.userinfo.user_nickname;
 		},
 		methods: {
 			back() {
@@ -63,22 +63,22 @@
 					success: function(res) {
 
 
-						//上传图片到服务器并返回图片地址(这里不用七牛)
+						//上传图片到服务器并返回图片地址(这里用七牛)
 						let tempFilePaths = res.tempFilePaths;
 
 						let that2 = that;
 						var path = tempFilePaths[0];
 						uni.request({
 
-							url: getApp().globalData.site_url + 'Upload.GetQiniuToken',
+							url: app.globalData.site_url + 'Upload.GetQiniuToken',
 							method: 'POST',
 							data: {
-								'uid': getApp().globalData.userinfo.id,
-								'token': getApp().globalData.userinfo.token
+								'uid': app.globalData.userinfo.id,
+								'token': app.globalData.userinfo.token
 							},
 							success: res2 => {
 								uni.hideLoading();
-								if (res2.data.data.code == 0) {
+								if (res2.data.data != undefined && res2.data.data.code == 0) {
 									var QiNiutoken = that.decypt(res2.data.data.info[0].token);
 									var name = 'UNIAPP' + that.getTime() + 'icon.png';
 									
@@ -97,9 +97,14 @@
 										
 									}, {
 										region: 'ECN',
-										domain: getApp().globalData.qiniuimageurl,
+										domain: app.globalData.qiniuimageurl,
 										key: name,
 										uptoken: QiNiutoken,
+									});
+								} else {
+									uni.showToast({
+										'icon' : 'none',
+										title: '七牛云未配置,请先配置'
 									});
 								}
 							},

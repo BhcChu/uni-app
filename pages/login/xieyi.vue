@@ -15,7 +15,7 @@
 			}
 		},
 		onLoad(option) {
-			console.log(option);
+			// console.log(option);
 			this.url = getApp().globalData.site_h5url + 'appapi/page/detail?id=' + option.type;
 			console.log(this.url);
 		}

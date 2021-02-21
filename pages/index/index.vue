@@ -55,7 +55,7 @@
 			<image class="news-wrap-title-img" src="../../static/images/news_he.png" mode="aspectFit"></image>
 			<text class="news-shu">|</text>
 			<text class="news-title">2020年教资培训行业投融资报告来了!</text>
-			<text class="news-arow">></text>
+			<text class="news-arow iconfont icon-jinrujiantou"></text>
 		</view>
 		
 		<!-- 课程列表区 -->
@@ -64,8 +64,10 @@
 			<view class="hot-all-wrap">
 				<view class="hot-title-wrap">
 					<!-- 标题  -->
-					<image class="hot-title-img" mode="aspectFit" src="../../static/images/hot_huo.png"></image>
-					<text class="hot-title">热门精选</text>
+					<view class="icon-title-wrap">
+						<image class="hot-title-img" mode="aspectFit" src="../../static/images/hot_huo.png"></image>
+						<text class="hot-title">热门精选</text>
+					</view>
 				</view>
 				<view class="hot-img-wrap">
 					<block v-if="hotlist != undefined">
@@ -80,12 +82,13 @@
 
 			<!-- 直播课堂 -->
 			<view class="course-list-wrap">
-
 				<view class="live-title-wrap live-ketang-title-wrap">
 					<!-- 标题 更多 -->
-					<image class="hot-title-img" mode="aspectFit" src="../../static/images/lve_ketang_icon.png"></image>
-					<text class="live-title live-ketang-title">直播课堂</text>
-					<text @click="coursemore" class="live-more live-ketang-more">更多&nbsp;&nbsp;></text>
+					<view class="icon-title-wrap">
+						<image class="hot-title-img" mode="aspectFit" src="../../static/images/lve_ketang_icon.png"></image>
+						<text class="live-title live-ketang-title">直播课堂</text>
+					</view>
+					<text @click="coursemore" class="live-more live-ketang-more">更多&nbsp;&nbsp;<text class="iconfont icon-jinrujiantou c-more-btn-icon"></text></text>
 				</view>
 
 				<!-- 直播课堂列表 -->
@@ -123,9 +126,11 @@
 			<view class="la-wrap">
 				<view class="live-title-wrap live-content-title-wrap">
 					<!-- 标题 更多 -->
-					<image class="hot-title-img" mode="aspectFit" src="../../static/images/jingxuan_content.png"></image>
-					<text class="live-title live-content-title">精选内容</text>
-					<text @click="contentmore" class="live-more">更多&nbsp;&nbsp;></text>
+					<view class="icon-title-wrap">
+						<image class="hot-title-img" mode="aspectFit" src="../../static/images/jingxuan_content.png"></image>
+						<text class="live-title live-content-title">精选内容</text>
+					</view>
+					<text @click="contentmore" class="live-more content-more-btn">更多&nbsp;&nbsp;<text class="iconfont icon-jinrujiantou c-more-btn-icon"></text></text>
 				</view>
 			</view>
 

@@ -147,7 +147,8 @@
 						url: '../yijian-fankui/yijian-fankui',
 					});
 				} else if (ID == 4) {
-					var urls =  getApp().globalData.site_h5url +'/appapi/page/detail?id=1&lang=zh-cn';
+					var urls =  getApp().globalData.site_h5url +'appapi/page/detail?id=1&lang=zh-cn';
+					console.log(urls);
 					//关于我们
 					uni.navigateTo({
 						
@@ -224,7 +225,9 @@
 
 	.forteacher {
 		display: flex;
+		width: 75%;
 		flex-direction: row;
+		align-items: center;
 	}
 
 	.teacherhome {
@@ -247,7 +250,8 @@
 	}
 
 	.title-wrap {
-		display: block;
+		display: flex;
+		align-items: center;
 		width: 100%;
 		height: 61%;
 		margin: 0 auto;
@@ -276,7 +280,6 @@
 		position: relative;
 		color: #FFFFFF;
 		margin-left: 20rpx;
-		margin-top: 10rpx;
 		font-size: medium;
 	}
 
@@ -302,7 +305,6 @@
 	
 	/* 登录注册按钮 */
 	.name-id-wrap-loginreg {
-		padding-top: 30rpx;
 		padding-left: 10rpx;
 	}
 
@@ -317,7 +319,7 @@
 		width: 100%;
 		height: 50rpx;
 		float: left;
-		margin-top: 20%;
+		margin-top: 90rpx;
 		color: #FFFFFF;
 		position: absolute;
 		margin-left: 20rpx;
