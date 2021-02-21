@@ -522,9 +522,6 @@
 		overflow: hidden;
 		transform: translateY(0);
 		margin-top: 55rpx;
-		/* #ifdef H5 */
-		margin-top: 75rpx;
-		/* #endif */
 	}
 
 	.s-all-wrap {
@@ -537,16 +534,13 @@
 		right: 130rpx;
 		left: 220rpx;
 		width: 400rpx;
-		height: 38rpx;
-		line-height: 38rpx;
-		display: flex;
-		align-items: center;
+		height: 48rpx;
 	}
 
 	.search-wrap {
 		width: 100%;
 		height: 100%;
-		line-height: 38rpx;
+		line-height: 48rpx;
 		border-radius: 30rpx;
 		margin-left: 20rpx;
 		padding-left: 20rpx;
@@ -629,11 +623,11 @@
 	}
 	
 	/deep/::-webkit-scrollbar {
-	 display: none;
-	 width: 0;
-	 height: 0;
-	 color: transparent;
-	 background: transparent;
+		 display: none;
+		 width: 0;
+		 height: 0;
+		 color: transparent;
+		 background: transparent;
 	}
 			
 </style>

@@ -22,7 +22,7 @@
  ### 功能展示
   ![展示图](/readme/images/img_1.png "展示图.png")
   ![展示图](/readme/images/img_2.png "展示图.png")
-  ![展示图](/readme/images/img_3.png "展示图.png")
+  ![展示图](/readme/images/img_3_1.png "展示图.png")
   ![展示图](/readme/images/img_4.png "展示图.png")
   
   
