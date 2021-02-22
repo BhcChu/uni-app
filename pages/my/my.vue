@@ -4,9 +4,15 @@
 		<view class="p-3 border-bottom avatar-wrap">
  			<!-- 老师名字ID区域	 -->
 			<view class="title-wrap">
-				<image :src="getAvatar" style="width: 120rpx; height: 120rpx;" class="rounded-circle title-avatar">
+				<template v-if="userInfo.avatar">
+				<image mode="aspectFill" :src="userInfo.avatar.length >0? userInfo.avatar:default_avatar" style="width: 120rpx; height: 120rpx;" class="rounded-circle title-avatar">
 				</image>
-				
+				</template>
+				<template v-else>
+					<image :src="default_avatar" style="width: 120rpx; height: 120rpx;" class="rounded-circle title-avatar">
+					</image>
+				</template>
+					
 				<view v-if="userInfo.id != undefined" class="forteacher">
 					<view class="name-id-wrap">
 						<text>{{userInfo.user_nickname}}</text>
@@ -85,7 +91,9 @@
 		},
 		computed: {
 			getAvatar() {
+				console.log(this.userInfo);
 				if(this.userInfo.length > 0 && this.userInfo.avatar != '') {
+					console.log(444);
 					return this.userInfo.avatar;
 				} else {
 					return this.default_avatar;

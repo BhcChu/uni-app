@@ -167,7 +167,6 @@
 					url: gData.site_url + 'Knowledge.GetList',
 					method: 'GET',
 					data: {
-						'type' : 0,
 						'p' : 1,
 						'knowledge_id':kid,
 						'course_type': 1, //1代表内容

@@ -6,7 +6,7 @@
  ### Web版地址
  - 教师端地址: <a target="_blank" href="https://demo.sdwanyue.com/teacher">https://demo.sdwanyue.com/teacher</a> 账号:13866666666 密码:123456
  - 后台地址: <a target="_blank" href="https://demo.sdwanyue.com/admin">https://demo.sdwanyue.com/admin</a> 账号: demo 密码: 123456
- - 仓库地址: <a target="_blank" href="https://gitee.com/WanYueKeJi/wanyue_education_web">点击此处</a>
+ - 后台仓库地址: <a target="_blank" href="https://gitee.com/WanYueKeJi/Wanyue-knowledge-payment-admin">点击此处</a>
  
  ### H5系统演示
  ![展示图](/readme/images/h5.png "展示图.png")
