@@ -86,7 +86,7 @@
 	
 	/* 新闻资讯 */	.news-wrap {		width: 97%;
 		height: 80rpx;
-		margin: 10rpx auto 80rpx;
+		margin: 10rpx auto 0;
 		padding-left: 3%;
 		line-height: 80rpx;
 		border-radius: 34rpx;
@@ -124,12 +124,13 @@
 		display: flex;
 		height: 100%;
 		align-items: center;
-		margin-bottom: 58rpx;
+		margin-bottom: 40rpx;
+		border: none !important;
 	}
 	
 	.hot-title-img {
-		width: 50rpx;
-		height: 50rpx;
+		width: 40rpx;
+		height: 40rpx;
 		display: inline-block;
 		margin-right: 20rpx;
 	}
@@ -138,9 +139,14 @@
 		font-size: 38rpx;
 		font-weight: bold;
 	}
+	.icon-title-wrap {
+		display: flex;
+		align-items: center;
+	}
 	
 	.hot-img-wrap {
 		height: 400rpx !important;
+		border: none !important;
 	}
 	
 	.hot-left-img {
@@ -156,7 +162,6 @@
 		margin-bottom: 16rpx;
 		float: right;
 		border-radius: 14rpx;
-		
 	}
 	
 	.hot-right-bottom-img {
@@ -174,18 +179,15 @@
 		display: inline-block;
 		background: #fff;
 		border-radius: 14rpx 14rpx 0 0;
-		margin-top: 40rpx;
 	}
 	
 	.live-ketang-title-wrap {
 		display: flex;
 		align-items: center;
+		margin-bottom: 40rpx;
 	}
 	
-	.icon-title-wrap {
-		display: flex;
-		align-items: baseline;
-	}
+	
 	
 	.live-ketang-title {
 		font-size: 38rpx !important;

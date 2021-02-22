@@ -213,7 +213,7 @@
 						 type="text" confirm-type="send" @keyup.enter='send' @confirm="send" v-model="content" class="input" :placeholder="shut_place" />
 						<view class="wen-btn-wrap">
 							<view @click="question" class="duihao-wrap">
-								<image v-if="isQue == true" class="duihao-img" src="../../static/images/duihao.png" mode="aspectFill"></image>
+								<image v-if="isQue == true" class="duihao-img" src="../../../static/jinyan_sel.png" mode="aspectFill"></image>
 								<image v-if="isQue == false" class="duihao-img" src="../../static/images/questionno.png" mode="aspectFill"></image>
 							</view>
 							<text class="tiwen">提问</text>
@@ -284,7 +284,7 @@
 				content: '',
 				islive: '已结束',
 				Usercount: 0,
-				diancolor: '#2C62EF',
+				diancolor: '#969696',
 				timer: '',
 				livetype: '',
 				intr: '',
@@ -956,11 +956,10 @@
 			// 滚动到底部
 			pageToBottom() {
 				let lastIndex = this.list.length - 1;
-
 				if (lastIndex < 0) {
 					return;
 				}
-
+				
 				// 大坑, vue采用虚拟dom, 刚发送消息时最后一条dom元素是取不到的!!! 必须用异步等元素渲染
 				var _this = this;
 				setTimeout(() => {
@@ -1045,4 +1044,5 @@
 		/* bottom: 0rpx; */
 		width: 750rpx;
 	}
+	
 </style>

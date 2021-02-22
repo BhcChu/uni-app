@@ -75,7 +75,6 @@
 						<image v-if="hotlist.length >= 2" class="hot-right-top-img" :src="hotlist[1].thumb" mode="aspectFill" @click="viewContentInfo(hotlist[1].id,hotlist[1].paytype)"></image>
 						<image v-if="hotlist.length >= 3" class="hot-right-bottom-img" :src="hotlist[2].thumb" mode="aspectFill" @click="viewContentInfo(hotlist[2].id,hotlist[2].paytype)"></image>
 					</block>
-					<view class="listline"></view>
 				</view>
 
 			</view>

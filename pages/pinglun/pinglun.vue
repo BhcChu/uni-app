@@ -240,16 +240,15 @@
 	.pinglun-content {
 		display: inline-block;
 	    width: 100%;
-		/* min-height: 800rpx; */
+		min-height: 800rpx;
 		margin-top: 40rpx;
 		height: auto;
 	}
 	
 	.pinglun-textarea {
 		width: 100% !important;
-		/* height: 800rpx; */
+		height: 800rpx;
 		font-size: 28rpx;
-		height: auto;
 	}
 	
 	/* 评价按钮 */

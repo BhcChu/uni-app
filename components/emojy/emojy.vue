@@ -1,7 +1,7 @@
 <template>
 	<!--  -->
 	<view>
-		<swiper class='swiper-box' indicator-dots="true" indicator-active-color="#64D3AD" indicator-color="#000000">
+		<swiper class='swiper-box' indicator-dots="true" indicator-active-color="#2C62EF" indicator-color="#000000">
 			<swiper-item class="swiper-box2">
 				<view @click="selectemojy(item)" v-for="(item,index) in emojylist1" :key = "index" class="iconBg">
 					<view class="iconBg2">
@@ -226,7 +226,7 @@
 		line-height: 40rpx;
 		text-align: center;
 		margin-top: 20rpx;
-		background: #38DAA6;
+		background: #2C62EF;
 		color: #FFFFFF;
 	}
 </style>

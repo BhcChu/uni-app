@@ -393,7 +393,8 @@
 }
 
 .intr {
-	margin-left: 10rpx;
+	display: inline-block;
+	margin-left: 20rpx;
 	font-size: 20rpx;
 	color: #969696;
 }

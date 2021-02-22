@@ -143,7 +143,6 @@
 			this.system_top = 10;
 			// #endif
 
-
 			// #ifdef APP-PLUS
 			this.system_top = parseInt(res.safeArea.top) + 20;
 			// #endif
@@ -153,10 +152,54 @@
 				this.searchKeyword = option.keyword;
 				this.getHomeSearch(this.sdata);
 			}
-
-			// :style="'height:' + system_top + 'rpx'"
 		},
 		methods: {
+			
+			checktoken(successFun) {
+				uni.request({
+					url: app.globalData.site_url + 'User.Iftoken',
+					method: 'POST',
+					data: {
+						'uid': app.globalData.userinfo.id,
+						'token': app.globalData.userinfo.token
+					},
+					success: res => {
+						if (res.data.data.code == 700) {
+							uni.showModal({
+								title: res.data.data.msg,
+								content: '',
+								showCancel: true,
+								cancelText: '取消',
+								confirmText: '去登录',
+								confirmColor: '#2C62EF',
+								success: res => {
+									if (res.confirm) {
+										uni.navigateTo({
+											url: '../login/login',
+											success: res => {},
+											fail: () => {},
+											complete: () => {}
+										});
+			
+									}
+								},
+								fail: () => {
+			
+								},
+								complete: () => {
+			
+								}
+							});
+						}
+						successFun(res.data.data.code);
+			
+					},
+					fail: () => {
+			
+					},
+					complete: () => {}
+				});
+			},
 			clickTabSearchHistory(text) {
 				this.searchText = text;
 				this.searchEvent();
@@ -233,31 +276,33 @@
 
 			},
 			viewLiveInfo(liveCourseId, sorttype) {
-				if (getApp().globalData.userinfo == '') {
-					uni.navigateTo({
-						url: '../login/login'
-					})
-					return;
-				}
-				//套餐
-				if (sorttype == undefined) {
-					uni.navigateTo({
-						url: '../taocaninfo/taocaninfo?courseid=' + liveCourseId
-					});
-				}
-				//
-				else if (sorttype == 0) {
-					uni.navigateTo({
-						url: '../content-info/content-info?courseid=' + liveCourseId
-					});
-				} else if (sorttype == 1) {
-					uni.navigateTo({
-						url: '../courseinfo/courseinfo?courseid=' + liveCourseId
-					});
-				} else
-					uni.navigateTo({
-						url: '../live_course_info/live_course_info?courseid=' + liveCourseId
-					});
+				this.checktoken((successFun) => {
+					if (successFun != 0) {
+						return;
+					}
+					//套餐
+					if (sorttype == undefined) {
+				
+						uni.navigateTo({
+							url: '../../packageB/pages/taocaninfo/taocaninfo?courseid=' + liveCourseId
+						});
+					}
+					//
+					else if (sorttype == 0) {
+						uni.navigateTo({
+							url: '../../packageB/pages/content-info/content-info?courseid=' + liveCourseId
+						});
+					} else if (sorttype == 1) {
+						uni.navigateTo({
+							url: '../../packageB/pages/courseinfo/courseinfo?courseid=' + liveCourseId
+						});
+					} else
+						uni.navigateTo({
+							url: '../../packageB/pages/live_course_info/live_course_info?courseid=' + liveCourseId
+						});
+				
+				});
+				
 			},
 
 			resetSearch() {
@@ -294,7 +339,6 @@
 						let data = res.data.data.info[0];
 						if (parseInt(res.data.data.code) == 0) {
 
-
 							if ((data.teacher.length == 0) && (data.course.length == 0)) {
 								this.isShowHis = false;
 								//空空如也图标
@@ -317,7 +361,6 @@
 
 			},
 			viewmoreteacher() {
-				console.log(this.searchKeyword);
 				// 跳转更多老师页面
 				uni.navigateTo({
 					url: "../moreteacher/moreteacher?keyword=" + this.searchKeyword,
