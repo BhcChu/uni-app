@@ -204,7 +204,7 @@
 			<view class="carView">
 				<view class="allsi">应付：</view>
 				<view class="allmoney">{{allmoney}}</view>
-				<view class="buy" @click="buy('wx', 3)">立即付费</view>
+				<view class="buy" @click="fufei">立即付费</view>
 			</view>
 		</view>
 
@@ -306,9 +306,6 @@
 			// console.log(this.carinfo);
 			this.getaddress();
 
-
-
-
 			var payarray = [];
 			var goodsArray = [];
 			if (this.isCar != 'isCar') {
@@ -330,7 +327,7 @@
 				goodsArray.push(newtiem);
 			}
 			var json = JSON.stringify(goodsArray);
-			console.log(json);
+			
 			let gData = getApp().globalData;
 			uni.request({
 				url: gData.site_url + 'Cart.getDeduct',
@@ -376,7 +373,6 @@
 
 			},
 			fufei() {
-				console.log('立即付费');
 				// #ifdef MP-WEIXIN
 				this.buy('wx','3');
 				// #endif
@@ -391,7 +387,7 @@
 						'token': gData.userinfo.token,
 					},
 					success: res => {
-						console.log(res);
+						
 						if (res.data.data.code == 0) {
 							this.payinfo = res.data.data.info;
 							this.showpayview = true;
@@ -404,9 +400,9 @@
 			buy(type, payid) {
 				
 				if(type == 'wx' && payid == '3') {
-					console.log('立即微信支付');
+					
 				} else if(type == 'wx' && payid == '4') {
-					console.log('立即h5支付');
+					
 				} else {
 					return;
 				}
@@ -448,7 +444,7 @@
 						'method': this.isCar
 					},
 					success: res => {
-						console.log(res);
+						
 						if (res.data.data.code == 0) {
 
 							if (this.allmoney == 0) {

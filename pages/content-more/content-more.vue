@@ -124,12 +124,12 @@
 		},
 		onReady() {
 		
-		var that = this;
-		uni.getSystemInfo({
-			success: function(res) {
-				that.scrollH = res.windowHeight * 750 / res.windowWidth - 130;
-			}
-		});	
+			let that = this;
+			uni.getSystemInfo({
+				success: function(res) {
+					that.scrollH = res.windowHeight * 750 / res.windowWidth - 130;
+				}
+			});	
 		
 		},
 		onLoad() {
@@ -218,13 +218,6 @@
 				if (this.loadmore !== '上拉加载更多') return;
 				//设置加载状态
 				this.loadmore = '加载中...';
-				//模拟请求数据
-				setTimeout(() => {
-					//加载数据
-					this.list = [...this.list, ...this.list];
-					//设置加载状态
-					this.loadmore = '上拉加载更多';
-				}, 2000)
 			},
 			
 			viewLiveInfo(liveCourseId, sorttype) {
@@ -264,7 +257,7 @@
 	}
 	.conetentinfo-wrap {
 		margin-top: 2rpx;
-		padding-top: 2rpx;
+		padding-top: 20rpx;
 		height: 100%;
 		overflow-y: hidden;
 		overflow: hidden;
@@ -353,7 +346,7 @@
 	}
 	/*子标签样式*/
 	.mark-type-wrap {
-		margin-top: 20rpx;
+		margin-top: 30rpx;
 		height: 60rpx;
 	}
 	/* 子滑动标签 */

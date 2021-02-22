@@ -177,7 +177,6 @@
 						'type':subIndex
 					},
 					success: res => {
-						console.log(res);
 						if (res.data.data.code == 0) {
 							that.kongkong = false;
 							that.course_info = res.data.data.info;
@@ -196,14 +195,12 @@
 			
 			//切换子类型选项卡
 			changeSubTab(index) {
-				console.log(3333);
 				this.subtabIndex = index;
 				this.course_info.length = 0;
 				this.GetCourseList(this.course_ID,this.subtabIndex);
 			},
 			//滑动
 			onChangeTab(e) {
-				console.log(4444);
 				//切换当前索引
 				this.subtabIndex = e.detail.current;
 				this.GetCourseList(this.course_ID,this.subtabIndex);

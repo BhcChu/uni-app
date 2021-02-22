@@ -40,7 +40,7 @@
 					<scroll-view scroll-y :style="'height:' + scrollH+'rpx;'">
 						<!-- 标题标签区域 -->
 						<view>
-							<text>{{liveInfo.name}}</text>
+							<text class="course-title">{{liveInfo.name}}</text>
 							<text class="course_tag">{{sorttype}}</text>
 						</view>
 						<text>{{liveInfo.des}}</text>
@@ -80,7 +80,7 @@
 										<text class="at-info-item at-info-name">{{teacherInfo.user_nickname}}</text>
 										<text class="at-info-item">主讲老师</text>
 									</view>
-									<text class="teacher-arow">></text>
+									<text class="teacher-arow iconfont icon-jinrujiantou"></text>
 								</view>
 
 								<view @click="viewTeacherInfo(fudaoTeacher.id)" :class="{hideclass: (hidefudao == '1')}" class="ateacher-item ateacher-fudao-item">
@@ -89,7 +89,7 @@
 										<text class="at-info-item at-info-name">{{fudaoTeacher.user_nickname}}</text>
 										<text class="at-info-item">辅导老师</text>
 									</view>
-									<text class="teacher-arow">></text>
+									<text class="teacher-arow iconfont icon-jinrujiantou"></text>
 								</view>
 
 							</view>
@@ -185,7 +185,7 @@
 								<template v-if="liveInfo.iscart == 0">
 									<view class="joincar" @tap="doAddCar">加入购物车</view>
 								</template>
-								<template v-else>
+								<template v-else-if="liveInfo.iscart == 1">
 									<view class="joincar2">已加入购物车</view>
 								</template>
 								<view class="buy" @tap="buy">立即购买</view>
@@ -354,8 +354,9 @@
 						'token': gData.userinfo.token,
 					},
 					success: res => {
-
-						this.nums = res.data.data.info[0].nums;
+						if(res.data.data.info[0] != undefined) {
+							this.nums = res.data.data.info[0].nums;
+						}
 					},
 				});
 			},
@@ -516,11 +517,8 @@
 						// }
 						this.INFO = res.data.data.info;
 		
-						if (this.INFO[0].content){
-							
-							
-						}else{
-						
+						// if (this.INFO[0].content){
+						// }else{
 							// for (let i=0;i<this.INFO.length;i++){
 							// 	 var item = this.INFO[i];
 							// 	 item.content = '1';
@@ -528,8 +526,7 @@
 							// 	 item.userinfo = '1';
 							// 	 this.INFO[i] = item;
 							// }
-	
-						}
+						// }
 					
 						let info = res.data.data.info[0] || [];
 						this.lesson = res.data.data.info[0].lesson;
@@ -629,7 +626,6 @@
 				});
 			},
 			shopcar() {
-				
 				uni.navigateTo({
 					url: '../../../pages/shop-car/shop-car',
 				});
@@ -648,7 +644,12 @@
 <style>
 	@import url("/static/css/course_info/course_info.css");
 	@import url("/static/common/css/pingjia.css");
-
+	
+	.course-title {
+		font-size: 30rpx;
+		font-weight: bold;
+	}
+	
 	.sub_jifen {
 		position: absolute;
 		right: 60rpx;
@@ -804,8 +805,7 @@
 		margin-top: 20rpx;
 
 	}
-
-
+	
 	.joincar {
 		text-align: center;
 		width: 40%;
@@ -832,4 +832,14 @@
 		color: #FFFFFF;
 		background-color: #FF623E;
 	}
+	
+	.at-info-item {
+		font-size: 20rpx !important;
+	}
+	
+	.at-info-name {
+		font-size: 35rpx !important;
+		font-weight: bold;
+	}
+	
 </style>

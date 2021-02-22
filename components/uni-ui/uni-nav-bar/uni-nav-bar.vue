@@ -83,12 +83,8 @@
 			uniIcons
 		},
 		created() {
-
 			const res = uni.getSystemInfoSync();
 			this.system_top = parseInt(res.safeArea.top) + 60;
-			console.log(res);
-			console.log(this.system_top);
-			
 		},
 		props: {
 			title: {

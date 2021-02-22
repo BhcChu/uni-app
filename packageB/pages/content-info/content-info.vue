@@ -17,8 +17,7 @@
 				<view class="mx-5 c-info-tabbar" @click="changeTab(index)" v-for="(item, index) in tabBars" :key="index" :class="tabIndex === index ? 'text-main font-lg' : 'font-md text-light-muted'">
 					{{item.name}}
 				</view>
-
-
+				
 			</view>
 
 			<swiper :current="tabIndex" class="swiper-box" :style="{height:scrollH+'rpx'}" @change="onChangeTab">
@@ -27,7 +26,7 @@
 					<scroll-view scroll-y :style="'height:' + scrollH+'rpx;'">
 						<!-- 标题标签区域 -->
 						<view>
-							<text>{{liveInfo.name}}</text>
+							<text class="course-title">{{liveInfo.name}}</text>
 							<text class="course_tag">{{sorttype}}</text>
 						</view>
 						<text>{{liveInfo.des}}</text>
@@ -51,7 +50,7 @@
 										<text class="at-info-item at-info-name">{{teacherInfo.user_nickname}}</text>
 										<text class="at-info-item">主讲老师</text>
 									</view>
-									<text class="teacher-arow">></text>
+									<text class="teacher-arow iconfont icon-jinrujiantou"></text>
 								</view>
 
 								<view @click="viewTeacherInfo(fudaoTeacher.id)" :class="{hideclass: (hidefudao == '1')}" class="ateacher-item ateacher-fudao-item">
@@ -60,7 +59,7 @@
 										<text class="at-info-item at-info-name">{{fudaoTeacher.user_nickname}}</text>
 										<text class="at-info-item">辅导老师</text>
 									</view>
-									<text class="teacher-arow">></text>
+									<text class="teacher-arow iconfont icon-jinrujiantou"></text>
 								</view>
 
 							</view>
@@ -163,7 +162,7 @@
 								<template v-if="liveInfo.iscart == 0">
 									<view class="joincar" @tap="doAddCar">加入购物车</view>
 								</template>
-								<template v-else>
+								<template v-else-if="liveInfo.iscart == 1">
 									<view class="joincar2">已加入购物车</view>
 								</template>
 								<view class="buy" @tap="buy">立即购买</view>
@@ -497,6 +496,7 @@
 						
 						this.INFO = res.data.data.info;
 						let info = res.data.data.info[0];
+						console.log(info);
 						this.live_course_bg = info.thumb ? info.thumb : '';
 						this.liveInfo = info;
 						this.teacherInfo = info.userinfo;
@@ -605,7 +605,12 @@
 	/* 课程详情页公共样式 */
 	@import url("/static/css/course_info/course_info.css");
 	@import url("/static/common/css/pingjia.css");
-
+	
+	.course-title {
+		font-size: 30rpx;
+		font-weight: bold;
+	}
+	
 	.sub_jifen {
 		position: absolute;
 		right: 60rpx;
@@ -775,4 +780,14 @@
 		color: #FFFFFF;
 		background-color: #FF623E;
 	}
+	
+	.at-info-item {
+		font-size: 20rpx !important;
+	}
+	
+	.at-info-name {
+		font-size: 35rpx !important;
+		font-weight: bold;
+	}
+	
 </style>

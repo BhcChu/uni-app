@@ -216,7 +216,7 @@
 	
 	.liveinfo-wrap {
 		margin-top: 2rpx;
-		padding-top: 2rpx;
+		padding-top: 20rpx;
 		min-height: 1500rpx;
 		background-color: #FFFFFF;
 	}	
@@ -226,7 +226,6 @@
 		height: 190rpx;
 		margin: 30rpx auto;
 		padding-top: 5rpx;
-		/* box-shadow: 0rpx 0rpx 4rpx 2rpx rgba(0, 0, 0, 0.1); */
 		border-radius: 8rpx;
 		background-color: #FFFFFF;
 	}

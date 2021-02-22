@@ -1,6 +1,6 @@
 <template>
 	<view class="page">
-		<uni-nav-bar fixed="true" status-bar="true" :border="false">
+		<uni-nav-bar status-bar="true" :border="false">
 			<view slot="left">
 				<view class="check_class">
 					<text>万岳知识付费</text>
@@ -24,10 +24,11 @@
 				</view>
 			</view>
 			</uni-nav-bar>
-			
+		
+	<scroll-view class="index-all-wrap" scroll-y="true" :style="'height:' + scrollH+'rpx;'" >		
 		<view class="flex align-center font-weight-bold course-tab">
 			<scroll-view class="scroll-view_H" scroll-x="true" scroll-left="10" :scroll-into-view="currentScrollId">
-				<view class="courseclass-tab-item" :id="'scroll_item' + index" @click="changeTab(index,item.id)" v-for="(item, index) in tabBars" :key="index" :class="tabIndex === index ? 'courseclass-text-main' : 'courseclass-text-light-muted'">
+				<view class="courseclass-tab-item" :id="'scroll_item' + index" @click="changeTab(index, item.id)" v-for="(item, index) in tabBars" :key="index" :class="tabIndex === index ? 'courseclass-text-main' : 'courseclass-text-light-muted'">
 					{{item.name}}
 				</view>
 			</scroll-view>
@@ -36,7 +37,7 @@
 		<view class="mark-type-wrap">
 			<view class="flex align-center font-weight-bold mark-sub-tab">
 				<scroll-view class="scroll-view_H" scroll-x="true" @scroll="scroll" scroll-left="120">
-					<view class="mark-sub-item" @click="changeSubTab(index,item.id)" v-for="(item, index) in tabBarsCourse" :key="index" :class="subTabIndex === index ? 'text-main' : 'text-light-muted'">
+					<view class="mark-sub-item" @click="changeSubTab(index)" v-for="(item, index) in tabBarsCourse" :key="index" :class="subTabIndex === index ? 'text-main' : 'text-light-muted'">
 						{{item.name}}
 					</view>
 				</scroll-view>
@@ -117,7 +118,7 @@
 	</block>
 	
 		
-		
+		</scroll-view>	
 	</view>
 </template>
 
@@ -136,6 +137,7 @@
 				scrollH: 0,
 				tabIndex: 0,
 				subTabIndex:0,
+				course_ID:'',
 				tabBars: [],
 				list: [],
 				loadmore: "上拉加载更多",
@@ -154,11 +156,11 @@
 					}, {
 						name: "直播"
 					}, {
+						name: "图文"
+					}, {
 						name: "视频"
 					}, {
 						name: "音频"
-					}, {
-						name: "图文"
 					}
 				],
 				scroll_left: 10, //横向滚动条位置
@@ -195,7 +197,6 @@
 			});
 			
 			this.getData();
-			this.GetMyCourse(this.tabIndex, this.keyword);
 			
 		},
 		methods: {
@@ -212,9 +213,11 @@
 				this.GetMyCourse(this.tabIndex, this.keyword);
 			},
 			getData() {
+				let that = this;
 				//获取分类
 				uni.request({
-					url: getApp().globalData.site_url + 'Homeknowledge.GetIndex',
+					url: app.globalData.site_url + 'Homeknowledge.GetIndex',
+					// 此处代表分类id 没有年级id
 					data: {
 						'gradeid': getApp().globalData.grade_class.id
 					},
@@ -223,62 +226,66 @@
 						if (parseInt(res.data.data.code) !== 0) {
 							return;
 						}
-						this.tabBars = data.info[0].courseclass;
-						
-						this.GetMyCourse(this.tabBars[0].id,'');
-					},
-					fail() {
+						that.tabBars = data.info[0].courseclass;
+						that.course_ID = that.tabBars[0].id; //默认第一个id
+						that.GetCourseList(that.tabBars[0].id,0);
 					}
 				});
 			},
 			
-			GetMyCourse(cid, keywords = '') {
+			GetCourseList(kid,subIndex) {
 				let gData = app.globalData;
+				let sort = 0;
+				if(subIndex == 1) { //大班课
+					sort = 2;
+				} else if(subIndex < 1) {
+					sort = 3; //全部
+				}
+				
+				let that = this;
 				uni.request({
-					url: gData.site_url + 'Knowledge.GetMyCourse',
+					url: gData.site_url + 'Knowledge.GetClassCourse',
 					method: 'GET',
 					data: {
-						'uid': gData.userinfo.id,
-						'token': gData.userinfo.token,
-						'keyword': keywords,
-						'p': 1,
-						'cid':cid,
-						'know_sort':this.subTabIndex
+						'p' : 1,
+						'knowledge_id':kid,
+						'sort': sort,
+						'type':subIndex
 					},
 					success: res => {
-						
 						if (res.data.data.code == 0) {
-							var array = [];
-							array = res.data.data.info;
-							this.kongkong = false;
-							this.list = JSON.parse(JSON.stringify(array));
+							that.kongkong = false;
+							that.list = res.data.data.info;
 							
-							if (this.list.length == 0) {
-								this.kongkong = true;
+							if (that.list.length == 0) {
+								that.kongkong = true;
 							}
 						} else {
-							this.kongkong = true;
+							that.kongkong = true;
 						}
-
+			
 					},
 				});
+				
 			},
 			//切换父选项卡
-			changeTab(index,classid) {
+			changeTab(index, classid) {
 				this.tabIndex = index;
 				this.subTabIndex = 0; //子标签置0
-				this.GetMyCourse(classid, this.keyword);
+				this.course_ID = classid;
+				this.GetCourseList(classid, 0);
 			},
 			//切换子类型选项卡
 			changeSubTab(index) {
 				this.subTabIndex = index;
-				this.GetMyCourse(this.tabBars[this.tabIndex].id, this.keyword);
+				this.list.length = 0;
+				this.GetCourseList(this.course_ID,this.subTabIndex);
 			},
 			//滑动
 			onChangeTab(e) {
-				//切换子类型当前索引
+				//切换当前索引
 				this.subTabIndex = e.detail.current;
-				this.GetMyCourse(this.tabBars[this.tabIndex].id, this.keyword);
+				this.GetCourseList(this.course_ID,this.subTabIndex);
 			},
 			//顶踩操作
 			doSupport(e) {
@@ -397,10 +404,8 @@
 
 <style>
 	@import url("/static/css/course_list.css");
-	page{
-		/* width: 100%;
-		height: 100%;
-		overflow: hidden; */
+	page {
+		overflow: hidden;
 	}
 	.page{
 		/* width: 100%;
@@ -421,7 +426,7 @@
 		height: 100rpx;
 		padding-top: 30rpx;
 		/* #ifdef MP-WEIXIN*/
-		padding-top: 100rpx;
+		padding-top: 130rpx;
 		/* #endif */
 		position: fixed;
 		top: 0;
@@ -434,30 +439,28 @@
 	}
 
 	.course-tab {
-		margin-top: 125rpx;
+		margin-top: 25rpx;
 		height: 45rpx;
 		margin-bottom: 30rpx;
 	}
 
-	/* .s-all-wrap {
+	.s-all-wrap {
 		position: relative;
 	}
- */
+
 	.search-all-wrap {
 		position: absolute;
 		margin-top: 0rpx;
 		right: 130rpx;
 		left: 220rpx;
 		width: 400rpx;
-		height: 38rpx;
-		line-height: 38rpx;
-		display: flex;
-		align-items: center;
+		height: 48rpx;
 	}
+	
 	.search-wrap {
 		width: 100%;
 		height: 100%;
-		line-height: 38rpx;
+		line-height: 48rpx;
 		border-radius: 30rpx;
 		margin-left: 20rpx;
 		padding-left: 20rpx;
@@ -645,15 +648,15 @@
 	}
 		
 	.courseclass-text-main::after {
-			content: "";
-			width: 35rpx;
-			height: 4rpx;
-			background: linear-gradient(to top right, #3D98FF, #7A76FA);
-			position: absolute;
-			top: 50rpx;
-			left: 55rpx;
-			line-height: 0;
-			display: inline-block;
+		content: "";
+		width: 35rpx;
+		height: 4rpx;
+		background: linear-gradient(to top right, #3D98FF, #7A76FA);
+		position: absolute;
+		top: 50rpx;
+		left: 55rpx;
+		line-height: 0;
+		display: inline-block;
 	}
 		
 		
