@@ -1,4 +1,4 @@
-<div align=center><img src="/readme/images/know_logo.png" width="590" height="212"/></div>
+<div align=center><img src="/readme/images/know_logo1.png" width="590" height="212"/></div>
 
 ### 项目说明（如果对你有用，请点亮右上角的Star！）
    
