@@ -260,9 +260,9 @@
 				}
 			})
 
-			if (parseInt(getApp().globalData.userinfo.id) > 0) {
+			if (parseInt(app.globalData.userinfo.id) > 0) {
 				uni.request({
-					url: getApp().globalData.site_url + "Agent.CheckAgent",
+					url: app.globalData.site_url + "Agent.CheckAgent",
 					method: 'POST',
 					data: {
 						'uid': app.globalData.userinfo.id,
@@ -331,7 +331,7 @@
 				this.prompt('');
 			},
 			getnums() {
-				if (getApp().globalData.userinfo == '') {
+				if (app.globalData.userinfo == '') {
 
 					return;
 				}
