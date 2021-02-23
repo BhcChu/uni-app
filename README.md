@@ -1,16 +1,16 @@
 <div align=center><img src="/readme/images/know_logo1.png" width="590" height="212"/></div>
 
 ### 项目说明（如果对你有用，请点亮右上角的Star！）
-   
+ 
+ ### H5系统演示
+ ![展示图](/readme/images/h5.png "展示图.png")
+    
  ### Web版地址
  - 教师端地址: <a target="_blank" href="https://demo.sdwanyue.com/teacher">https://demo.sdwanyue.com/teacher</a> 账号:13866666666 密码:123456
  - 后台地址: <a target="_blank" href="https://demo.sdwanyue.com/admin">https://demo.sdwanyue.com/admin</a> 账号: demo 密码: 123456
  - 后台仓库地址: <a target="_blank" href="https://gitee.com/WanYueKeJi/Wanyue-knowledge-payment-admin">点击此处</a>
  
- ### H5系统演示
- ![展示图](/readme/images/h5.png "展示图.png")
- 
- 
+  
  ### 项目介绍 
  万岳知识付费系统打造沉浸式学习体验，提升教学质量，还原真实课堂。知识付费功能包含热门精选、在线直播、付费视频、付费音频、付费阅读等营销功能，实现用户快速裂变。提高用户工作效率和收入是成为知识付费的刚需，可以从海量信息中寻找到适合自身的产品，利用碎片化时间和少许资金就能获得自己需要的信息。
  
