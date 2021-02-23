@@ -62,8 +62,7 @@
 									</text>
 								</template>
 							</template>
-
-
+							
 							<text class="time-wrap">{{liveInfo.lesson}}</text>
 							<text class="stunum-wrap">{{liveInfo.views}}人在学</text>
 						</view>

@@ -33,9 +33,22 @@
 
 						<!-- 价格时间学习人数信息 -->
 						<view class="price-time-stunum">
-							<text class="rmb_icon" v-if="liveInfo.payval != '免费'">￥</text>
-							<text :class="{mianfei : (liveInfo.payval == '免费')}" class="price-wrap">{{liveInfo.payval}}</text>
-							<text class="time-wrap">{{liveInfo.add_time}}</text>
+							<text v-if="liveInfo.paytype == 0" class="free">免费</text>
+							<text v-if="liveInfo.paytype == 2" style="color:#4385FF;">密码</text>
+							<template v-if="liveInfo.paytype ==1">
+								<template v-if="ifbuy == 1">
+									<text class="price-wrap">
+										已购买
+									</text>
+								</template>
+								<template v-else>
+									<text v-if="liveInfo.paytype ==1" class="price-wrap">
+										{{'¥' + liveInfo.payval}}
+									</text>
+								</template>
+							</template>
+							
+							<text class="time-wrap">{{liveInfo.lesson}}</text>
 							<text class="stunum-wrap">{{liveInfo.views}}人在学</text>
 						</view>
 						<view class="new_line"></view>

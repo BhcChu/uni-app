@@ -53,7 +53,7 @@
 		</template>
 		<template v-else-if="livetype == 2">
 			<view class="video-wrap">
-				<video class="video-wrap" :src="pull" :poster="thumb" controls="true" autoplay="true" muted="false"></video>
+				<video class="video-wrap" :src="pull" :poster="thumb" controls="true" autoplay="true"></video>
 			</view>
 		</template>
 		<template v-else-if="livetype == 3 || livetype == 6">

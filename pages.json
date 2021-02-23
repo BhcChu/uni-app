@@ -253,8 +253,7 @@
 				{
 					"path": "pages/live-info/live-infoplay",
 					"style": {
-						"navigationStyle": "custom"
-						// "navigationBarTitleText": "直播详情"
+						"navigationBarTitleText": "直播详情"
 					}
 				},
 

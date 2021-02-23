@@ -140,11 +140,10 @@
 	/* -webkit-background-clip: text;
 	color: transparent; */
 	position: absolute;
-	right: 10rpx;
+	right: 35rpx;
 	margin-top: 10rpx;
 	font-size: 26rpx;
 	
-	/* padding-right: 50rpx; */
 }
 
 

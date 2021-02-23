@@ -1,6 +1,8 @@
 <script>
 	export default {
 		globalData: {
+			onReview: false,
+			small_shelves: '1.0.0',
 			openid:'',
 			wechatuserinfo: '',
 			userinfo: '',

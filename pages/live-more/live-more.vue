@@ -10,8 +10,8 @@
 	<!-- 直播课列表 -->
 	<swiper :current="tabIndex" class="swiper-box" :style="{height:scrollH+'rpx'}" >
 		<!-- 全部 -->
-		<swiper-item v-for="(index) in tabBars">
-			<scroll-view :style="'height:' + scrollH+'rpx;'" @scrolltolower="loadmoreEvent">
+		<swiper-item @touchmove.stop v-for="(index) in tabBars">
+			<scroll-view scroll-x="false" :style="'height:' + scrollH+'rpx;'" @scrolltolower="loadmoreEvent">
 				<view @click="viewLiveInfo(item.id,item.paytype)" class="live-list" v-for="(item, index) in live_info"  :key="index">
 					<view class="live-list-img-wrap">
 						<image class="live-list-img" :src="item.thumb" mode="aspectFill"></image>

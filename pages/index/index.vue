@@ -633,5 +633,10 @@
 		 color: transparent;
 		 background: transparent;
 	}
+	
+	.price-wrap {
+		right: 10rpx !important;
+	}
+	
 			
 </style>
