@@ -1,16 +1,13 @@
 <template>
 	<view>
 		<view class="status_bar">
-
 		</view>
 		<!-- #ifdef MP-WEIXIN -->
-		<view :style="'height:' + system_top + 'rpx'" style="width: 100%; background-color: #FFFFFF;">
-
+		<view :style="'height:' + system_top + 'px'" style="width: 100%; background-color: #FFFFFF;">
 		</view>
 		<!-- #endif -->
 		<view :class="{ 'uni-navbar--fixed': fixed, 'uni-navbar--shadow': shadow, 'uni-navbar--border': border }" :style="{ 'background-color': backgroundColor }"
 		 class="uni-navbar__content">
-
 			<view :style="{ color: color,backgroundColor: backgroundColor }" class="uni-navbar__header uni-navbar__content_view">
 				<view @tap="onClickLeft" class="uni-navbar__header-btns uni-navbar__header-btns-left uni-navbar__content_view">
 					<view class="uni-navbar__content_view" v-if="leftIcon.length">
@@ -41,18 +38,11 @@
 				</view>
 			</view>
 		</view>
-		<!-- 
-		<view class="uni-navbar__placeholder" v-if="fixed">
-			<uni-status-bar v-if="statusBar" />
-			<view class="uni-navbar__placeholder-view" />
-		</view> -->
 	</view>
 </template>
-
 <script>
 	import uniStatusBar from "../uni-status-bar/uni-status-bar.vue";
 	import uniIcons from "../uni-icons/uni-icons.vue";
-
 	/**
 	 * NavBar 自定义导航栏
 	 * @description 导航栏组件，主要用于头部导航
@@ -75,7 +65,7 @@
 		data() {
 			return {
 				isliuhai: false,
-				system_top:0
+				system_top: 0
 			}
 		},
 		components: {
@@ -84,7 +74,46 @@
 		},
 		created() {
 			const res = uni.getSystemInfoSync();
-			this.system_top = parseInt(res.safeArea.top) + 60;
+			let weinfo = uni.getMenuButtonBoundingClientRect();
+			if (this.oncheck) {
+				if (parseInt(res.safeArea.top) === 20) {
+					this.system_top = 0;
+				} else {
+					this.system_top = parseInt(res.safeArea.top);
+				}
+			} else {
+				
+				if (this.onlive) {
+					// #ifdef MP-WEIXIN
+					this.system_top = weinfo.top - 20;
+					// #endif
+					// #ifndef MP-WEIXIN
+					 this.system_top = parseInt(res.safeArea.top);
+					// #endif
+				} else {
+					this.system_top = parseInt(res.safeArea.top) + 5;
+				}
+				// #ifndef MP-WEIXIN
+				// if (parseInt(res.safeArea.top) === 20) {
+				// 	this.system_top -= 30;
+				// }else if (parseInt(res.safeArea.top) >20 && parseInt(res.safeArea.top) < 43) {
+				// 	this.system_top -= 15;
+				// }
+				// #endif
+				
+				if (this.onindex){
+					// #ifdef MP-WEIXIN
+					if (weinfo.top == 0){
+						 this.system_top = parseInt(res.safeArea.top);
+						 console.log('weinfo.top == 0');
+					}else{
+						this.system_top = weinfo.top - 20;
+						console.log(weinfo);
+						console.log(res);
+					}
+					// #endif
+				}
+			}
 		},
 		props: {
 			title: {
@@ -119,6 +148,18 @@
 				type: String,
 				default: "#FFFFFF"
 			},
+			oncheck: {
+				type: [Boolean, String],
+				default: false
+			},
+			onindex: {
+				type: [Boolean, String],
+				default: false
+			},
+			onlive: {
+				type: [Boolean, String],
+				default: false
+			},
 			statusBar: {
 				type: [Boolean, String],
 				default: false
@@ -150,7 +191,15 @@
 
 <style scoped>
 	.status_bar {
+		/* #ifdef MP-WEIXIN */
+		height: 20px;
+		/* #endif */
+		
+		/* #ifndef MP-WEIXIN */
 		height: var(--status-bar-height);
+		/* #endif */
+		
+		
 		width: 100%;
 		background-color: #FFFFFF;
 	}
@@ -162,8 +211,14 @@
 	} */
 
 	.uni-nav-bar-text {
-		margin-top: 10rpx;
+		margin-top: 0rpx;
+		/* #ifdef MP-WEIXIN */
+		margin-top: -10rpx;
+		/* #endif */
+
 		font-size: 34rpx;
+		height: 64rpx;
+		line-height: 64rpx;
 	}
 
 	.uni-nav-bar-right-text {

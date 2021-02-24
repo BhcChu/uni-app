@@ -665,27 +665,26 @@
 				};
 				// #endif
 				this.recording = false;
-				var name = 'voice_' + this.getTime() + '.wav';
+				var name = 'voice_knowledge' + this.getTime() + '.wav';
 				qiniuUploader.upload(tempFilePath, res => {
-					if (url.indexOf("undefined") != -1) {
-						console.log('上传成功，但url含 undefined');
-						uni.showToast({
-							title: '出现错误，请重新录制语音',
-							icon: 'none'
-						});
-						return;
-					}
-					console.log('上传成功');
-					console.log(res);
+					// if (res.fileUrl.indexOf("undefined") != -1) {
+						// console.log('上传成功，但url含 undefined');
+						// uni.showToast({
+						// 	title: '出现错误，请重新录制语音',
+						// 	icon: 'none'
+						// });
+						// return;
+					// }
+					// console.log('上传成功');
+					// console.log(res);
 					this.voice_url = res.fileUrl;
 					this.voice_length = Math.ceil(contentDuration);
 					this.send();
 				}, error => {
 					console.log('上传失败');
-					console.log(res);
 				}, {
 					region: 'ECN',
-					domain: getApp().globalData.qiniuimageurl,
+					domain: app.globalData.qiniuimageurl,
 					key: name,
 					uptoken: this.QiNiutoken,
 				});
@@ -713,7 +712,7 @@
 					showCancel: true,
 					cancelText: '取消',
 					confirmText: '确定',
-					confirmColor: '#38DAA6',
+					confirmColor: '#2C62EF',
 					success: res => {
 						if (res.confirm) {
 							// uni.showLoading({
