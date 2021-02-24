@@ -422,8 +422,8 @@
 				if(!isLogin) {
 					return;
 				}
-				
-				if(this.isbuy == 0) {
+				console.log(this.ifbuy);
+				if(this.ifbuy == 0) {
 					// 显示输入弹出框
 					this.userpasswordkHidden = false;
 				} else {
