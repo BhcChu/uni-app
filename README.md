@@ -2,8 +2,8 @@
 
 ### 项目说明（如果对你有用，请点亮右上角的Star！）
  
- ### H5系统演示
- ![展示图](/readme/images/h5.png "展示图.png")
+ ### 系统演示
+ ![展示图](/readme/images/yanshi.png "展示图.png")
     
  ### Web版地址
  - 教师端地址: <a target="_blank" href="https://demo.sdwanyue.com/teacher">https://demo.sdwanyue.com/teacher</a> 账号:13866666666 密码:123456
