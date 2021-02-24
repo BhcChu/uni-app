@@ -422,8 +422,14 @@
 				if(!isLogin) {
 					return;
 				}
-				// 显示输入弹出框
-				this.userpasswordkHidden = false;
+				
+				if(this.isbuy == 0) {
+					// 显示输入弹出框
+					this.userpasswordkHidden = false;
+				} else {
+					this.enterlive();
+				}
+				
 			},
 			//提交密码 passwordcontent
 			submitPassword() {

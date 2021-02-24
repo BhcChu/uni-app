@@ -98,7 +98,10 @@
 							<image class="live-ketang-img" :src="item.thumb" mode="aspectFill"></image>
 							<view class="live-ketang-name">{{item.name}}</view>
 							
-							<view class="live-status live-ketang-status">
+							<view class="live-status living-status" v-if="item.islive == 1">
+								{{item.lesson}}
+							</view>
+							<view class="live-status" v-else>
 								{{item.lesson}}
 							</view>
 							<view class="live-teacher-price live-ketang-t-price">

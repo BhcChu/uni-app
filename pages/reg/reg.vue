@@ -13,11 +13,12 @@
 		<view class="px-2 login-input-wrap">
 			<template v-if="!status">
 				<view class="mb-2">
-					<input type="text" placeholder-style="color:#C9C9C9" v-model="username" placeholder="请输入手机号码" class="border-bottom p-2"/>
+					<input type="text" @input="username_input" placeholder-style="color:#C9C9C9" v-model="username" placeholder="请输入手机号码" class="border-bottom p-2"/>
 				</view>
 				<view class="verify-code-wrap mb-2 flex align-stretch">
 					<input type="text" placeholder-style="color:#C9C9C9" v-model="code" :placeholder="placeholder" class="border-bottom p-2 flex-1"/>
-					<view class="border-bottom flex align-center justify-center font text-light-muted" @click="getSmsCode" style="width: 150rpx;">
+					<view class="border-bottom flex align-center justify-center font text-light-muted" @click="getSmsCode" style="width: 150rpx;"
+					:style="canshowcode == true?  'color: #2C62EF;': 'color: #C9C9C9;'" >
 						{{get_captcha_txt}}
 					</view>
 				</view>
@@ -79,6 +80,7 @@
 				smsType: 0, //获取验证码类型 0 登录 1 注册 2忘记密码
 				signKey: "400d069a791d51ada8af3e6c2979bcd7", //固定的字符串, 和后端约定
 				sign: '', //加密后的签名串
+				canshowcode: false
 			}
 		},
 		onLoad() {
@@ -98,7 +100,13 @@
 			
 		},
 		methods: {
-			
+			username_input(event) {
+				if (event.detail.value.length == 11) {
+					this.canshowcode = true;
+				} else {
+					this.canshowcode = false;
+				}
+			},
 			back(){
 				uni.navigateBack({
 					delta: 1
@@ -313,7 +321,7 @@
 	
 	/* 登录按钮 输入内容时,去掉灰色效果 */
 	.login-btn {
-		background: linear-gradient(to right, #7BD68E, #65CCB9);	
+		background: linear-gradient(to right, #3D98FF, #7A76FA);
 	}
 	
 	.opatity {
