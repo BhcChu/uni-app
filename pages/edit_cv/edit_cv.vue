@@ -104,7 +104,7 @@
 	}
 	
 	.sub-btn {
-		color: #38DAA6;
+		color: #2C62EF;
 	}
 	
 	.school {

@@ -19,46 +19,50 @@
 					<view class="video-small-text">视频直播中</view>
 				</view>
 			</template>
-			<template v-if="livetype == 5 || livetype == 8">
-				<view class="video-wrap" v-if="livetype == 5 || livetype == 8">
-					<template v-if="phonetype == 1">
-						<TestText ref="videoAdnroid" tel="xxxxxx" class="video-wrap"></TestText>
-					</template>
-					<template v-else-if="phonetype == 2">
-						<dc-TestComponent ref="videoIos" appid="xxxxxx" class="video-wrap"></dc-TestComponent>
-					</template>
-					<template v-else-if="phonetype == 3">
-						<template v-show="showBigScreen == true">
-							<view class="video-wrap">
-								<view id="remoteContainer" ref="remotecontainer">
-									<view id="subremoteContainer" class="video-wrap"></view>
-								</view>
-								</view>
-						</template>
-						<template v-show="showShareScreen == true">
+			<!-- #ifdef H5 -->
+						<template v-if="showShareScreen == true">
 							<view class="video-share-wrap">
 								<view id="remoteContainer" ref="remotecontainer">
 									<view id="subremoteContainer" class="video-share-wrap"></view>
 								</view>
-								</view>
+							</view>
 						</template>
-					</template>
-					<template v-else-if="phonetype == 4">
-						<!-- #ifdef MP-WEIXIN -->
-						<view v-show="video_zhezhao == true" class="video-wrap">
-							<live-player class="video-wrap-wechat" autoplay="true" id="player" src="wechatliveurl" mode="RTC"
-							 bindstatechange="playerStateChange" object-fit="contain" />
-						</view>
 						<!-- #endif -->
-					</template>
-					<view class="nothing" v-if="zhibo_leave == true">
-						<image v-if="show_nothing_image == true" class="nothing_image_H" src="../../static/zanshilikai.png" mode="aspectFit"></image>
-						<view v-if="show_nothing_image == true" class="zanshilikai_txt_H">{{zhibo_leave_text}}</view>
-						<view v-if="show_nothing_image == true" class="zanshilikai_txt_H_H">{{zhibo_leave_text_w}}</view>
-						<view v-if="show_nothing_image2 == true" class="zanshilikai_txt2_H">直播已结束</view>
-					</view>
-				</view>
-			</template>
+						<template v-if="livetype == 5 || livetype == 8">
+							<view class="video-wrap" v-if="showShareScreen == false">
+								<template v-if="phonetype == 1">
+									<TestText ref="videoAdnroid" tel="xxxxxx" class="video-wrap"></TestText>
+								</template>
+								<template v-else-if="phonetype == 2">
+									<dc-TestComponent ref="videoIos" appid="xxxxxx" class="video-wrap"></dc-TestComponent>
+								</template>
+								<template v-else-if="phonetype == 3">
+									<!-- #ifdef H5 -->
+									<template v-if="showBigScreen == true">
+										<view class="video-wrap">
+											<view id="remoteContainer" ref="remotecontainer">
+												<view id="subremoteContainer" class="video-wrap"></view>
+											</view>
+										</view>
+									</template>
+									<!-- #endif -->
+								</template>
+								<template v-else-if="phonetype == 4">
+									<!-- #ifdef MP-WEIXIN -->
+									<view v-show="video_zhezhao == true" class="video-wrap">
+										<live-player class="video-wrap-wechat" autoplay="true" id="player" src="wechatliveurl" mode="RTC"
+										 bindstatechange="playerStateChange" object-fit="contain" />
+									</view>
+									<!-- #endif -->
+								</template>
+								<view class="nothing" v-if="zhibo_leave == true">
+									<image v-if="show_nothing_image == true" class="nothing_image_H" src="../../static/zanshilikai.png" mode="aspectFit"></image>
+									<view v-if="show_nothing_image == true" class="zanshilikai_txt_H">{{zhibo_leave_text}}</view>
+									<view v-if="show_nothing_image == true" class="zanshilikai_txt_H_H">{{zhibo_leave_text_w}}</view>
+									<view v-if="show_nothing_image2 == true" class="zanshilikai_txt2_H">直播已结束</view>
+								</view>
+							</view>
+						</template>
 			<template v-else-if="livetype == 2">
 				<view class="video-wrap">
 					<video show-mute-btn="true" class="video-wrap" :src="pull" :poster="thumb" controls="true" autoplay="true"></video>
@@ -298,7 +302,7 @@
 		},
 		data() {
 			return {
-
+				livemode: 0,
 				fromPPt: false,
 				fromshare: false,
 				ShareScreenUid: 999999999,
@@ -1186,7 +1190,6 @@
 							return;
 						}
 						if (res.data.data.code == 0) {
-							console.log(JSON.stringify(res));
 							this.addNodeListen();
 							this.pull = this.decypt(res.data.data.info[0].pull);
 							this.ppts = res.data.data.info[0].ppts || [];
@@ -1235,8 +1238,39 @@
 							this.Usercount = parseInt(res.data.data.info[0].nums);
 							this.agoraappid = res.data.data.info[0].sound_appid;
 							this.agoramRoomName = res.data.data.info[0].stream;
+							
 							if (this.livetype == 5 || this.livetype == 8) {
-
+								if  (this.livemode == 0){
+									console.log('直播模式');
+									this.livetype = 5;
+									this.fromPPt = false;
+									this.fromshare = false;
+									this.showsmallvideo = false;
+									// #ifdef H5
+									this.showBigScreen = true;
+									this.showShareScreen = false;
+									// #endif
+								}else if (this.livemode == 1){
+									console.log('PPt模式');
+									this.livetype = 4;
+									this.fromPPt = true;
+									this.fromshare = false;
+									this.showsmallvideo = true;
+									this.scrollH -= 150;
+									// #ifdef H5
+									this.showBigScreen = false;
+									this.showShareScreen = false;
+									// #endif
+								}else if (this.livemode == 2){
+									console.log('屏幕共享模式');
+									this.livetype = 8;
+									this.fromshare = true;
+									this.showsmallvideo = false;
+									// #ifdef H5
+									this.showShareScreen = true;
+									this.showBigScreen = false;
+									// #endif
+								}
 								if (this.phonetype == 2) {
 									setTimeout(() => {
 										this.$nextTick(() => {
@@ -1260,7 +1294,8 @@
 								} else if (this.phonetype == 4) {
 									this.agoraWechat(this.agoraappid, this.agoramRoomName, gData.userinfo.id)
 								}
-							}
+							}	
+							
 						} else {
 							uni.showToast({
 								title: res.data.data.msg,

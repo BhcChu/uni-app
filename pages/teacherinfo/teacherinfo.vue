@@ -429,7 +429,7 @@
 	
 	.living-status {
 		padding-top: 10rpx;
-		color: #64D3AD;
+		color: #2C62EF;
 		margin-top: -10rpx;
 	}
 	.teacher-top {
@@ -482,7 +482,7 @@
 		right: 40rpx;
 		top: 150rpx;
 		font-size: small;
-		color: #38DAA6;
+		color: #2C62EF;
 	}
 	
 	/* 已关注 */
@@ -552,7 +552,7 @@
 		color: #FFFFFF;
 		font-size: 28rpx;
 		border-radius: 10rpx;
-		background-color: #38DAA6;
+		background-color: #2C62EF;
 	}
 	
 

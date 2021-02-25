@@ -138,7 +138,7 @@
 			</view>
 
 			<view class="course-wrap">
-				<view @click="viewContentInfo(item.id,item.paytype)" class="live-list" v-for="(item, index) in list_info" :key="index">
+				<view @click="viewContentInfo(item.id,item.paytype)" class="live-list live-list-know" v-for="(item, index) in list_info" :key="index">
 					<view class="live-list-img-wrap">
 						<image class="live-list-img" :src="item.thumb" mode="aspectFill"></image>
 						<text class="course-title-icon">内容</text>
@@ -642,5 +642,8 @@
 		right: 10rpx !important;
 	}
 	
+	.live-list-know {
+		padding-left: 0 !important;
+	}	
 			
 </style>

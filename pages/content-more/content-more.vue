@@ -139,9 +139,8 @@
 			getData() {
 				//获取分类
 				uni.request({
-					url: getApp().globalData.site_url + 'Homeknowledge.GetIndex',
+					url: getApp().globalData.site_url + 'Knowledge.GetKnowledgeClass',
 					data: {
-						'gradeid': getApp().globalData.grade_class.id
 					},
 					success: (res) => {
 						let data = res.data.data;
@@ -376,8 +375,7 @@
 	
 	/* 大班课单独样式 */
 	.liveinfo-wrap {
-		/* padding-top: 2rpx; */
-		/* min-height: 1500rpx; */
+		
 		background-color: #FFFFFF;
 	}
 

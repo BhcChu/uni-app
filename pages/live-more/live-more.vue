@@ -1,17 +1,21 @@
 <template>
 	<view class="liveinfo-wrap">
-		<view class="flex align-center font-weight-bold course-tab">
-			<scroll-view class="scroll-view_H" scroll-x="true" scroll-left="10" :scroll-into-view="currentScrollId">
-				<view class="courseclass-tab-item" :id="'scroll_item' + index" @click="changeTab(index,item.id)" v-for="(item, index) in tabBars" :key="index" :class="tabIndex === index ? 'courseclass-text-main' : 'courseclass-text-light-muted'">
-				{{item.name}}
-				</view>
-			</scroll-view>
-		</view>
+		<view class="mark-type-wrap">
+			<view class="flex align-center font-weight-bold course-tab mark-sub-tab">
+				<scroll-view class="scroll-view_H" scroll-x="true" scroll-left="10" :scroll-into-view="currentScrollId">
+					<view class="courseclass-tab-item" :id="'scroll_item' + index" @click="changeTab(index,item.id)" v-for="(item, index) in tabBars" :key="index" :class="tabIndex === index ? 'courseclass-text-main' : 'courseclass-text-light-muted'">
+					{{item.name}}
+					</view>
+				</scroll-view>
+			</view>
+		</view>	
+	
+		
 	<!-- 直播课列表 -->
 	<swiper :current="tabIndex" class="swiper-box" :style="{height:scrollH+'rpx'}" >
 		<!-- 全部 -->
 		<swiper-item @touchmove.stop v-for="(index) in tabBars">
-			<scroll-view scroll-x="false" :style="'height:' + scrollH+'rpx;'" @scrolltolower="loadmoreEvent">
+			<scroll-view scroll-y :style="'height:' + scrollH+'rpx;'">
 				<view @click="viewLiveInfo(item.id,item.paytype)" class="live-list" v-for="(item, index) in live_info"  :key="index">
 					<view class="live-list-img-wrap">
 						<image class="live-list-img" :src="item.thumb" mode="aspectFill"></image>
@@ -74,40 +78,33 @@
 					that.scrollH = res.windowHeight * 750 / res.windowWidth - 100;
 				}
 			});	
+			this.getData();
 		},
 		onLoad() {
-			this.getData();
 		},
 		methods: {
 			getData() {
 				let that = this;
 				//获取分类标签
-				if(app.globalData.course_class == '') {
-					uni.request({
-						url: getApp().globalData.site_url + 'Homeknowledge.GetIndex',
-						data: {
-							'gradeid': getApp().globalData.grade_class.id
-						},
-						success: (res) => {
-							let data = res.data.data;
-							if (parseInt(res.data.data.code) !== 0) {
-								return;
-							}
-							that.tabBars = data.info[0].courseclass;
-							that.getLiveCourseList(that.tabBars[0].id, 0);
-						},
-						fail() {
-							uni.showToast({
-								icon: 'none',
-								title: '网络错误, 请重试'
-							});
+				uni.request({
+					url: app.globalData.site_url + 'Knowledge.GetKnowledgeClass',
+					data: {
+					},
+					success: (res) => {
+						let data = res.data.data;
+						if (parseInt(res.data.data.code) !== 0) {
+							return;
 						}
-					});
-					
-				} else {
-					that.tabBars = app.globalData.course_class;
-					that.getLiveCourseList(that.tabBars[0].id, 0);
-				}
+						that.tabBars = data.info[0].courseclass;
+						that.getLiveCourseList(that.tabBars[0].id, 0);
+					},
+					fail() {
+						uni.showToast({
+							icon: 'none',
+							title: '网络错误, 请重试'
+						});
+					}
+				});
 				
 			},
 			getLiveCourseList(kid,subindex){
@@ -116,14 +113,13 @@
 					url: gData.site_url + 'Knowledge.GetList',
 					method: 'GET',
 					data: {
-						'type' : 0,
 						'p' : 1,
 						'knowledge_id':kid,
 						'course_type': 2, //2代表所有大班课
 						'type':subindex
 					},
 					success: res => {
-						
+						console.log(res);
 						if(parseInt(res.data.data.code) !== 0) {
 							uni.showToast({
 								icon: 'none',
@@ -151,8 +147,9 @@
 			},
 			//切换选项卡
 			changeTab(index) {
+				
 				this.tabIndex = index;
-				this.getLiveCourseList(this.tabBars[this.tabIndex].id);
+				this.getLiveCourseList(this.tabBars[index].id, 0);
 			},
 			
 		}
@@ -168,12 +165,25 @@
 	/* 大班课单独样式 */
 	page{
 		background-color: #F5F5F5;
+		overflow: hidden;
 	}
 	.course-tab {
 		margin-top: 10rpx;
 		margin-bottom: 45rpx;
 		height: 45rpx;
 	}
+	.mark-type-wrap {
+		margin-top: 20rpx;
+	}
+	
+	/* 子滑动标签 */
+	.mark-sub-tab {
+		margin-bottom: 36rpx;
+		margin-left: 20rpx;
+		width: 100%;
+		overflow: hidden;
+	}
+	
 	.scroll-view_H {
 		width: 100%;
 		white-space: nowrap;
@@ -217,7 +227,6 @@
 	.liveinfo-wrap {
 		margin-top: 2rpx;
 		padding-top: 20rpx;
-		min-height: 1500rpx;
 		background-color: #FFFFFF;
 	}	
 	
