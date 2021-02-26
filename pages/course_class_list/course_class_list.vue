@@ -228,6 +228,7 @@
 	/*子标签样式*/
 	.mark-type-wrap {
 		margin-top: 20rpx;
+		z-index: 999;
 	}
 	/* 子滑动标签 */
 	.mark-sub-tab {

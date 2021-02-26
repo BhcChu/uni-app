@@ -21,6 +21,7 @@
 					<image class="gowucheimage" src="../../static/gouwuche.png" mode="aspectFit">
 					</image>
 					<template v-if="nums != 0">
+			
 						<view class="gouwunums">
 							<view class="carnums">{{nums}}</view>
 						</view>
@@ -645,5 +646,10 @@
 	.live-list-know {
 		padding-left: 0 !important;
 	}	
+	
+	
+	.live-ketang-name {
+		padding-left: 0 !important;
+	}
 			
 </style>

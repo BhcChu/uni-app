@@ -1,7 +1,7 @@
 <template>
 	<view class="liveinfo-wrap">
 		<view class="mark-type-wrap">
-			<view class="flex align-center font-weight-bold course-tab mark-sub-tab">
+			<view class="flex align-center font-weight-bold course-tab">
 				<scroll-view class="scroll-view_H" scroll-x="true" scroll-left="10" :scroll-into-view="currentScrollId">
 					<view class="courseclass-tab-item" :id="'scroll_item' + index" @click="changeTab(index,item.id)" v-for="(item, index) in tabBars" :key="index" :class="tabIndex === index ? 'courseclass-text-main' : 'courseclass-text-light-muted'">
 					{{item.name}}
@@ -173,7 +173,7 @@
 		height: 45rpx;
 	}
 	.mark-type-wrap {
-		margin-top: 20rpx;
+		z-index: 999;
 	}
 	
 	/* 子滑动标签 */

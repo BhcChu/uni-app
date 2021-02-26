@@ -434,11 +434,11 @@
 			// #endif
 			// #ifdef APP-PLUS
 			if (uni.getSystemInfoSync().platform === 'android') {
-				console.log("运行在android");
+				// console.log("运行在android");
 				this.phonetype = 1;
 			} else if (uni.getSystemInfoSync().platform === 'ios') {
 				this.phonetype = 2;
-				console.log("运行在ios");
+				// console.log("运行在ios");
 			}
 			// #endif
 			this.ppts = [];
@@ -469,12 +469,12 @@
 			//音频播放事件
 			this.chat_audio.onPlay(() => {
 				this.isaudioerror = false;
-				console.log('开始播放');
+				// console.log('开始播放');
 			})
 			this.chat_audio.onStop(() => {
 				this.isaudioerror = false;
 				this.voice_index = -1;
-				console.log('播放结束-onStop');
+				// console.log('播放结束-onStop');
 				clearInterval(this.intervl);
 				for (let i = 0; i < this.voice_list.length; i++) {
 					this.voice_list[i] = '../../static/receiver_voice@3x.png';
@@ -485,7 +485,7 @@
 			this.chat_audio.onEnded(() => {
 				this.isaudioerror = false;
 				this.voice_index = -1;
-				console.log('播放结束-onEnded');
+				// console.log('播放结束-onEnded');
 				clearInterval(this.intervl);
 				for (let i = 0; i < this.voice_list.length; i++) {
 					this.voice_list[i] = '../../static/receiver_voice@3x.png';
@@ -496,9 +496,9 @@
 				this.chat_audio.stop();
 				this.isaudioerror = true;
 				clearInterval(this.intervl);
-				console.log('播放错误');
-				console.log(res.errMsg);
-				console.log(res.errCode);
+				// console.log('播放错误');
+				// console.log(res.errMsg);
+				// console.log(res.errCode);
 			});
 			//录音开始事件
 			this.Recorder.onStart(e => {

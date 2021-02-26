@@ -1,15 +1,16 @@
 <template>
 	<view>
+		<view class="line"></view>
 		<uni-nav-bar @clickLeft="backSearch" left-icon="back" title="相关老师"></uni-nav-bar>
-		<view class="m-teacher-wrap">
-			<view class="search-teacher-info">
-				<view @click="viewTeacherInfo(item.id)" class="search-teacher-item" v-for="(item, index) in teacherList" :key="item.id">
-					<image class="teacher-avatar" :src="item.avatar" mode=""></image>
-					<text class="teacher-name">{{item.user_nickname}}</text>
-					<text class="teacher-inner-arow">></text>
+		<view class="search-teacher-info">
+			<view @click="viewTeacherInfo(item.id)" class="search-teacher-item" v-for="(item, index) in teacherList" :key="item.id">
+				<view class="row">
+					<image class="teacher-avatar" :src="item.avatar" mode="aspectFill"></image>
+					<text class="teachername">{{item.user_nickname}}</text>
+					<image mode="aspectFit" class="back_image" src="../../static/navi_backImg@2xxx.png"></image>
 				</view>
+				<view class="line"></view>
 			</view>
-			
 		</view>
 		<template v-if="kongkong == true">
 			<view :class="{xiangziwrap : (kongkong == true)}">
@@ -49,7 +50,6 @@
 			
 		},
 		methods: {
-			
 			getSearchTeacher(keyword) {
 				uni.request({
 					url: app.globalData.site_url + "Teacher.Search",
@@ -62,11 +62,10 @@
 							this.kongkong = true;
 							return;
 						}
-						
 						let info = res.data.data.info;
 						this.teacherList = info;
 						if (this.teacherList.length > 0){
-							this.kongkong = fasle;
+							this.kongkong = false;
 						}
 						app.globalData.page = '';
 						app.globalData.data = '';
@@ -76,14 +75,18 @@
 			},
 			// 查看教师详情
 			viewTeacherInfo(touid) {
-				//获取老师基本信息, 判断登录
-				this.getTeacherInfo(touid);
-				
-				//跳转教师详情页并传入基本信息
+				if (getApp().globalData.userinfo == ''){
+					uni.navigateTo({
+						url: '../login/login',
+						success: res => {},
+						fail: () => {},
+						complete: () => {}
+					});
+					return;
+				}
 				uni.navigateTo({
 					url: '../teacherinfo/teacherinfo?touid=' + touid,
-				});
-				
+				});	
 			},
 			getTeacherInfo(touid) {
 				let gData = app.globalData;
@@ -127,44 +130,13 @@
 </script>
 
 <style>
-	
-	.m-teacher-wrap {
-		border-top: 6rpx solid #F5F5F5;
+	@import url("/static/css/search/search.css");
+	@import url("/static/css/course_list.css");	
+	.line{
+		width: 100%;
+		height: 1rpx;
+		background-color: #F5F5F5;
 	}
-	
-	/* 老师搜索结果 */
-	.search-teacher-info {
-		width: 95%;
-		padding-left: 7%;
-		margin: 0 auto 50rpx;
-	}
-	
-	.s-more-view {
-		float: right;	
-		margin-top: 10rpx;
-		margin-right: 40rpx;
-		font-size: 12rpx;
-	}
-	
-	/* 教师头像 */
-	.search-teacher-item {
-		width: 100%;	
-		height: 100rpx;
-		display: flex;
-		align-items: center;
-	}
-	
-	.teacher-avatar {
-		width: 90rpx;
-		height: 90rpx;
-		margin-right: 30rpx;
-		border-radius: 50%;
-	}
-	
-	.teacher-inner-arow {
-		margin-left: 60%;	
-	}
-	
 .xiangziwrap {
 	margin-top: calc(50% - 60px);
 	position: relative;

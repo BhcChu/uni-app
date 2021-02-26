@@ -346,6 +346,7 @@
 	.mark-type-wrap {
 		margin-top: 30rpx;
 		height: 60rpx;
+		z-index: 999;
 	}
 	/* 子滑动标签 */
 	.mark-sub-tab {

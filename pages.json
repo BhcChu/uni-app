@@ -9,6 +9,9 @@
 		{
 			"path": "pages/course_class_list/course_class_list",
 			"style": {
+				"app-plus": {
+					"titleNView":false
+				}
 			}
 		},
 		//banner图
@@ -62,7 +65,10 @@
 		{
 			"path": "pages/live-more/live-more",
 			"style": {
-				"navigationBarTitleText": "直播课堂"
+				"navigationBarTitleText": "直播课堂",
+				"app-plus":{
+					"titleNView":false
+				}
 			}
 		}, {
 			"path": "pages/coursemore/coursemore",
@@ -73,7 +79,10 @@
 		{
 			"path": "pages/content-more/content-more",
 			"style": {
-				"navigationBarTitleText": "精选内容"
+				"navigationBarTitleText": "精选内容",
+				"app-plus":{
+					"titleNView":false
+				}
 			}
 		},
 
