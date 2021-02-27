@@ -36,8 +36,8 @@
   - 禁止将本项目的代码和资源进行任何形式的出售，产生的一切任何后果责任由侵权者自负
   
   ### 商业合作
-   * 如果你想使用功能更完善的教育系统，请联系微信客服: wanyuekeji666 获取专业版
-   * 如果您想基于教育系统进行定制开发，我们提供有偿定制服务支持！
+   * 如果你想使用功能更完善的知识付费系统，请联系QQ客服: 2415408120 获取专业版
+   * 如果您想基于知识付费系统进行定制开发，我们提供有偿定制服务支持！
    * 其他合作模式不限，欢迎来撩！
    * 官网地址：[http://www.sdwanyue.com](http://www.sdwanyue.com)
                     
@@ -48,16 +48,16 @@
         <img class="kefu_weixin" style="float:left;" src="/readme/images/weixinlianxi.png" width="602" height="123"/>
         <div style="float:left;">
             <p>QQ：2415408120</p>
-            <p>QQ群：995910672</p>
+            <p>QQ群：605514618</p>
         </div>
     </div>
-    <a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=JShAyXeoKqg2lWFEUSElxELImhjeMG4y&jump_from=webapi"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="万岳知识付费讨论群" title="万岳知识付费讨论群"></a> 可加
+    <a target="_blank" href="https://jq.qq.com/?_wv=1027&k=D4SY3XFY"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="万岳知识付费讨论群" title="万岳知识付费讨论群"></a> 可加
     
-> QQ群：995910672
+> QQ群：605514618
     
  QQ群入群需验证
  
- 问题：万岳教育后台语言？
+ 问题：万岳知识付费后台语言？
  
  答案：（提示：java or php）
     
