@@ -25,32 +25,35 @@
 			</view>
 			</uni-nav-bar>
 		
-	<scroll-view class="index-all-wrap" scroll-y="true" :style="'height:' + scrollH+'rpx;'" >		
-		<view class="flex align-center font-weight-bold course-tab">
-			<scroll-view class="scroll-view_H" scroll-x="true" scroll-left="10" :scroll-into-view="currentScrollId">
-				<view class="courseclass-tab-item" :id="'scroll_item' + index" @click="changeTab(index, item.id)" v-for="(item, index) in tabBars" :key="index" :class="tabIndex === index ? 'courseclass-text-main' : 'courseclass-text-light-muted'">
-					{{item.name}}
-				</view>
-			</scroll-view>
-		</view>
-		<!-- 类型标签 -->
-		<view class="mark-type-wrap">
-			<view class="flex align-center font-weight-bold mark-sub-tab">
-				<scroll-view class="scroll-view_H" scroll-x="true" @scroll="scroll" scroll-left="120">
-					<view class="mark-sub-item" @click="changeSubTab(index)" v-for="(item, index) in tabBarsCourse" :key="index" :class="subTabIndex === index ? 'text-main' : 'text-light-muted'">
+		<view style="background-color: #FFFFFF;height: 130rpx; " class="course-abs-wrap">
+			<!-- 全部标签 -->
+			<view class="flex align-center font-weight-bold course-tab">
+				<scroll-view class="scroll-view_H" scroll-x="true" scroll-left="10" :scroll-into-view="currentScrollId">
+					<view class="courseclass-tab-item" :id="'scroll_item' + index" @click="changeTab(index, item.id)" v-for="(item, index) in tabBars" :key="index" :class="tabIndex === index ? 'courseclass-text-main' : 'courseclass-text-light-muted'">
 						{{item.name}}
 					</view>
 				</scroll-view>
 			</view>
-					
-		 </view>
+			<!-- 类型标签 -->
+			<view class="mark-type-wrap">
+				<view class="flex align-center font-weight-bold mark-sub-tab">
+					<scroll-view class="scroll-view_H" scroll-x="true" @scroll="scroll" scroll-left="120">
+						<view class="mark-sub-item" @click="changeSubTab(index)" v-for="(item, index) in tabBarsCourse" :key="index" :class="subTabIndex === index ? 'text-main' : 'text-light-muted'">
+							{{item.name}}
+						</view>
+					</scroll-view>
+				</view>	
+			 </view>
+		</view>
+		
+	<scroll-view class="index-all-wrap">			
+	
+	  <block v-if="userInfo != ''">
 				
-	<block v-if="userInfo != ''">
-				
-		<swiper :current="subTabIndex" class="swiper-box" :style="{height:scrollH+'rpx'}" @change="onChangeTab">
+		<swiper scroll-y="true" :current="subTabIndex" class="swiper-box" :style="{height:scrollH+'rpx'}" @change="onChangeTab">
 			<!-- 全部 -->
 			<swiper-item v-for="(index) in tabBarsCourse">
-				<scroll-view :style="'height:' + scrollH+'rpx;'" @scrolltolower="loadmoreEvent">
+				<scroll-view scroll-y :style="'height:' + scrollH+'rpx;'" @scrolltolower="loadmoreEvent">
 
 					<view @click="viewLiveInfo(item.id,item.sort)" class="live-list" v-for="(item, index) in list" :key="index">
 						<view class="live-list-img-wrap">
@@ -178,7 +181,7 @@
 			var that = this;
 			uni.getSystemInfo({
 				success: function(res) {
-					that.scrollH = res.windowHeight * 750 / res.windowWidth - 280;
+					that.scrollH = res.windowHeight * 750 / res.windowWidth - 140;
 					
 				}
 			});	

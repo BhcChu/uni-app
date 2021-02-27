@@ -270,15 +270,18 @@
 					"path": "pages/live_course_info/live_course_info",
 					"style": {
 						"navigationStyle": "custom",
-						"enablePullDownRefresh": false,
-						"navigationBarTitleText": "直播详情"
+						"app-plus": {
+							"titleNView":false
+						}
 					}
 
 				}, {
 					"path": "pages/content-info/content-info",
 					"style": {
 						"navigationStyle": "custom",
-						"navigationBarTitleText": "内容详情"
+						"app-plus": {
+							"titleNView":false
+						}
 					}
 				}, {
 					"path": "pages/courseinfo/courseinfo",
