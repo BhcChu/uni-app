@@ -1,12 +1,17 @@
 <template>
 	<view>
 
-		<uni-nav-bar @clickLeft="backCourseList" left-icon="back" :border="false" title="购物车" statusBar>
+		<!-- <uni-nav-bar @clickLeft="backCourseList" left-icon="back" :border="false" title="购物车" statusBar>
 			<view slot="right" @click="edit" class="edit">
 				{{editname}}
 			</view>
-		</uni-nav-bar>
-
+		</uni-nav-bar> -->
+		
+		<view class="top">
+			<view class="top_edit" @click="edit">
+				{{editname}}
+			</view>
+		</view>
 
 		<view class="liveinfo-wrap">
 			<!-- 直播课列表 -->
@@ -691,4 +696,29 @@
 		font-size: 18rpx;
 		color: #C7C7C7;
 	}
+	
+	.top {
+			width: 100%;
+			background-color: #FFFFFF;
+			height: 80rpx;
+			display: flex;
+			flex-direction: row;
+		}
+	
+		.top_shuliang {
+			margin-left: 40rpx;
+			height: 80rpx;
+			line-height: 80rpx;
+			color: #323232;
+		}
+	
+		.top_edit {
+			color: #2C62EF;
+			position: absolute;
+			right: 40rpx;
+			height: 80rpx;
+			line-height: 80rpx;
+		}
+	
+	
 </style>

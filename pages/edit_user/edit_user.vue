@@ -211,8 +211,8 @@
 	.pass-login-btn {
 		width: 80%;
 		font-size: 30rpx;
-		color: #646464;
-		background-color: #65CCB9;
+		color: #FFFFFF;
+		background-color: #2C62EF;
 	}
 
 	.main {

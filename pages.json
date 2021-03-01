@@ -25,8 +25,9 @@
 		{
 			"path": "pages/course/course",
 			"style": {
-				"navigationStyle": "custom",
-				"enablePullDownRefresh": false
+				"app-plus": {
+					"titleNView":false
+				}
 			}
 		},
 
@@ -41,7 +42,9 @@
 		{
 			"path": "pages/msg/msglist",
 			"style": {
-
+				"app-plus": {
+					"titleNView":false
+				}
 			}
 		},
 		//搜索
@@ -90,8 +93,9 @@
 		{
 			"path": "pages/shop-car/shop-car",
 			"style": {
-				"navigationStyle": "custom",
-				"navigationBarTitleText": "购物车"
+				"app-plus":{
+					"titleNView":false
+				}
 			}
 		},
 		//付款
@@ -142,21 +146,27 @@
 		{
 			"path": "pages/about/about",
 			"style": {
-				"navigationBarTitleText": ""
+				"app-plus":{
+					"titleNView":false
+				}
 			}
 		},
 		//设置
 		{
 			"path": "pages/setting/setting",
 			"style": {
-				"navigationBarTitleText": "设置"
+				"app-plus":{
+					"titleNView":false
+				}
 			}
 		},
 		//意见反馈
 		{
 			"path": "pages/yijian-fankui/yijian-fankui",
 			"style": {
-				"navigationBarTitleText": "意见反馈"
+				"app-plus":{
+					"titleNView":false
+				}
 			}
 		},
 		//我的课程
@@ -170,7 +180,9 @@
 		{
 			"path": "pages/lianxi-we/lianxi-we",
 			"style": {
-				"navigationBarTitleText": "联系我们"
+				"app-plus":{
+					"titleNView":false
+				}
 			}
 
 		},
@@ -178,7 +190,9 @@
 		{
 			"path": "pages/hasbuy/hasbuy",
 			"style": {
-				"navigationBarTitleText": "已购买"
+				"app-plus":{
+					"titleNView":false
+				}
 			}
 
 		},
@@ -233,13 +247,17 @@
 		{
 			"path": "pages/login/xieyi",
 			"style": {
-
+				"app-plus":{
+					"titleNView":false
+				}
 			}
 		},
 		{
 			"path": "pages/edit_user/edit_user",
 			"style": {
-				"navigationBarTitleText": "编辑资料"
+				"app-plus":{
+					"titleNView":false
+				}
 			}
 		}
 	    ,{
@@ -291,10 +309,6 @@
 					}
 				}
 				//更多
-
-
-
-
 			]
 		}
 	],
