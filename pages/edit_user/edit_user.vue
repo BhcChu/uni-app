@@ -34,7 +34,6 @@
 			}
 		},
 		onLoad(option) {
-
 			if (app.globalData.userinfo == '') {
 				uni.navigateTo({
 					url: '../login/login'
