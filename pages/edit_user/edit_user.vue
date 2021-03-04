@@ -107,6 +107,7 @@
 									});
 								}
 							},
+
 							fail() {
 								uni.hideLoading();
 								uni.showToast({
