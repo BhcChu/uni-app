@@ -279,7 +279,6 @@
 						// 发送 res.code 到后台换取 openId, sessionKey, unionId
 						uni.hideLoading();
 						that.code = res.code;
-						// console.log(res);
 
 						uni.getUserInfo({
 							success: (info) => {
@@ -314,7 +313,6 @@
 								});
 							}
 						});
-						// wxa78ad20db2e78eb9
 					}
 				});
 				// #endif
@@ -326,12 +324,10 @@
 				uni.login({
 					provider: 'weixin',
 					success: function(loginRes) {
-						// console.log(loginRes);
 						// 获取用户信息
 						uni.getUserInfo({
 							provider: 'weixin',
 							success: function(infoRes) {
-								// console.log(infoRes);
 								var nickName = infoRes.userInfo.nickName;
 								var avatarUrl = infoRes.userInfo.avatarUrl;
 								var unionid = infoRes.userInfo.unionId;
@@ -468,7 +464,6 @@
 						// #endif
 					},
 					success: (res) => {
-						// console.log(res);
 						uni.showToast({
 							icon: 'none',
 							title: res.data.data.msg
