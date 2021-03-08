@@ -138,7 +138,7 @@
 				});
 			},
 			viewLiveInfo(liveCourseId, sorttype) {
-				if (getApp().globalData.userinfo == '') {
+				if (app.globalData.userinfo == '') {
 					uni.navigateTo({
 						url: '../login/login'
 					})
@@ -159,7 +159,7 @@
 			},
 			
 			GetCourseList(kid,subIndex) {
-				let gData = getApp().globalData;
+				let gData = app.globalData;
 				let sort = 0;
 				if(subIndex == 1) { //大班课
 					sort = 2;
