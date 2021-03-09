@@ -119,7 +119,6 @@
 						'type':subindex
 					},
 					success: res => {
-						console.log(res);
 						if(parseInt(res.data.data.code) !== 0) {
 							uni.showToast({
 								icon: 'none',
