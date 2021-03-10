@@ -233,7 +233,6 @@
 				uni.login({
 					provider: 'qq',
 					success: function(loginRes) {
-						// console.log(loginRes);
 						// 获取用户信息
 
 						uni.getUserInfo({
@@ -266,7 +265,6 @@
 
 				// #ifdef MP-WEIXIN
 				// 登录
-				console.log('微信小程序登录');
 				let gData = app.globalData;
 				uni.showLoading({
 					title: '登录中...',
@@ -564,7 +562,7 @@
 					url: url,
 					data: data,
 					success: (res) => {
-						// console.log(res);
+
 						uni.hideLoading();
 						uni.showToast({
 							icon: 'none',
@@ -580,7 +578,7 @@
 							key: 'userinfo',
 							data: res.data.data.info[0],
 							success: function() {
-								// console.log('succes-存入成功');
+
 							}
 						});
 						setTimeout(function() {
