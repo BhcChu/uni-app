@@ -25,9 +25,7 @@
 		{
 			"path": "pages/course/course",
 			"style": {
-				"app-plus": {
-					"titleNView":false
-				}
+				"navigationStyle": "custom"
 			}
 		},
 
@@ -51,7 +49,10 @@
 		{
 			"path": "pages/search/search",
 			"style": {
-				"navigationStyle": "custom"
+				"navigationStyle": "custom",
+				"app-plus": {
+					"titleNView":false
+				}
 			}
 		}
 		//---------------------直播间-----------------------------------------//
@@ -139,7 +140,10 @@
 		{
 			"path": "pages/attenteacher/attenteacher",
 			"style": {
-				"navigationBarTitleText": "关注讲师"
+				"navigationBarTitleText": "关注讲师",
+				"app-plus":{
+					"titleNView":false
+				}
 			}
 		},
 		//关于我们
@@ -207,14 +211,20 @@
 		{
 			"path": "pages/moreteacher/moreteacher",
 			"style": {
-				"navigationStyle": "custom"
+				"navigationBarTitleText": "相关老师",
+				"app-plus":{
+					"titleNView":false
+				}
 			}
 		},
 		//教师主页
 		{
 			"path": "pages/teacherinfo/teacherinfo",
 			"style": {
-				"navigationStyle": "custom"
+				"navigationBarTitleText": "老师主页",
+				"app-plus":{
+					"titleNView":false
+				}
 			}
 		},
 		//我的学员
@@ -266,6 +276,24 @@
 				"navigationBarTitleText": "敬请期待"
 			}
         }
+        ,{
+            "path" : "pages/news/news",
+            "style" : {
+				"navigationBarTitleText": "新闻列表",
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+        }
+        ,{
+            "path" : "pages/news_detail/news_detail",
+            "style" : {
+				"navigationBarTitleText": "新闻详情",
+				"app-plus": {
+					"titleNView": false
+				}
+			}
+        }
     ],
 	"subpackages": [
 		{
@@ -274,20 +302,26 @@
 				{
 					"path": "pages/content-detail/content-detail",
 					"style": {
-						"navigationBarTitleText": "内容详情"
+						"navigationBarTitleText": "内容详情",
+						"app-plus": {
+							"titleNView": false
+						}
 					}
 				},
 				{
 					"path": "pages/live-info/live-infoplay",
 					"style": {
-						"navigationStyle" :"custom"
+						"navigationBarTitleText": "直播详情",
+						"app-plus": {
+							"titleNView": false
+						}
 					}
 				},
 
 				{
 					"path": "pages/live_course_info/live_course_info",
 					"style": {
-						"navigationStyle": "custom",
+						"navigationBarTitleText": "直播详情",
 						"app-plus": {
 							"titleNView":false
 						}
@@ -296,7 +330,7 @@
 				}, {
 					"path": "pages/content-info/content-info",
 					"style": {
-						"navigationStyle": "custom",
+						"navigationBarTitleText": "内容详情",
 						"app-plus": {
 							"titleNView":false
 						}
