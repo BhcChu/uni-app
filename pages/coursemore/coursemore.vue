@@ -67,7 +67,6 @@
 						if(res.data.data.info.length < 1) {
 							// 空空如也
 						}
-						// console.log(res);
 						this.list_info = res.data.data.info;
 						
 					},
