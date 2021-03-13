@@ -227,8 +227,6 @@
 
 				var that = this;
 
-
-
 				// #ifdef APP-PLUS
 				uni.login({
 					provider: 'qq',
