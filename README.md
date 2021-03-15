@@ -1,10 +1,16 @@
-<div align=center><img src="/readme/images/know_logo1.png" width="590" height="212"/></div>
+<div align=center><img src="/readme/images/know_logo2.png" width="590" height="212"/></div>
 
 ### 项目说明（如果对你有用，请点亮右上角的Star！）
 ##### <a target="_blank" href="http://doc.sdwanyue.com/wanyue_knowledge_uniapp/2176521">项目文档</a> |  <a target="_blank" href="http://doc.sdwanyue.com/wanyue_knowledge_uniapp/2176518">部署文档</a>  |  <a target="_blank" href="http://doc.sdwanyue.com/wanyue_knowledge_uniapp/2176565">发行步骤</a>
  
  ### 系统演示
  ![展示图](/readme/images/yanshi.png "展示图.png")
+ 
+ ### 目录结构
+ - 前端代码 knowledge_uni_app目录
+ - 后台代码 knowledge_admin目录
+ 
+
     
  ### Web版地址
  - 教师端地址: <a target="_blank" href="https://demo.sdwanyue.com/teacher">https://demo.sdwanyue.com/teacher</a> 账号:13866666666 密码:123456
