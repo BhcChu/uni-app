@@ -57,17 +57,12 @@
         <img class="kefu_weixin" style="float:left;" src="/readme/images/weixinlianxi.png" width="602" height="123"/>
         <div style="float:left;">
             <p>QQ：2415408120</p>
-            <p>QQ群：605514618</p>
         </div>
     </div>
-    <a target="_blank" href="https://jq.qq.com/?_wv=1027&k=D4SY3XFY"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="万岳知识付费讨论群" title="万岳知识付费讨论群"></a> 可加
+    <a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=JShAyXeoKqg2lWFEUSElxELImhjeMG4y&jump_from=webapi"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="万岳在线教育讨论群" title="万岳在线教育讨论群"></a> 可加
+    > QQ群：995910672
     
-> QQ群：605514618
+> QQ群：995910672
     
- QQ群入群需验证
- 
- 问题：万岳知识付费后台语言？
- 
- 答案：（提示：java or php）
     
 ![展示图](/readme/images/公众号.png "展示图.png")
