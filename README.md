@@ -1,4 +1,4 @@
-<div align=center><img src="/readme/images/know_logo2.png" width="590" height="212"/></div>
+<div align=center><img src="https://images.gitee.com/uploads/images/2021/0317/115853_a747d3f2_8543696.png" width="590" height="212"/></div>
 
 ### 项目说明（如果对你有用，请点亮右上角的Star！）
 ##### <a target="_blank" href="http://doc.sdwanyue.com/wanyue_knowledge_uniapp/2176521">项目文档</a> |  <a target="_blank" href="http://doc.sdwanyue.com/wanyue_knowledge_uniapp/2176518">部署文档</a>  |  <a target="_blank" href="http://doc.sdwanyue.com/wanyue_knowledge_uniapp/2176565">发行步骤</a> | <a target="_blank" href="http://doc.sdwanyue.com/wanyue_open_web/2107615">常见问题</a>
@@ -6,8 +6,7 @@
  
  
  ### 系统演示
- ![展示图](/readme/images/yanshi.png "展示图.png")
- 
+ ![展示图](https://images.gitee.com/uploads/images/2021/0317/115928_10d83614_8543696.png "yanshi.png")
  ### 目录结构
  - 前端代码 knowledge_uni_app目录
  - 后台代码 knowledge_admin目录
@@ -31,11 +30,11 @@
  
  
  ### 功能展示
-  ![展示图](/readme/images/img_1.png "展示图.png")
-  ![展示图](/readme/images/img_2.png "展示图.png")
-  ![展示图](/readme/images/img_3_1.png "展示图.png")
-  ![展示图](/readme/images/img_4.png "展示图.png")
-  
+![展示图](https://images.gitee.com/uploads/images/2021/0317/115954_e64618f5_8543696.png "img_1.png")
+![展示图](https://images.gitee.com/uploads/images/2021/0317/120005_8d96f670_8543696.png "img_2.png")
+![展示图](https://images.gitee.com/uploads/images/2021/0317/120015_db2dc016_8543696.png "img_3.png")
+![展示图](https://images.gitee.com/uploads/images/2021/0317/120028_2a7e21ef_8543696.png "img_3_1.png")
+![展示图](https://images.gitee.com/uploads/images/2021/0317/120042_cd02cead_8543696.png "img_4.png")
   ### 开源版使用须知
   
   - 允许用于个人学习、教学案例
@@ -54,15 +53,15 @@
   ### 联系我们（加客服经理微信或QQ，免费获取sql脚本）
     
 <div style='height: 130px'>
-        <img class="kefu_weixin" style="float:left;" src="/readme/images/weixinlianxi.png" width="602" height="123"/>
+        <img class="kefu_weixin" style="float:left;" src="https://images.gitee.com/uploads/images/2021/0317/120101_76088f0a_8543696.png" width="602" height="123"/>
         <div style="float:left;">
             <p>QQ：2415408120</p>
         </div>
     </div>
-    <a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=JShAyXeoKqg2lWFEUSElxELImhjeMG4y&jump_from=webapi"><img border="0" src="//pub.idqqimg.com/wpa/images/group.png" alt="万岳在线教育讨论群" title="万岳在线教育讨论群"></a> 可加
+    <a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=JShAyXeoKqg2lWFEUSElxELImhjeMG4y&jump_from=webapi"><img border="0" src="https://images.gitee.com/uploads/images/2021/0317/100424_072ee536_8543696.png" alt="万岳在线教育讨论群" title="万岳在线教育讨论群"></a> 可加
      QQ群：995910672
     
 > QQ群：995910672
     
     
-![展示图](/readme/images/公众号.png "展示图.png")
+![展示图](https://images.gitee.com/uploads/images/2021/0317/120154_112f6c82_8543696.png "公众号.png")
