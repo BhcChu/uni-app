@@ -2,8 +2,6 @@
 <template>
 	
 	<view>
-		
-	<!-- <uni-nav-bar @clickLeft="back" left-icon="back" :title="course_cname"></uni-nav-bar> -->
 
 	<view class="liveinfo-wrap">
 		<!-- 直播课列表 -->

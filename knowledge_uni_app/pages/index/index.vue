@@ -198,7 +198,6 @@
 		},
 		data() {
 			return {
-				kefu: ['社区客服', '线下客服', '单约', '其他'],
 				onReview: '',
 				//顶部选项卡
 				tabIndex: 0,
