@@ -307,9 +307,6 @@
 									fail: () => {
 
 									},
-									complete: () => {
-
-									}
 								});
 							}
 							successFun(res.data.data.code);

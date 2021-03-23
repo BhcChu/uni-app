@@ -66,7 +66,6 @@
 				
 					success: res => {
 				
-						console.log(res);
 						let info = res.data.data.info;
 						this.newsInfo = info;
 						

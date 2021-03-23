@@ -113,7 +113,7 @@
 					url: gData.site_url + 'Knowledge.GetList',
 					method: 'GET',
 					data: {
-						'p' : 1,
+						'p' : 0,
 						'knowledge_id':kid,
 						'course_type': 2, //2代表所有大班课
 						'type':subindex
