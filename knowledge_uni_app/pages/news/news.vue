@@ -102,6 +102,7 @@
 	}
 	
 	.view-nums-title {
+
 		color: #969696;
 		font-size: 24rpx;
 		margin-top: 22rpx;
