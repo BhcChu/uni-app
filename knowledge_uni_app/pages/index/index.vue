@@ -314,7 +314,6 @@
 						fail: () => {
 
 						},
-						complete: () => {}
 					});
 				}
 			},
@@ -510,18 +509,6 @@
 
 				uni.navigateTo({
 					url: '../shop-car/shop-car',
-				});
-			},
-			qidai(){
-				uni.showModal({
-					title: '敬请期待',
-					content: '',
-					showCancel: false,
-					cancelText: '返回',
-					confirmText: '确定',
-					success: res => {},
-					fail: () => {},
-					complete: () => {}
 				});
 			},
 			// 查看大班课(语音、PPT、视频直播)内容详情
