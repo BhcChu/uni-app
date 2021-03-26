@@ -156,7 +156,6 @@
 					this.course = this.info.course;
 					this.sys = this.info.sys;
 					this.teacher = this.info.teacher;
-				   // console.log(JSON.parse(JSON.stringify(res.data.data.info[0])));
 				},
 			});
 			},
@@ -175,10 +174,8 @@
 					uni.navigateTo({
 						url: '../search/search?type=user',
 					});
-					console.log('添加好友');
 						break;
 					case 'clear':
-					console.log('清除列表');
 						break;
 				}
 				// 关闭弹出层 
