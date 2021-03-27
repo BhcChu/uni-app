@@ -177,6 +177,7 @@
 						break;
 					case 'clear':
 						break;
+
 				}
 				// 关闭弹出层 
 				this.$refs.popup.close();
