@@ -143,12 +143,7 @@
 					'token': gData.userinfo.token
 				},
 				success: res => {
-					// if (res.data.data.code == 700) {
-					// 	uni.navigateTo({
-					// 		url: '../login/login'
-					// 	})
-					// 	return;
-					// }
+
 					if(res.data.data.info[0] == undefined) {
 						return;
 					}
