@@ -100,8 +100,7 @@
 			// #ifdef H5
 			this.system_top = 10;
 			// #endif
-			
-		
+
 			// #ifdef APP-PLUS
 			this.system_top = parseInt(res.safeArea.top) + 20;
 			// #endif

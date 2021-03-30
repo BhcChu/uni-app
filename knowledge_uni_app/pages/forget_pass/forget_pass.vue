@@ -49,8 +49,7 @@
 			
 		</view>
 		
-		<!-- <other-login></other-login> -->
-		
+
 	
 		
 	</view>
