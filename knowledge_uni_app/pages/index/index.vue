@@ -297,9 +297,6 @@
 										if (res.confirm) {
 											uni.navigateTo({
 												url: '../login/login',
-												success: res => {},
-												fail: () => {},
-												complete: () => {}
 											});
 
 										}
