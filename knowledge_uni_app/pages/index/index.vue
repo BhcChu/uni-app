@@ -314,9 +314,6 @@
 					});
 				}
 			},
-			kefubaoming() {
-				
-			},
 			openQidai() {
 				uni.navigateTo({
 					url: '../news/news',
