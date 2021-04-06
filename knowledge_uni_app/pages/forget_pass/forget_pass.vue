@@ -211,24 +211,16 @@
 				    data: data,
 				    success: (res) => {
 						
-					uni.showToast({
-						icon:'none',
-						title: res.data.data.msg,
-						duration: 2000,
-					});
+						uni.showToast({
+							icon:'none',
+							title: res.data.data.msg,
+							duration: 2000,
+						});
+
 						if(parseInt(res.data.data.code) !== 0) {
 							return;
 						}
-					
-						uni.navigateBack({
-							
-						});
-						// setTimeout(function(){
-						// 	uni.navigateTo({
-						// 		url:"../login/login",
-						// 	})
-						// },2000);
-						
+
 				    }
 				});
 				

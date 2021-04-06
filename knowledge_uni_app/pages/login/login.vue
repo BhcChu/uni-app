@@ -232,7 +232,6 @@
 					provider: 'qq',
 					success: function(loginRes) {
 						// 获取用户信息
-
 						uni.getUserInfo({
 							provider: 'qq',
 							success: function(infoRes) {
@@ -248,8 +247,6 @@
 					}
 				});
 				// #endif
-
-
 
 			},
 			wechatlogin() {

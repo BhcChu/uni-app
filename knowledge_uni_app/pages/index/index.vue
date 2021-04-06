@@ -2,33 +2,32 @@
 <template>
 	<!-- 外层包装 -->
 	<view class="page">
-			<uni-nav-bar status-bar="true" :border="false">
-					<view slot="left">
-						<view class="check_class">
-							<text>万岳知识付费</text>
-						</view>
+		<uni-nav-bar status-bar="true" :border="false">
+				<view slot="left">
+					<view class="check_class">
+						<text>万岳知识付费</text>
 					</view>
-			
-					<view class="search-all-wrap">
-						<view class="search-wrap" @click="search">
-							<text class="iconfont icon-faxianchaxun"></text>
-							<input disabled="true" class="uni-input" placeholder="搜索课程, 老师" placeholder-style="color:#C7C7C7; font-size:20rpx;" />
-						</view>
+				</view>
+
+				<view class="search-all-wrap">
+					<view class="search-wrap" @click="search">
+						<text class="iconfont icon-faxianchaxun"></text>
+						<input disabled="true" class="uni-input" placeholder="搜索课程, 老师" placeholder-style="color:#C7C7C7; font-size:20rpx;" />
 					</view>
-					<view @click="shopcar" slot="right" style="position: relative; right: -30rpx;">
-						<view class="new_gouwuche">
-							<image class="gowucheimage" src="../../static/gouwuche.png" mode="aspectFit">
-							</image>
-							<template v-if="nums != 0">
-								<view class="gouwunums">
-									<view class="carnums">{{nums}}</view>
-								</view>
-							</template>
-						</view>
+				</view>
+				<view @click="shopcar" slot="right" style="position: relative; right: -30rpx;">
+					<view class="new_gouwuche">
+						<image class="gowucheimage" src="../../static/gouwuche.png" mode="aspectFit">
+						</image>
+						<template v-if="nums != 0">
+							<view class="gouwunums">
+								<view class="carnums">{{nums}}</view>
+							</view>
+						</template>
 					</view>
-				</uni-nav-bar>
-				
-				
+				</view>
+			</uni-nav-bar>
+
 			<scroll-view class="index-all-wrap" scroll-y="true" :style="'height:' + scrollH+'rpx;'" >	
 				<!-- 轮播图 -->
 				<view class="index-banner-wrap">
@@ -42,12 +41,11 @@
 			
 				<!-- 课程分类 -->
 				<view class="index-course-wrap">
-						<view @click="getCourseByClass(item.id, item.name)" class="know-item course-item scroll-view-item_H" v-for="(item, index) in course_class"
-						 :key="item.id">
-							<image :src="item.thumb" mode="aspectFit"></image>
-							<text>{{item.name}}</text>
-						</view>
-					
+					<view @click="getCourseByClass(item.id, item.name)" class="know-item course-item scroll-view-item_H" v-for="(item, index) in course_class"
+					 :key="item.id">
+						<image :src="item.thumb" mode="aspectFit"></image>
+						<text>{{item.name}}</text>
+					</view>
 				</view>
 				
 				<!-- 新闻资讯 -->
@@ -482,8 +480,7 @@
 				})
 			},
 			bannerTo(item) {
-				//此方法只能在真机端运行
-				// plus.runtime.openURL(item.url);
+
 				uni.navigateTo({
 					url: '../about/banner?url=' + encodeURIComponent(JSON.stringify(item.url)) + '&title=' + item.title,
 				});
