@@ -32,7 +32,6 @@
 			}
 		},
 		onLoad(option) {
-			console.log(option);
 			let gData = app.globalData;
 			uni.request({
 				url: gData.site_url + 'User.GetFans',
@@ -43,7 +42,6 @@
 					'p' : 0
 				},
 				success: res => {
-					console.log(res);
 					if(res.data.ret != 200) {
 						uni.showToast({
 							icon: 'none',
