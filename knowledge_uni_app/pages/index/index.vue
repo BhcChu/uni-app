@@ -260,8 +260,6 @@
 			var that = this;
 			that.getData();
 			that.getNews();
-	
-			this.$store.commit('changeLoginStatus', 123);
 
 			uni.getSystemInfo({
 				success: (res) => {

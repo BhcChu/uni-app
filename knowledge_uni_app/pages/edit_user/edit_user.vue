@@ -171,8 +171,8 @@
 					success: res => {
 
 						if (res.data.data.code == 0) {
-							getApp().globalData.userinfo.user_nickname = res.data.data.info[0].user_nickname;
-							getApp().globalData.userinfo.avatar = res.data.data.info[0].avatar;
+							app.globalData.userinfo.user_nickname = res.data.data.info[0].user_nickname;
+							app.globalData.userinfo.avatar = res.data.data.info[0].avatar;
 							uni.setStorage({
 								key: 'userinfo',
 								data: getApp().globalData.userinfo,
