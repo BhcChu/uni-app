@@ -365,7 +365,6 @@ echo <<<EOT
                     processData: false,
                     contentType: false,
                     success:function(res,status,xhr){
-                        console.log(xhr);
                         var statu = xhr.status + ' ' + xhr.statusText;
                         var header = xhr.getAllResponseHeaders();
                         var json_text = JSON.stringify(res, null, 4);    // 缩进4个空格

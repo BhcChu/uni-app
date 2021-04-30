@@ -99,7 +99,6 @@
 						url: '../login/login'
 					})
 					return;
-				
 			},
 			getinfo() {
 				let gData = app.globalData;
