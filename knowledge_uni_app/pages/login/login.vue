@@ -211,7 +211,6 @@
 						url: '../login/xieyi?type=5',
 						success: res => {},
 						fail: () => {},
-						complete: () => {}
 					});
 				}
 

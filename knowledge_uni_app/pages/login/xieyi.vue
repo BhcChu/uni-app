@@ -15,7 +15,9 @@
 			}
 		},
 		onLoad(option) {
-			this.url = getApp().globalData.site_h5url + 'appapi/page/detail?id=' + option.type;
+			if(option != undefined) {
+				this.url = getApp().globalData.site_h5url + 'appapi/page/detail?id=' + option.type;
+			}
 		}
 	}
 </script>
