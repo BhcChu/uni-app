@@ -70,7 +70,7 @@
 							icon: 'none',
 							title: res.data.data.msg,
 						});
-						if(parseInt(res.data.data.code) != 0) {
+						if(parseInt(res.data.data.code) !== 0) {
 							return;
 						}
 						uni.navigateBack({

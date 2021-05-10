@@ -7,6 +7,8 @@
 </template>
 
 <script>
+	const app = getApp();
+
 	export default{
 		data(){
 			return{
@@ -16,7 +18,7 @@
 		},
 		onLoad(option) {
 			if(option != undefined) {
-				this.url = getApp().globalData.site_h5url + 'appapi/page/detail?id=' + option.type;
+				this.url = app.globalData.site_h5url + 'appapi/page/detail?id=' + option.type;
 			}
 		}
 	}
