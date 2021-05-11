@@ -357,7 +357,6 @@
 			},
 			getnums() {
 				if (app.globalData.userinfo == '') {
-
 					return;
 				}
 				let gData = app.globalData;

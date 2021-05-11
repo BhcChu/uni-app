@@ -175,7 +175,7 @@
 							app.globalData.userinfo.avatar = res.data.data.info[0].avatar;
 							uni.setStorage({
 								key: 'userinfo',
-								data: getApp().globalData.userinfo,
+								data: app.globalData.userinfo,
 								success: function(res) {
 									
 								}
