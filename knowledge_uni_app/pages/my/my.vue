@@ -110,8 +110,7 @@
 						'token': gData.userinfo.token
 					},
 					success: res => {
-						console.log(res);
-						
+
 						if (parseInt(res.data.data.code) !== 0) {
 							return;
 						}

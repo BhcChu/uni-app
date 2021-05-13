@@ -60,10 +60,10 @@
 						'uid' : gData.userinfo.id,
 						'token' : gData.userinfo.token,
 						'fields' : JSON.stringify({
-										'school' : this.school,
-										'experience' : this.experience,
-										'feature' : this.feature,
-								   }),
+								'school' : this.school,
+								'experience' : this.experience,
+								'feature' : this.feature,
+					   	}),
 					},
 					success: res => {
 						uni.showToast({
