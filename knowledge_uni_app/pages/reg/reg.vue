@@ -143,7 +143,7 @@
 						type: 1, //0登录1注册2忘记密码
 						sign: sign, //加密md5串
 						// #ifdef MP-WEIXIN
-						env: 'weixin'	
+						env: 'weixin',
 						// #endif
 						// #ifdef H5
 						env: 'H5'
