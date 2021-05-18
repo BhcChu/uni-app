@@ -166,7 +166,7 @@
 						this.codeTime = 0;
 						clearInterval(timer);
 					}
-				},1000)
+				},1100)
 			},
 			//验证
 			validate(){
