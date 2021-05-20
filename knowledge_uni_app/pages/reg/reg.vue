@@ -101,6 +101,7 @@
 		},
 		methods: {
 			username_input(event) {
+
 				if (event.detail.value.length == 11) {
 					this.canshowcode = true;
 				} else {
@@ -245,10 +246,9 @@
 					}, 2000);
 				    }
 				});
-				
-				
+
 			}
-			
+
 		}
 	}
 </script>

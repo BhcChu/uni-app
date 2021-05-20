@@ -1,11 +1,6 @@
 <template>
 	<view>
 
-		<!-- <uni-nav-bar @clickLeft="backCourseList" left-icon="back" :border="false" title="购物车" statusBar>
-			<view slot="right" @click="edit" class="edit">
-				{{editname}}
-			</view>
-		</uni-nav-bar> -->
 		
 		<view class="top">
 			<view class="top_edit" @click="edit">
