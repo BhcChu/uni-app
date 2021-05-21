@@ -215,7 +215,7 @@
 						pass: this.password,
 						source: 3, //0web，1android，2ios，3小程序
 						// #ifdef MP-WEIXIN
-						env: 'weixin'	
+						env: 'weixin',
 						// #endif
 						// #ifdef H5
 						env: 'H5'

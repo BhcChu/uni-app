@@ -62,11 +62,9 @@
 				uni.chooseImage({
 					count: 1,
 					success(res) {
-						// console.log(res.tempFilePaths[0]);
 						var path = res.tempFilePaths[0];
 						that.imagegroup[index] = path;
 						that.$set(that.imagegroup, index, path);
-						console.log(that.imagegroup);
 					}
 				});
 			},
