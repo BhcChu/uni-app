@@ -31,7 +31,7 @@
 				inputs: ['姓名', '手机号', '身份行号'],
 				livephotos: ['身份证正面照', '身份证背面照', '手持身份证照'],
 				imagegroup: [
-					'', '', ''
+					'', '', '',
 				],
 				name: '',
 				phonenumber: '',
@@ -108,15 +108,15 @@
 					title: '提交中...',
 					mask: false
 				});
-				let gData = getApp().globalData;
+				let gData = app.globalData;
 				var that = this;
 				uni.request({
 
 					url: gData.site_url + 'Upload.GetQiniuToken',
 					method: 'POST',
 					data: {
-						'uid': getApp().globalData.userinfo.id,
-						'token': getApp().globalData.userinfo.token
+						'uid': app.globalData.userinfo.id,
+						'token': app.globalData.userinfo.token
 					},
 					success: res2 => {
 						uni.hideLoading();
