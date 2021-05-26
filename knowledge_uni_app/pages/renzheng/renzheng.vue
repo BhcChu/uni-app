@@ -192,9 +192,7 @@
 					},
 					success: res => {
 						uni.hideLoading();
-						if (res.data.data.code == 0) {
-
-						} else {
+						if (res.data.data.code != 0) {
 							uni.hideLoading();
 						}
 						uni.showToast({
