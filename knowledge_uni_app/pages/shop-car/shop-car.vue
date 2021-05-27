@@ -203,6 +203,8 @@
 				});
 			},
 			buy() {
+
+				let that = this;
 				//删除
 				if (this.isedit == 1) {
 					if (this.deleteAllID.length == 0) {
@@ -222,16 +224,16 @@
 							uni.showToast({
 								title: res.data.data.msg
 							});
-							this.getLiveCourseList();
+							that.getLiveCourseList();
 						},
 					});
 
 				} else {
-					if (this.finishArray.length == 0) {
+					if (that.finishArray.length == 0) {
 						return;
 					}
 					uni.navigateTo({
-						url: '../pay/pay?info=' + encodeURIComponent(JSON.stringify(this.finishArray)) + '&money=' + this.allmoney +
+						url: '../pay/pay?info=' + encodeURIComponent(JSON.stringify(that.finishArray)) + '&money=' + that.allmoney +
 							'&isCar=' + 'isCar',
 					});
 				}
