@@ -211,6 +211,7 @@
 						return;
 					}
 					let gData = app.globalData;
+
 					uni.request({
 						url: gData.site_url + 'Cart.Del',
 						method: 'GET',
