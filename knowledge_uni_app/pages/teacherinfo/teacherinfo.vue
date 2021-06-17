@@ -210,11 +210,9 @@
 								url: "../login/login", 
 							})
 						}
-						
 						if(parseInt(res.data.data.code) !== 0) {
 							return;
 						}
-						
 						let info = res.data.data.info[0];
 						this.teacherInfo = info;
 						if(info.isattent == '1') {
