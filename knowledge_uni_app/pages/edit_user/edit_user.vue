@@ -183,7 +183,7 @@
 								uni.navigateBack({
 									delta: 1
 								});
-							}, 300);
+							}, 200);
 						}
 						uni.showToast({
 							icon: 'none',
