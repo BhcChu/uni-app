@@ -360,7 +360,7 @@
 			},
 			//获取购物车的数量
 			getnums() {
-				if (getApp().globalData.userinfo == '') {
+				if (app.globalData.userinfo == '') {
 					return;
 				}
 				let gData = app.globalData;
@@ -384,7 +384,7 @@
 				})
 			},
 			shopcar() {
-				if (getApp().globalData.userinfo == '') {
+				if (app.globalData.userinfo == '') {
 					uni.navigateTo({
 						url: '../login/login'
 					})
@@ -405,8 +405,6 @@
 		overflow: hidden;
 	}
 	.page{
-		/* width: 100%;
-		height: 100%; */
 		width: 100%;
 		margin: 0 auto;
 	}
