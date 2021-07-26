@@ -101,7 +101,6 @@
 				loadmore: "上拉加载更多",
 				kongkong: false,
 				system_top:0,
-				
 				tabBarsCourse: [
 					{
 						name: "全部"
