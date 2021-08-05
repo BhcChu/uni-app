@@ -138,7 +138,6 @@
 					url: '../../packageB/pages/taocaninfo/taocaninfo?courseid=' + liveCourseId
 				});
 			}
-			//
 			else if(sorttype == 0){
 				uni.navigateTo({
 					url: '../../packageB/pages/content-info/content-info?courseid=' + liveCourseId

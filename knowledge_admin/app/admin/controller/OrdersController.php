@@ -140,7 +140,7 @@ class OrdersController extends AdminbaseController
 
         $map[] = ['orderno', '=', $orderno];
 
-        $lists = Db::name("orders_good")->where($map)->order("id desc")->paginate(20, false, ['query' => input()]);
+        $lists = Db::name("orders_good")->where($map)->order("id desc")->paginate(10, false, ['query' => input()]);
 
         $lists->each(function ($v, $k) {
             $type   = $v['type'];
