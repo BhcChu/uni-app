@@ -130,7 +130,7 @@
 							// 空空如也
 							this.kongkong = true;
 							this.live_info = [];
-						}else{
+						} else {
 							this.kongkong = false;
 							this.live_info = res.data.data.info;
 						}

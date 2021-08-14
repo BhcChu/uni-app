@@ -133,7 +133,7 @@
 				});
 			},
 			MessageGetNew(){
-			let gData = getApp().globalData;
+			let gData = app.globalData;
 			uni.request({
 				url: gData.site_url + 'Message.GetNew',
 				method: 'GET',
