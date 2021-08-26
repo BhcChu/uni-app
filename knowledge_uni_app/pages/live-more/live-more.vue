@@ -209,15 +209,15 @@
 	}
 		
 	.courseclass-text-main::after {
-			content: "";
-			width: 35rpx;
-			height: 4rpx;
-			background: linear-gradient(to top right, #3D98FF, #7A76FA);
-			position: absolute;
-			top: 50rpx;
-			left: 55rpx;
-			line-height: 0;
-			display: inline-block;
+		content: "";
+		width: 35rpx;
+		height: 4rpx;
+		background: linear-gradient(to top right, #3D98FF, #7A76FA);
+		position: absolute;
+		top: 50rpx;
+		left: 55rpx;
+		line-height: 0;
+		display: inline-block;
 	}
 	.swiper-box {
 		margin-top: 20rpx;
