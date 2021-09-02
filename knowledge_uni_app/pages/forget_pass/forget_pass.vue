@@ -98,8 +98,7 @@
 				}
 				return false;
 			},
-			
-		
+
 		},
 		methods: {
 			back(){
@@ -150,7 +149,6 @@
 						})
 					}
 				});
-
 
 				let timer = setInterval(()=>{
 					if(this.codeTime >= 1){

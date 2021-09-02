@@ -389,8 +389,6 @@
 				uni.request({
 					url: gData.site_url + 'Knowledge.getNews',
 					method: 'GET',
-					data: {
-					},	
 					success: res => {
 						let data = res.data.data;
 						if(data.code == 0 && data.info.length > 0) {
