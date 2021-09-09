@@ -42,15 +42,7 @@
 			<navigator v-show="isForgetShow" class="forget-pass" url="/pages/forget_pass/forget_pass">{{foretPass}}</navigator>
 			
 		</view>
-		
-		
-		
-		<view class="flex align-center justify-center">
-			
-		</view>
-		
 
-	
 		
 	</view>
 </template>
