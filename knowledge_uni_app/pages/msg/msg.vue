@@ -37,22 +37,7 @@
 					</view>
 					<view class="line"></view>
 					<!-- 讲师动态 -->
-					
-					<!-- <view @click="msgdetail('2','讲师动态')" class="msg-md-main">
-						<image src="../../static/jiangshidongtai.png" mode="aspectFill" class="msg-img"></image>
-						<view class="msg-md-wrap">
-							<text class="msg-title">讲师动态</text>
-							<template v-if="teacher.length > 0">
-							<text class="msg-info">{{teacher[0].content}}</text>
-							</template>
-							<template v-else>
-								<text class="msg-info">暂无相关动态</text>
-							</template>
-							
-						</view>
-					</view> -->
-				<!-- <view class="line"></view> -->
-				
+
 			</block>
 			
 			<block v-else>
@@ -133,25 +118,25 @@
 				});
 			},
 			MessageGetNew(){
-			let gData = app.globalData;
-			uni.request({
-				url: gData.site_url + 'Message.GetNew',
-				method: 'GET',
-				data: {
-					'uid': gData.userinfo.id,
-					'token': gData.userinfo.token
-				},
-				success: res => {
+				let gData = app.globalData;
+				uni.request({
+					url: gData.site_url + 'Message.GetNew',
+					method: 'GET',
+					data: {
+						'uid': gData.userinfo.id,
+						'token': gData.userinfo.token
+					},
+					success: res => {
 
-					if(res.data.data.info[0] == undefined) {
-						return;
-					}
-					this.info = res.data.data.info[0];
-					this.course = this.info.course;
-					this.sys = this.info.sys;
-					this.teacher = this.info.teacher;
-				},
-			});
+						if(res.data.data.info[0] == undefined) {
+							return;
+						}
+						this.info = res.data.data.info[0];
+						this.course = this.info.course;
+						this.sys = this.info.sys;
+						this.teacher = this.info.teacher;
+					},
+				});
 			},
 			//下拉刷新
 			refresh(){
