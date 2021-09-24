@@ -79,7 +79,7 @@
 			const res = uni.getSystemInfoSync();
 			
 			// #ifdef MP-WEIXIN
-			this.system_top = parseInt(res.safeArea.top) + 110;
+			this.system_top = parseInt(res.safeArea.top) + 100;
 			// #endif
 			
 			// #ifdef H5
