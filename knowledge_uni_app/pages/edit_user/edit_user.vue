@@ -189,9 +189,7 @@
 							icon: 'none',
 							title: res.data.data.msg
 						});
-						if (res.data.data.code != 0) {
-							return;
-						}
+
 						
 					},
 					fail: () => {
