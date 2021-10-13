@@ -339,7 +339,7 @@
 						},
 						success: (res) => {
 						
-							if (parseInt(res.data.data.code) == 0) {
+							if (res.data.data.code == 0) {
 								this.prompt('');
 							}
 							uni.showToast({
