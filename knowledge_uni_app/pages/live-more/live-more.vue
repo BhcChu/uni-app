@@ -68,7 +68,7 @@
 				tabIndex: 0,
 				tabBars: [],
 				kongkong: false,
-				currentScrollId: '', //当前选中的标签id
+				currentScrollId: '' //当前选中的标签id
 			}
 		},
 		onReady() {
