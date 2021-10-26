@@ -254,10 +254,7 @@
 		font-weight: bold;
 		font-size: 44rpx;
 	}
-	
-	
-	
-	
+
 	/* 输入框部分 */
 	.login-input-wrap input {
 		color: #000000;

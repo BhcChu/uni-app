@@ -146,7 +146,6 @@
 			},
 			//切换选项卡
 			changeTab(index) {
-				
 				this.tabIndex = index;
 				this.getLiveCourseList(this.tabBars[index].id, 0);
 			},
