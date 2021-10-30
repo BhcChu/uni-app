@@ -176,7 +176,7 @@
 								key: 'userinfo',
 								data: app.globalData.userinfo,
 								success: function(res) {
-									
+									console.log(res);
 								}
 							});
 							setTimeout(() => {
