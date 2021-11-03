@@ -164,7 +164,7 @@
 						'token': gData.userinfo.token,
 						'fields': JSON.stringify({
 							'user_nickname': this.user_nickname,
-							'avatar': this.avatarPath
+							'avatar': this.avatarPath,
 						})
 					},
 					success: res => {
