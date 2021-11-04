@@ -95,8 +95,7 @@
 				method: 'GET',
 				data: {
 					'uid' : gData.userinfo.id,
-					'token' : gData.userinfo.token
-					
+					'token' : gData.userinfo.token,
 				},
 				success: res => {
 					
@@ -132,7 +131,7 @@
 					})
 					return;
 				}
-				//套餐
+			//套餐
 			if(sorttype == undefined){
 				uni.navigateTo({
 					url: '../../packageB/pages/taocaninfo/taocaninfo?courseid=' + liveCourseId
