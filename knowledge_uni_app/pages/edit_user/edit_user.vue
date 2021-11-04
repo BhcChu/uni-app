@@ -164,7 +164,7 @@
 						'token': gData.userinfo.token,
 						'fields': JSON.stringify({
 							'user_nickname': this.user_nickname,
-							'avatar': this.avatarPath
+							'avatar': this.avatarPath,
 						})
 					},
 					success: res => {
@@ -176,22 +176,20 @@
 								key: 'userinfo',
 								data: app.globalData.userinfo,
 								success: function(res) {
-									
+									console.log(res);
 								}
 							});
 							setTimeout(() => {
 								uni.navigateBack({
 									delta: 1
 								});
-							}, 200);
+							}, 150);
 						}
 						uni.showToast({
 							icon: 'none',
 							title: res.data.data.msg
 						});
-						if (parseInt(res.data.data.code) !== 0) {
-							return;
-						}
+
 						
 					},
 					fail: () => {

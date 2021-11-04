@@ -263,7 +263,7 @@
 
 			uni.getSystemInfo({
 				success: (res) => {
-					let height = res.windowHeight - uni.upx2px(100)
+					let height = res.windowHeight - uni.upx2px(100);
 					this.swiperheight = height;
 				}
 			});
@@ -339,7 +339,7 @@
 						},
 						success: (res) => {
 						
-							if (parseInt(res.data.data.code) == 0) {
+							if (res.data.data.code == 0) {
 								this.prompt('');
 							}
 							uni.showToast({
@@ -389,8 +389,6 @@
 				uni.request({
 					url: gData.site_url + 'Knowledge.getNews',
 					method: 'GET',
-					data: {
-					},	
 					success: res => {
 						let data = res.data.data;
 						if(data.code == 0 && data.info.length > 0) {

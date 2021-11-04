@@ -42,15 +42,7 @@
 			<navigator v-show="isForgetShow" class="forget-pass" url="/pages/forget_pass/forget_pass">{{foretPass}}</navigator>
 			
 		</view>
-		
-		
-		
-		<view class="flex align-center justify-center">
-			
-		</view>
-		
 
-	
 		
 	</view>
 </template>
@@ -98,8 +90,7 @@
 				}
 				return false;
 			},
-			
-		
+
 		},
 		methods: {
 			back(){
@@ -151,7 +142,6 @@
 					}
 				});
 
-
 				let timer = setInterval(()=>{
 					if(this.codeTime >= 1){
 						this.codeTime--;
@@ -199,7 +189,7 @@
 					code: this.code,
 					pass: this.password, 
 					// #ifdef MP-WEIXIN
-					env: 'weixin'	
+					env: 'weixin',
 					// #endif
 					// #ifdef H5
 					env: 'H5'
@@ -264,10 +254,7 @@
 		font-weight: bold;
 		font-size: 44rpx;
 	}
-	
-	
-	
-	
+
 	/* 输入框部分 */
 	.login-input-wrap input {
 		color: #000000;
