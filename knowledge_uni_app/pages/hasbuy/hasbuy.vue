@@ -173,6 +173,7 @@
 	}	
 	
 	.live-list {
+
 		width: 90%;
 		height: 190rpx;
 		margin: 30rpx auto;
