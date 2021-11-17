@@ -504,6 +504,7 @@
 						liveCoursetype,
 				});
 			},
+
 			viewContentInfo(contentCourseId, contentCoursetype) {
 				uni.navigateTo({
 					url: '../../packageB/pages/content-info/content-info?courseid=' + contentCourseId + '&paytype=' +
