@@ -518,6 +518,7 @@
 
 				});
 			},
+
 			viewFeaturedInfo(contentCourseId) {
 				uni.navigateTo({
 					url: '../../packageB/pages/tancaninfo/taocaninfo?courseid=' + contentCourseId,
