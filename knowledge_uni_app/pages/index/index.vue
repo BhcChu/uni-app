@@ -522,6 +522,7 @@
 			viewFeaturedInfo(contentCourseId) {
 				uni.navigateTo({
 					url: '../../packageB/pages/tancaninfo/taocaninfo?courseid=' + contentCourseId,
+
 				});
 			},
 			// 更多大班课
