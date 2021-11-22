@@ -26,6 +26,7 @@
 						</template>
 					</view>
 				</view>
+
 			</uni-nav-bar>
 
 			<scroll-view class="index-all-wrap" scroll-y="true" :style="'height:' + scrollH+'rpx;'" >	
