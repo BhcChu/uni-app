@@ -31,6 +31,7 @@
 
 			<scroll-view class="index-all-wrap" scroll-y="true" :style="'height:' + scrollH+'rpx;'" >	
 				<!-- 轮播图 -->
+
 				<view class="index-banner-wrap">
 					<swiper class="index-banner swiper" circular="false" :indicator-dots="indicatorDots" :autoplay="autoplay" :interval="interval"
 					 :duration="duration">
@@ -41,6 +42,7 @@
 				</view>
 			
 				<!-- 课程分类 -->
+
 				<view class="index-course-wrap">
 					<view @click="getCourseByClass(item.id, item.name)" class="know-item course-item scroll-view-item_H" v-for="(item, index) in course_class"
 					 :key="item.id">
@@ -50,6 +52,7 @@
 				</view>
 				
 				<!-- 新闻资讯 -->
+
 				<view @click="openQidai" class="news-wrap">
 					<image class="news-wrap-title-img" src="../../static/images/news_he.png" mode="aspectFit"></image>
 					<text class="news-shu">|</text>
