@@ -56,7 +56,6 @@
 				<view @click="openQidai" class="news-wrap">
 					<image class="news-wrap-title-img" src="../../static/images/news_he.png" mode="aspectFit"></image>
 					<text class="news-shu">|</text>
-					
 					<swiper class="swiper-wrap" :vertical="true" :autoplay="true" :interval="3000" :duration="1000">
 						<swiper-item  v-for="(item, index) in news" :key="index" class="swiper-item">
 							<text class="news-title">{{item.name}}</text>
