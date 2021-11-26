@@ -62,6 +62,7 @@
 						</swiper-item>
 					</swiper>
 					<text class="news-arow iconfont icon-jinrujiantou"></text>
+
 				</view>
 				
 				<!-- 课程列表区 -->
