@@ -49,6 +49,7 @@
 						<image :src="item.thumb" mode="aspectFit"></image>
 						<text>{{item.name}}</text>
 					</view>
+
 				</view>
 				
 				<!-- 新闻资讯 -->
