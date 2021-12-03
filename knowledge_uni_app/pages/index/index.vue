@@ -48,6 +48,7 @@
 					 :key="item.id">
 						<image :src="item.thumb" mode="aspectFit"></image>
 						<text>{{item.name}}</text>
+
 					</view>
 
 				</view>
