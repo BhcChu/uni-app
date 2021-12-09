@@ -29,7 +29,7 @@
 
 			</uni-nav-bar>
 
-			<scroll-view class="index-all-wrap" scroll-y="true" :style="'height:' + scrollH+'rpx;'" >	
+			<scroll-view class="index-all-wrap" scroll-y="true" :style="'height:' + scrollH+'rpx;'" >
 				<!-- 轮播图 -->
 
 				<view class="index-banner-wrap">
@@ -40,7 +40,7 @@
 						</swiper-item>
 					</swiper>
 				</view>
-			
+
 				<!-- 课程分类 -->
 
 				<view class="index-course-wrap">
@@ -50,9 +50,8 @@
 						<text>{{item.name}}</text>
 					</view>
 				</view>
-				
-				<!-- 新闻资讯 -->
 
+				<!-- 新闻资讯 -->
 				<view @click="openQidai" class="news-wrap">
 					<image class="news-wrap-title-img" src="../../static/images/news_he.png" mode="aspectFit"></image>
 					<text class="news-shu">|</text>
@@ -62,9 +61,8 @@
 						</swiper-item>
 					</swiper>
 					<text class="news-arow iconfont icon-jinrujiantou"></text>
-
 				</view>
-				
+
 				<!-- 课程列表区 -->
 				<view class="course-list-wrap">
 					<!-- 热门精选-->
@@ -83,9 +81,9 @@
 								<image v-if="hotlist.length >= 3" class="hot-right-bottom-img" :src="hotlist[2].thumb" mode="aspectFill" @click="viewContentInfo(hotlist[2].id,hotlist[2].paytype)"></image>
 							</block>
 						</view>
-			
+
 					</view>
-			
+
 					<!-- 直播课堂 -->
 					<view class="course-list-wrap">
 						<view class="live-title-wrap live-ketang-title-wrap">
@@ -96,7 +94,7 @@
 							</view>
 							<text @click="coursemore" class="live-more live-ketang-more">更多&nbsp;&nbsp;<text class="iconfont icon-jinrujiantou c-more-btn-icon"></text></text>
 						</view>
-			
+
 						<!-- 直播课堂列表 -->
 						<view class="live-ketang-wrap">
 							<scroll-view class="scroll-view_H" scroll-x="true" @scroll="scroll" scroll-left="120">
@@ -104,7 +102,7 @@
 								 :key="item.id">
 									<image class="live-ketang-img" :src="item.thumb" mode="aspectFill"></image>
 									<view class="live-ketang-name">{{item.name}}</view>
-									
+
 									<view class="live-status living-status" v-if="item.islive == 1">
 										{{item.lesson}}
 									</view>
@@ -122,14 +120,14 @@
 											</text>
 										</view>
 									</view>
-									
+
 								</view>
 							</scroll-view>
 						</view>
-			
+
 					</view>
-					
-					
+
+
 				<view class="course-list-wrap content-list-wrap">
 					<!-- 精选内容 -->
 					<view class="la-wrap">
@@ -142,7 +140,7 @@
 							<text @click="contentmore" class="live-more content-more-btn">更多&nbsp;&nbsp;<text class="iconfont icon-jinrujiantou c-more-btn-icon"></text></text>
 						</view>
 					</view>
-			
+
 					<view class="course-wrap">
 						<view @click="viewContentInfo(item.id,item.paytype)" class="live-list live-list-know" v-for="(item, index) in list_info" :key="index">
 							<view class="live-list-img-wrap">
@@ -171,17 +169,17 @@
 					<template v-if="kongkong4 == true">
 						<view :class="{xiangziwrap : (kongkong4 == true)}">
 							<image class="xiangzi" src="../../static/images/xiangzi.png" mode="aspectFill"></image>
-			
+
 							<text :class="{xiangzi_txt : (kongkong4 == true)}">暂无数据</text>
 						</view>
 						<view class="xiangzispace"></view>
 					</template>
 				</view>
 			</view>
-			
+
 			</scroll-view>
-			
-	
+
+
   </view>
 </template>
 
@@ -206,7 +204,7 @@
 				scrollH: 0,
 				swiperheight: 0, //高度
 				bannerList: {},
-				// 轮播图数据 
+				// 轮播图数据
 				background: ['color1', 'color2', 'color3'],
 				indicatorDots: true,
 				autoplay: true,
@@ -260,7 +258,7 @@
 			});
 		},
 		onLoad() {
-		
+
 			var that = this;
 			that.getData();
 			that.getNews();
@@ -323,7 +321,7 @@
 				this.promptType = type;
 			},
 			onConfirm: function(e) {
-			
+
 				let _cost = e;
 				if (_cost == '') {
 					uni.showToast({
@@ -342,7 +340,7 @@
 							'code': this.cost,
 						},
 						success: (res) => {
-						
+
 							if (res.data.data.code == 0) {
 								this.prompt('');
 							}
@@ -380,7 +378,7 @@
 			},
 			// 根据分类查看课程列表
 			getCourseByClass(courseCid, courseCname) {
-				
+
 				uni.navigateTo({
 					url: '../course_class_list/course_class_list?course_cid=' + courseCid + '&course_cname=' + courseCname,
 				});
@@ -398,7 +396,7 @@
 						if(data.code == 0 && data.info.length > 0) {
 							that.news = res.data.data.info;
 						}
-						
+
 					},
 					fail: () => {
 						uni.showToast({
@@ -408,7 +406,7 @@
 						return;
 					},
 				});
-				
+
 			},
 			//获取数据
 			getData() {
@@ -437,7 +435,7 @@
 						this.live_info = data.info[0].live;
 						this.list_info = data.info[0].list;
 						this.hotlist = data.info[0].hotlist;
-						
+
 						if (this.course != undefined && this.course.length == 0) {
 							this.kongkong2 = true;
 						}
@@ -455,7 +453,7 @@
 						this.kongkong4 = true;
 					}
 				});
-				
+
 			},
 			//点击切换导航
 			tabtap(index) {
@@ -531,7 +529,7 @@
 			},
 			// 更多大班课
 			livemore() {
-				
+
 				uni.navigateTo({
 					url: '../live-more/live-more',
 				});
@@ -542,10 +540,10 @@
 					url: '../content-more/content-more',
 				});
 			},
-			
+
 			//好课推荐
 			coursemore() {
-				
+
 				uni.navigateTo({
 					url: '../live-more/live-more',
 				});
@@ -558,14 +556,14 @@
 	@import url("/static/css/review.css");
 	@import url("/static/css/index.css");
 	@import url("/static/css/course_list.css");
-	
+
 	.check_class {
 		color: #2C62EF !important;
 		font-size: 34rpx;
 		font-weight: bold;
 		display: inline-block;
 		width: 230rpx;
-	}	
+	}
 	/deep/ .uni-navbar--fixed {
 		width: 96%;
 		height: 100rpx;
@@ -578,7 +576,7 @@
 		left: 6rpx;
 		z-index: 999;
 	}
-	
+
 	.index-banner-wrap {
 		overflow: hidden;
 		transform: translateY(0);
@@ -657,23 +655,23 @@
 		text-align: center;
 		line-height: 26rpx;
 	}
-	
+
 	.index-course-wrap .know-item {
 		width: 118rpx;
 		margin-right: 27rpx;
 	}
-	
+
 	.index-course-wrap .know-item:nth-child(5n) {
 		margin-right: 0 !important;
 	}
-	
+
 	.live-ketang-img {
 		display: inline-block;
 		width: 295rpx;
 		height: 214rpx;
 		background-color: green;
 	}
-	
+
 	/deep/.uni-scroll-view ::-webkit-scrollbar {
 		 /* 隐藏滚动条，但依旧具备可以滚动的功能 */
 		 display: none;
@@ -682,7 +680,7 @@
 		 color: transparent;
 		 background: transparent;
 	}
-	
+
 	/deep/::-webkit-scrollbar {
 		 display: none;
 		 width: 0;
@@ -690,32 +688,32 @@
 		 color: transparent;
 		 background: transparent;
 	}
-	
+
 	.price-wrap {
 		right: 10rpx !important;
 	}
-	
+
 	.live-list-know {
 		padding-left: 0 !important;
-	}	
-	
-	
+	}
+
+
 	.live-ketang-name {
 		padding-left: 0 !important;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
 	}
-	
+
 	.live-c-title {
-		line-height: 38rpx;	
+		line-height: 38rpx;
 	}
-	
+
 	.news-wrap {
 		display: flex;
 		align-items: center;
 	}
-	
+
 	.news-title {
 		display: inline-block;
 		width: 100%;
@@ -723,18 +721,18 @@
 		text-overflow: ellipsis;
 	    white-space: nowrap;
 	}
-	
+
 	.swiper-wrap {
 		width: 68%;
 		height: 70rpx;
 		line-height: 70rpx;
 	}
-	
+
 	.news-arow {
 		position: absolute !important;
 		right: 22rpx !important;
 	}
-	
-	
-			
+
+
+
 </style>
