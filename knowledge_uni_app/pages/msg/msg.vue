@@ -1,9 +1,9 @@
 <template>
 	<view class="page">
 			<view class="msg-lt-wrap" :style="'margin-top:' + system_top + 'rpx'">
-				<text class="msg-lt-title">消息</text>	
+				<text class="msg-lt-title">消息</text>
 			</view>
-			
+
 			<block v-if="userInfo != ''">
 				<view class="line2"></view>
 					<!-- 系统通知 -->
@@ -18,7 +18,7 @@
 								<text class="msg-info">暂无系统消息</text>
 							</template>
 						</view>
-						
+
 					</view>
 					<view class="line"></view>
 					<!-- 课程动态 -->
@@ -33,31 +33,30 @@
 								<text class="msg-info">暂无相关动态</text>
 							</template>
 						</view>
-						
+
 					</view>
 					<view class="line"></view>
 					<!-- 讲师动态 -->
-
 			</block>
-			
+
 			<block v-else>
 					<view class="no-login-wrap">
 						<text class="no-login-txt">登录后可查看详细内容</text>
 						<text @click="openLogin" class="no-login-btn">立即登录</text>
 					</view>
 			</block>
-			
-		
+
+
 	</view>
 </template>
 
 <script>
 	const demo = [];
-	
+
 	import noThing from '@/components/common/no-thing.vue';
 	import uniPopup from '@/components/uni-ui/uni-popup/uni-popup.vue';
 	const app = getApp();
-	
+
 	export default {
 		components:{
 			noThing,
@@ -75,13 +74,13 @@
 		},
 		//页面加载
 		onLoad() {
-			
+
 			const res = uni.getSystemInfoSync();
-			
+
 			// #ifdef MP-WEIXIN
 			this.system_top = parseInt(res.safeArea.top) + 100;
 			// #endif
-			
+
 			// #ifdef H5
 			this.system_top = 10;
 			// #endif
@@ -99,11 +98,11 @@
 			this.refresh()
 		},
 		onShow() {
-		
+
 			if (app.globalData.userinfo != '') {
 				this.userInfo = app.globalData.userinfo;
 			}
-				
+
 		},
 		methods: {
 			openLogin() {
@@ -112,7 +111,7 @@
 				})
 			},
 			msgdetail(type,title){
-				
+
 				uni.navigateTo({
 					url: '../msg/msglist?type=' + type + '&title=' +title,
 				});
@@ -158,7 +157,7 @@
 						break;
 
 				}
-				// 关闭弹出层 
+				// 关闭弹出层
 				this.$refs.popup.close();
 			}
 		}
@@ -193,7 +192,7 @@
 		font-size: medium;
 		font-weight: bold;
 	}
-	
+
 	/* 主内容部分 */
 	.msg-md-main::after {
 		display:block;
@@ -203,11 +202,11 @@
 		visibility: hidden;
 		overflow:hidden;
 	}
-	
+
 	.msg-md-main {
 		/* margin-bottom: 40rpx; */
 		padding-left: 30rpx;
-		
+
 	}
 	/* 图片 */
 	.msg-img {
@@ -216,26 +215,26 @@
 		float: left;
 		border-radius: 20rpx;
 	}
-	
+
 	.msg-md-wrap {
-		float: left;	
+		float: left;
 		margin-left: 38rpx;
 	}
-	
+
 	.msg-md-wrap text {
 		display: block;
 	}
-	
+
 	.msg-title {
 		font-size: small;
 		font-weight: bold;
 	}
-	
+
 	.msg-info {
 		color: #969696;
 		font-size: smaller;
 	}
-	
+
 	/* 未登录提示 */
 	.no-login-wrap {
 		text-align: center;
@@ -248,13 +247,13 @@
 		top: 50%;
 		transform: translate(-50%,-50%);
 	}
-	
+
 	.no-login-txt {
 		display: block;
 		font-size: 26rpx;
 		color: #646464;
 	}
-	
+
 	.no-login-btn {
 		display: block;
 		width: 180rpx;
@@ -266,6 +265,6 @@
 		border: 2rpx solid #2C62EF;
 		border-radius: 10rpx;
 	}
-	
-	
+
+
 </style>
