@@ -98,7 +98,6 @@
 			this.refresh()
 		},
 		onShow() {
-
 			if (app.globalData.userinfo != '') {
 				this.userInfo = app.globalData.userinfo;
 			}
