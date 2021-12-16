@@ -46,7 +46,6 @@
 					</view>
 			</block>
 
-
 	</view>
 </template>
 
