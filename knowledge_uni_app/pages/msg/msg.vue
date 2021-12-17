@@ -40,10 +40,10 @@
 			</block>
 
 			<block v-else>
-					<view class="no-login-wrap">
-						<text class="no-login-txt">登录后可查看详细内容</text>
-						<text @click="openLogin" class="no-login-btn">立即登录</text>
-					</view>
+				<view class="no-login-wrap">
+					<text class="no-login-txt">登录后可查看详细内容</text>
+					<text @click="openLogin" class="no-login-btn">立即登录</text>
+				</view>
 			</block>
 
 	</view>
