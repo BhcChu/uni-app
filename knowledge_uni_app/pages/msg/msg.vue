@@ -1,50 +1,49 @@
 <template>
 	<view class="page">
-			<view class="msg-lt-wrap" :style="'margin-top:' + system_top + 'rpx'">
-				<text class="msg-lt-title">消息</text>
-			</view>
+		<view class="msg-lt-wrap" :style="'margin-top:' + system_top + 'rpx'">
+			<text class="msg-lt-title">消息</text>
+		</view>
 
-			<block v-if="userInfo != ''">
-				<view class="line2"></view>
-					<!-- 系统通知 -->
-					<view @click="msgdetail('0','系统通知')" class="msg-md-main">
-						<image src="../../static/images/system.png" mode="aspectFill" class="msg-img"></image>
-						<view class="msg-md-wrap">
-							<text class="msg-title">系统通知</text>
-							<template v-if="sys.length > 0">
-							<text class="msg-info">{{sys[0].content}}</text>
-							</template>
-							<template v-else>
-								<text class="msg-info">暂无系统消息</text>
-							</template>
-						</view>
-
+		<block v-if="userInfo != ''">
+			<view class="line2"></view>
+				<!-- 系统通知 -->
+				<view @click="msgdetail('0','系统通知')" class="msg-md-main">
+					<image src="../../static/images/system.png" mode="aspectFill" class="msg-img"></image>
+					<view class="msg-md-wrap">
+						<text class="msg-title">系统通知</text>
+						<template v-if="sys.length > 0">
+						<text class="msg-info">{{sys[0].content}}</text>
+						</template>
+						<template v-else>
+							<text class="msg-info">暂无系统消息</text>
+						</template>
 					</view>
-					<view class="line"></view>
-					<!-- 课程动态 -->
-					<view @click="msgdetail('1','课程动态')" class="msg-md-main">
-						<image src="../../static/images/class.png" mode="aspectFill" class="msg-img"></image>
-						<view class="msg-md-wrap">
-							<text class="msg-title">课程动态</text>
-							<template v-if="course.length > 0">
-							<text class="msg-info">{{course[0].content}}</text>
-							</template>
-							<template v-else>
-								<text class="msg-info">暂无相关动态</text>
-							</template>
-						</view>
 
-					</view>
-					<view class="line"></view>
-					<!-- 讲师动态 -->
-			</block>
-
-			<block v-else>
-				<view class="no-login-wrap">
-					<text class="no-login-txt">登录后可查看详细内容</text>
-					<text @click="openLogin" class="no-login-btn">立即登录</text>
 				</view>
-			</block>
+				<view class="line"></view>
+				<!-- 课程动态 -->
+				<view @click="msgdetail('1','课程动态')" class="msg-md-main">
+					<image src="../../static/images/class.png" mode="aspectFill" class="msg-img"></image>
+					<view class="msg-md-wrap">
+						<text class="msg-title">课程动态</text>
+						<template v-if="course.length > 0">
+						<text class="msg-info">{{course[0].content}}</text>
+						</template>
+						<template v-else>
+							<text class="msg-info">暂无相关动态</text>
+						</template>
+					</view>
+
+				</view>
+				<view class="line"></view>
+				<!-- 讲师动态 -->
+		</block>
+		<block v-else>
+			<view class="no-login-wrap">
+				<text class="no-login-txt">登录后可查看详细内容</text>
+				<text @click="openLogin" class="no-login-btn">立即登录</text>
+			</view>
+		</block>
 
 	</view>
 </template>
