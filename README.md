@@ -49,12 +49,12 @@
    * 官网地址：[http://git.sdwanyue.com](http://git.sdwanyue.com)
                     
       
-  ### 联系我们（加客服经理微信或QQ，免费获取sql脚本）
+  ### 联系我们（加客服经理QQ，免费获取sql脚本）
     
 <div style='height: 130px'>
-        <img class="kefu_weixin" style="float:left;" src="https://images.gitee.com/uploads/images/2021/0317/120101_76088f0a_8543696.png" width="602" height="123"/>
+        <img class="kefu_weixin" style="float:left;" src="https://gitee.com/WanYueKeJi_343188225/wanyue_education_uniapp/raw/newone/readme/images/105917_b29af80c_8543696.png" width="602" height="123"/>
         <div style="float:left;">
-            <p>QQ：259603330</p>
+            <p>QQ：3505048014</p>
         </div>
     </div>
     <a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=JShAyXeoKqg2lWFEUSElxELImhjeMG4y&jump_from=webapi"><img border="0" src="https://images.gitee.com/uploads/images/2021/0317/100424_072ee536_8543696.png" alt="万岳在线教育讨论群" title="万岳在线教育讨论群"></a> 
