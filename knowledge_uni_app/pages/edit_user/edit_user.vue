@@ -79,20 +79,18 @@
 								if (res2.data.data != undefined && res2.data.data.code == 0) {
 									var QiNiutoken = that.decypt(res2.data.data.info[0].token);
 									var name = 'UNIAPP' + that.getTime() + 'icon.png';
-									
+
 									qiniuUploader.upload(path, res => {
 										uni.showToast({
 											title: '上传成功',
 											icon: 'none'
 										});
 										that.avatarPath = res.imageURL;
-
 									}, error => {
 										uni.showToast({
 											title: '上传失败，请重试',
 											icon: 'none'
 										});
-										
 									}, {
 										region: 'ECN',
 										domain: app.globalData.qiniuimageurl,
@@ -189,7 +187,7 @@
 							title: res.data.data.msg
 						});
 
-						
+
 					},
 					fail: () => {
 						uni.showToast({
