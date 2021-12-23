@@ -1,6 +1,6 @@
 
 <template>
-	
+
 	<view>
 
 	<view class="liveinfo-wrap">
@@ -21,9 +21,9 @@
 					<text class="course-title-icon">直播</text>
 				</template>
 			</view>
-			
+
 			<view class="live-list-info">
-				
+
 				<view class="live-c-title">{{item.name}}</view>
 					<template v-if="item.sort == 0">
 				<view class="live-status living-status" v-if="item.islive == 1">
@@ -54,7 +54,7 @@
 				</view>
 			</view>
 		</view>
-		
+
 	</view>
 	<template v-if="kongkong == true">
 			<view :class="{xiangziwrap : (kongkong == true)}">
@@ -66,10 +66,10 @@
 </template>
 
 <script>
-	
+
 	import uniNavBar from '@/components/uni-ui/uni-nav-bar/uni-nav-bar.vue';
 	const app = getApp();
-	
+
 	export default {
 		components:{
 			uniNavBar
@@ -84,11 +84,11 @@
 		onLoad(option) {
 			let gData = app.globalData;
 			this.course_cname = option.course_cname;
-			
+
 			uni.setNavigationBarTitle({
 				title:option.course_cname
 			})
-			
+
 			setTimeout(() => {
 			uni.request({
 				url: gData.site_url + 'Course.GetMyBuy',
@@ -98,7 +98,7 @@
 					'token' : gData.userinfo.token,
 				},
 				success: res => {
-					
+
 					let data = res.data.data;
 					if(data.code == 0 && data.info.length > 0) {
 						this.course_info = res.data.data.info;
@@ -106,7 +106,7 @@
 					}else{
 						this.kongkong = true;
 					}
-					
+
 				},
 				fail: () => {
 					uni.showToast({
@@ -151,14 +151,14 @@
 				uni.navigateTo({
 					url: '../../packageB/pages/live_course_info/live_course_info?courseid=' + liveCourseId
 				});
-			},
-			
+			}
+
 		}
 	}
 </script>
 
 <style>
-	
+
 	/* 大班课/内容列表公共样式 */
 	@import url("/static/css/course_list.css");
 	page{
@@ -170,8 +170,8 @@
 		padding-top: 2rpx;
 		min-height: 1500rpx;
 		background-color: #FFFFFF;
-	}	
-	
+	}
+
 	.live-list {
 
 		width: 90%;
@@ -180,16 +180,16 @@
 		border-radius: 8rpx;
 		background-color: #FFFFFF;
 	}
-	
+
 	.live-c-title {
 		line-height: 35rpx;
 		height: 40%;
 	}
-	
+
 	.live-teacher-price {
 		margin-top: 10rpx;
 	}
-	
+
 	.price-wrap {
 		margin-left: 55% !important;
 	}
