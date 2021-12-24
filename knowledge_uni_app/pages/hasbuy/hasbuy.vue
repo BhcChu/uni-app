@@ -146,6 +146,7 @@
 				uni.navigateTo({
 					url: '../../packageB/pages/courseinfo/courseinfo?courseid=' + liveCourseId
 				});
+
 			}
 			else
 				uni.navigateTo({
