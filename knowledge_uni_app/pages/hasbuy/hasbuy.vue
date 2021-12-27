@@ -98,7 +98,6 @@
 					'token' : gData.userinfo.token,
 				},
 				success: res => {
-
 					let data = res.data.data;
 					if(data.code == 0 && data.info.length > 0) {
 						this.course_info = res.data.data.info;
