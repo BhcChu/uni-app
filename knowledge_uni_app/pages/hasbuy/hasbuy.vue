@@ -78,7 +78,7 @@
 			return {
 				course_info: {},
 				course_cname: '',
-				kongkong:true
+				kongkong:true,
 			}
 		},
 		onLoad(option) {
@@ -88,7 +88,6 @@
 			uni.setNavigationBarTitle({
 				title:option.course_cname
 			})
-
 			setTimeout(() => {
 			uni.request({
 				url: gData.site_url + 'Course.GetMyBuy',
@@ -105,7 +104,6 @@
 					}else{
 						this.kongkong = true;
 					}
-
 				},
 				fail: () => {
 					uni.showToast({
