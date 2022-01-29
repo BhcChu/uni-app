@@ -34,6 +34,8 @@
 ![展示图](https://images.gitee.com/uploads/images/2021/0317/120005_8d96f670_8543696.png "img_2.png")
 ![展示图](https://images.gitee.com/uploads/images/2021/0317/120028_2a7e21ef_8543696.png "img_3_1.png")
 ![展示图](https://images.gitee.com/uploads/images/2021/0317/120042_cd02cead_8543696.png "img_4.png")
+ ### 功能对比
+![输入图片说明](%E7%9F%A5%E8%AF%86%E4%BB%98%E8%B4%B9%E5%8A%9F%E8%83%BD%E8%A1%A8%E6%A0%BC(1).png)
   ### 开源版使用须知
   
   - 允许用于个人学习、教学案例
