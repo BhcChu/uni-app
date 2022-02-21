@@ -11,7 +11,6 @@
  - 前端代码 knowledge_uni_app目录
  - 后台代码 knowledge_admin目录
  
-
     
  ### Web版地址
  - 教师端地址: <a target="_blank" href="https://demo.sdwanyue.com/teacher">https://demo.sdwanyue.com/teacher</a> 账号:13866666666 密码:123456
