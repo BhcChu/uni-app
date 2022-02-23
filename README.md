@@ -34,8 +34,7 @@
 ![展示图](https://images.gitee.com/uploads/images/2021/0317/120005_8d96f670_8543696.png "img_2.png")
 ![展示图](https://images.gitee.com/uploads/images/2021/0317/120028_2a7e21ef_8543696.png "img_3_1.png")
 ![展示图](https://images.gitee.com/uploads/images/2021/0317/120042_cd02cead_8543696.png "img_4.png")
- ### 功能对比
-![输入图片说明](%E7%9F%A5%E8%AF%86%E4%BB%98%E8%B4%B9%E5%8A%9F%E8%83%BD%E8%A1%A8%E6%A0%BC(1).png)
+
   ### 开源版使用须知
   
   - 允许用于个人学习、教学案例
@@ -44,14 +43,14 @@
   
   - 禁止将本项目的代码和资源进行任何形式的出售，产生的一切任何后果责任由侵权者自负
   
-  ### 商业合作
+  ### 说明
    * 如果你想使用功能更完善的知识付费系统，请联系QQ客服: 2415408120 获取专业版
    * 如果您想基于知识付费系统进行定制开发，我们提供有偿定制服务支持！
    * 其他合作模式不限，欢迎来撩！
    * 官网地址：[http://git.sdwanyue.com](http://git.sdwanyue.com)
                     
       
-  ### 联系我们（加客服经理QQ，免费获取sql脚本）
+  ### 数据库（免费获取sql脚本）
     
 <div style='height: 130px'>
         <img class="kefu_weixin" style="float:left;" src="https://gitee.com/WanYueKeJi/wanyue_education_uniapp/raw/newone/pages/%E5%BC%A0%E7%9A%93%E5%BC%80%E6%BA%90.png" width="602" height="123"/>
@@ -62,10 +61,8 @@
     <a target="_blank" href="https://qm.qq.com/cgi-bin/qm/qr?k=JShAyXeoKqg2lWFEUSElxELImhjeMG4y&jump_from=webapi"><img border="0" src="https://images.gitee.com/uploads/images/2021/0317/100424_072ee536_8543696.png" alt="万岳在线教育讨论群" title="万岳在线教育讨论群"></a> 
 
   ###  开源交流群【加群回答请填写“gitee知识”】
-    
+
 > QQ群：995910672
 <img class="kefu_weixin" style="float:left;" src="https://images.gitee.com/uploads/images/2021/0524/181455_5ac2a1a5_2242923.jpeg" width="102" height="102"/>
 
     
-    
-![展示图](https://images.gitee.com/uploads/images/2021/0317/120154_112f6c82_8543696.png "公众号.png")
