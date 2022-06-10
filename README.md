@@ -2,7 +2,7 @@
 
 <div align="center">
  
-[![](https://img.shields.io/badge/%E9%83%A8%E7%BD%B2%E6%96%87%E6%A1%A3-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-yellow)](http://doc.sdwanyue.com/wanyue_knowledge_uniapp/2176518)
+[![](https://img.shields.io/badge/%E9%83%A8%E7%BD%B2%E6%96%87%E6%A1%A3-%E7%82%B9%E5%87%BB%E6%9F%A5%E7%9C%8B-yellow)](https://www.kancloud.cn/wanyuekaiyuan11/wanyue-zhishi/2794476)
 [![](https://img.shields.io/badge/QQ%E7%BE%A4-995910672-green)](https://qm.qq.com/cgi-bin/qm/qr?k=JShAyXeoKqg2lWFEUSElxELImhjeMG4y&jump_from=webapi)
 
  
@@ -14,7 +14,7 @@
 </div>  
 
 ### 项目说明及部署文档（如果对你有用，请点亮右上角的Star！）
-##### <a target="_blank" href="http://doc.sdwanyue.com/wanyue_knowledge_uniapp/2176518">部署文档</a>  |  <a target="_blank" href="http://doc.sdwanyue.com/wanyue_knowledge_uniapp/2176565">发行步骤</a> | <a target="_blank" href="http://doc.sdwanyue.com/wanyue_open_web/2107615">常见问题</a> | <a target="_blank" href="http://doc.sdwanyue.com/wanyue_knowledge_uniapp/2199270">升级日志</a>
+##### <a target="_blank" href="https://www.kancloud.cn/wanyuekaiyuan11/wanyue-zhishi/2794476">部署文档</a>  |  <a target="_blank" href="https://www.kancloud.cn/wanyuekaiyuan11/wanyue-zhishi/2794476">发行步骤</a> | <a target="_blank" href="https://www.kancloud.cn/wanyuekaiyuan11/wanyue-zhishi/2794476">常见问题</a> | <a target="_blank" href="https://www.kancloud.cn/wanyuekaiyuan11/wanyue-zhishi/2794476">升级日志</a>
   
 
  
