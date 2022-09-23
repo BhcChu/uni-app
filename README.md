@@ -8,15 +8,17 @@
  
 
 ### 重要！重要！请点击上方按钮，查看“部署文档”！！！
+
+
+
+------------------------------------------------------------------------
+</div>  
+
 ### 更新说明
 - 1.修复了新闻列表功能，编译小程序后不显示内容
 - 2.重新设计制作了个人中心页面布局
 - 3.首页增加广告位图片
 .....其他更新内容可以扫描下方二维码查看演示！！！
-
-
-------------------------------------------------------------------------
-</div>  
 
 ### 项目说明及部署文档（如果对你有用，请点亮右上角的Star！）
 ##### <a target="_blank" href="https://www.kancloud.cn/wanyuekaiyuan11/wanyue-zhishi/2794476">部署文档</a>  |  <a target="_blank" href="https://www.kancloud.cn/wanyuekaiyuan11/wanyue-zhishi/2794476">发行步骤</a> | <a target="_blank" href="https://www.kancloud.cn/wanyuekaiyuan11/wanyue-zhishi/2794476">常见问题</a> | <a target="_blank" href="https://www.kancloud.cn/wanyuekaiyuan11/wanyue-zhishi/2794476">升级日志</a>
