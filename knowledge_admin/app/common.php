@@ -1,15 +1,14 @@
 <?php
 
 // +----------------------------------------------------------------------
-// |万岳科技开源系统 [山东万岳信息科技有限公司]
+// | Created by Wanyue
 // +----------------------------------------------------------------------
-// | Copyright (c) 2020~2022 https://www.sdwanyue.com All rights reserved.
+// | Copyright (c) 2017~2019 http://www.sdwanyue.com All rights reserved.
 // +----------------------------------------------------------------------
-// | 万岳科技相关开源系统，需标注"代码来源于万岳科技开源项目"后即可免费自用运营，前端运营时展示的内容不得使用万岳科技相关信息
+// | Author: https://gitee.com/WanYueKeJi
 // +----------------------------------------------------------------------
-// | Author: 万岳科技开源官方 < wanyuekj2020@163.com >
+// | Date: 2020/09/08 13:43
 // +----------------------------------------------------------------------
-
 use think\Db;
 use cmf\lib\Storage;
 use cmf\lib\Upload;
@@ -261,12 +260,6 @@ function getConfigPri()
             $config['share_type'] = array();
         }
     }
-
-    $config['sound_appid']=unsetCode($config['sound_appid']);
-    $config['agora_api_id']=unsetCode($config['agora_api_id']);
-    $config['agora_api_key']=unsetCode($config['agora_api_key']);
-//    $config['netless_sdktoken']=unsetCode($config['netless_sdktoken']);
-//    $config['netless_appid']=unsetCode($config['netless_appid']);
 
     $GLOBALS[$key]=$config;
 
@@ -1403,30 +1396,6 @@ function curl_get($url, $header = false)
     return json_decode($return_str, true);
 }
 
-
-/* 源码删除 */
-function unsetCode($code){
-    $str = '3:1JiIk.G6D?j-XHs4z0EQa2T_9S7moFRyWv5AKZUhc=lxY8quVrnO/NLfbPMCweptBdg';
-    $strl=strlen($str);
-
-    $len = strlen($code);
-
-    $newCode = '';
-    for($i=0;$i<$len;$i++){
-        for($j=0;$j<$strl;$j++){
-            if($str[$j]==$code[$i]){
-                if($j-1<0){
-                    $newCode.=$str[$strl-1];
-                }else{
-                    $newCode.=$str[$j-1];
-                }
-            }
-        }
-    }
-    return $newCode;
-}
-
-
 /* 处理支付订单 */
 function handelPay($where,$data=[]){
 
@@ -1579,6 +1548,15 @@ function upConsumption($uid,$money,$type=1,$actionid=0){
 
     $res=$db->inc('consumption',$money)->update();
 
+
+    //    知识付费没有积分
+    //    if($type==1){
+    //        /* 增加累计消费时处理*/
+    //        integralByFee($uid,$money,$actionid);
+    //        integralByAgent($uid,$money,$actionid);
+    //        AgentByFee($uid);
+    //    }
+
     return $res;
 
 }
@@ -1619,14 +1597,15 @@ function handelSetToStr($arr){
 
     return $str;
 }
-
-
-
-
-
-
-
-
-
-
-
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
