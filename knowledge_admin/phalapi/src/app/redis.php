@@ -22,6 +22,7 @@ function connectionRedis(){
         $redis = new \Redis();
         $redis -> connect($REDIS_HOST,$REDIS_PORT);
         $redis -> auth($REDIS_AUTH);
+        $redis -> select($REDIS_AUTH);
 
         $GLOBALS['redisdb']=$redis;
     }
