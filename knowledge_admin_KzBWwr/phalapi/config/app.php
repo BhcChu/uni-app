@@ -33,9 +33,9 @@ return array(
     /* redis信息 */
     'REDIS_HOST' => "127.0.0.1",
     'REDIS_AUTH' => "",
-    //redis密码，必填
+    //redis密码，必填  
     'REDIS_PORT' => "6379",
-    'REDIS_SELECT' => 0,
+    'REDIS_SELECT' => 0, /* REDIS_SELECT的数字可以自定义【作用：宝塔中有创建有多个站点多个项目，使用redis时进行区分，防止出现搭建错误】，确保其他代码文件配置REDIS_SELECT时填写的数字一致即可 */
     /* 接口签名key */
     'sign_key' => '400d069a791d51ada8af3e6c2979bcd7',
     
