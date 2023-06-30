@@ -52,10 +52,9 @@
  
  
  ### 功能展示
-![展示图](https://images.gitee.com/uploads/images/2021/0317/115954_e64618f5_8543696.png "img_1.png")
-![展示图](https://images.gitee.com/uploads/images/2021/0317/120005_8d96f670_8543696.png "img_2.png")
-![展示图](https://images.gitee.com/uploads/images/2021/0317/120028_2a7e21ef_8543696.png "img_3_1.png")
-![展示图](https://images.gitee.com/uploads/images/2021/0317/120042_cd02cead_8543696.png "img_4.png")
+![输入图片说明](knowledge01.png)
+![输入图片说明](knowledge02.png)
+![输入图片说明](knowledge03.png)
   ### 功能对比表
 ![输入图片说明](%E7%9F%A5%E8%AF%86%E4%BB%98%E8%B4%B9%E5%8A%9F%E8%83%BD%E8%A1%A8%E6%A0%BC(1).png)
   ### 开源版使用须知
