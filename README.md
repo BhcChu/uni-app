@@ -52,8 +52,8 @@
  
  
  ### 功能展示
-![输入图片说明](knowledge01.png)
-![输入图片说明](knowledge02.png)
+![输入图片说明](knowledge001.png)
+![输入图片说明](knowledge002.png)
 ![输入图片说明](knowledge03.png)
   ### 功能对比表
 ![输入图片说明](%E7%9F%A5%E8%AF%86%E4%BB%98%E8%B4%B9%E5%8A%9F%E8%83%BD%E8%A1%A8%E6%A0%BC(1).png)
